@@ -33,7 +33,7 @@ public class CardboardStartup : MonoBehaviour
         // Brightness control is expected to work only in iOS, see:
         // https://docs.unity3d.com/ScriptReference/Screen-brightness.html.
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
-        Screen.brightness = 1.0f;
+        //Screen.brightness = 1.0f;
 
         // Checks if the device parameters are stored and scans them if not.
         if (!Api.HasDeviceParams())
@@ -67,8 +67,6 @@ public class CardboardStartup : MonoBehaviour
             Api.ReloadDeviceParams();
         }
 
-
         Api.UpdateScreenParams();
-
     }
 }
