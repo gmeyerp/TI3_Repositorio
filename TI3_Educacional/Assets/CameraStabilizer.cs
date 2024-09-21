@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class CameraStabilizer : MonoBehaviour
 {
+    [SerializeField] float rotationSpeed = 0.3f;
     void Update()
     {
-        transform.rotation = transform.rotation = Quaternion.Euler(0f, 0f, -Input.acceleration.x * 90);
+        float rotation = Mathf.Round(-Input.acceleration.x * 10f);
+        Quaternion newRotation = Quaternion.Euler(0f, 0f, -Input.acceleration.x * 90);
+        newRotation = Quaternion.Lerp(transform.rotation, newRotation, rotationSpeed);
+        transform.rotation = newRotation;
     }
 }
