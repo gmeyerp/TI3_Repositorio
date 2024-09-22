@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0b5f0090606014944a321696d58bfb88
+guid: 5c736d5b00121474287a926c57de4e69
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,22 +123,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Boxroxo_0
+      name: BoxLaranja_0
       rect:
         serializedVersion: 2
         x: 43
         y: 52
-        width: 400
+        width: 401
         height: 402
       alignment: 0
       pivot: {x: 0, y: 0}
-      border: {x: 70, y: 85, z: 55, w: 67}
+      border: {x: 60, y: 69, z: 60, w: 60}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f9ad5835752508741ab4ac485a588009
-      internalID: -1000341388
+      spriteID: 5e2725c66d6f3a045a30ed6b8592fe1a
+      internalID: -1641861234
       vertices: []
       indices: 
       edges: []
@@ -154,7 +154,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Boxroxo_0: -1000341388
+      BoxLaranja_0: -1641861234
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

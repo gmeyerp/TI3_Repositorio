@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0b5f0090606014944a321696d58bfb88
+guid: e98c1717aea9e374389701d7f59f3a59
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -121,28 +121,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: Boxroxo_0
-      rect:
-        serializedVersion: 2
-        x: 43
-        y: 52
-        width: 400
-        height: 402
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 70, y: 85, z: 55, w: 67}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f9ad5835752508741ab4ac485a588009
-      internalID: -1000341388
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -153,8 +132,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      Boxroxo_0: -1000341388
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
