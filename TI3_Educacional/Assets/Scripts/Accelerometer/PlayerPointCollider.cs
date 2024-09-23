@@ -18,11 +18,6 @@ public class PlayerPointCollider : MonoBehaviour
         TriggerScore(other);
     }
 
-    private void OnTriggerStay(Collider other)
-    {
-        TriggerScore(other);
-    }
-
     private static void TriggerScore(Collider other)
     {
         if (other.gameObject.CompareTag("Target") == true)
