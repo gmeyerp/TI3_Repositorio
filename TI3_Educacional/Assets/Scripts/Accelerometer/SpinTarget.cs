@@ -4,23 +4,27 @@ using UnityEngine;
 
 public class SpinTarget : MonoBehaviour
 {
-    [SerializeField] LayerMask isPlayer;
     [SerializeField] int pointValue = 1;
     [SerializeField] float lifeTime = 4f;
-    public float speed;
+    [SerializeField] Color startingColor;
+    [SerializeField] Color endingColor;
+    [SerializeField] Material material;
+    float counter = 0;
     // Start is called before the first frame update
     void Start()
     {
         Destroy(gameObject, lifeTime);
+        if (material == null)
+        {
+            material = GetComponent<MeshRenderer>().material;
+        }
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
+    private void Update()
     {
-
+        counter += Time.deltaTime;
+        ChangeColor();
     }
-
-
     public void DestroyTarget() //colocar outras funcionalidades no momento da destruição como vfx e sfx
     {
         Destroy(gameObject);
@@ -29,5 +33,10 @@ public class SpinTarget : MonoBehaviour
     public int GetScore()
     {
         return pointValue;
+    }
+
+    public void ChangeColor()
+    {
+        material.color = Color.Lerp(startingColor, endingColor, counter / lifeTime);
     }
 }

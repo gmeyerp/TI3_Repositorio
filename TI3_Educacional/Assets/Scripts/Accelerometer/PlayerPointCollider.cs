@@ -10,9 +10,7 @@ public class PlayerPointCollider : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(IsRigidbodySteady());
-        Debug.Log(rb.angularVelocity.z);
-        Debug.Log(rb.angularVelocity.magnitude);
+
     }
 
     private void OnTriggerEnter(Collider other)

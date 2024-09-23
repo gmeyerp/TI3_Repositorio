@@ -119,13 +119,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44598d3e8b606c245bbad0841571278c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPlayer:
-    serializedVersion: 2
-    m_Bits: 128
   pointValue: 1
-  lifeTime: 10
-  rb: {fileID: 7765696278919251386}
-  speed: 5
+  lifeTime: 3
+  startingColor: {r: 0, g: 1, b: 0.042345047, a: 1}
+  endingColor: {r: 1, g: 0, b: 0, a: 1}
+  material: {fileID: 0}
 --- !u!54 &7765696278919251386
 Rigidbody:
   m_ObjectHideFlags: 0
