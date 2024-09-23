@@ -6,7 +6,19 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Acelerometro.unity
-    guid: cd890618471c2244db77c6fffce77aff
+    path: Assets/Scenes/Config.unity
+    guid: e8418e73fa3c9d746af9fda76813d27d
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: 52763a0a447e35b439f553b46c47edcf
+  - enabled: 1
+    path: Assets/Scenes/Level Info.unity
+    guid: ab7dbc7725463a84f8aa798891376000
+  - enabled: 1
+    path: Assets/Scenes/Level Selection.unity
+    guid: 23decdc4c5fb3724abac986394ef787a
+  - enabled: 1
+    path: Assets/Scenes/Start.unity
+    guid: a50739417b4fb934dbf16d690eeac44f
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 096a88dcce3f5cc4fb730e81a2124a3b, type: 2}
