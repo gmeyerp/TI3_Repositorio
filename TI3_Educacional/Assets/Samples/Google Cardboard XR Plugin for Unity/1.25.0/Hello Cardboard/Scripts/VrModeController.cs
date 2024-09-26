@@ -24,6 +24,7 @@ using UnityEngine.InputSystem.Controls;
 using UnityEngine.InputSystem.Utilities;
 using UnityEngine.XR;
 using UnityEngine.XR.Management;
+using UnityEngine.SceneManagement;
 
 using InputSystemTouchPhase = UnityEngine.InputSystem.TouchPhase;
 
@@ -209,5 +210,7 @@ public class VrModeController : MonoBehaviour
 
         _mainCamera.ResetAspect();
         _mainCamera.fieldOfView = _defaultFieldOfView;
+
+        SceneManager.LoadScene("Level Selection");
     }
 }

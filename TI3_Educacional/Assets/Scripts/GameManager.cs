@@ -30,6 +30,11 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("Level Info");
     }
 
+    public void StartFeira()
+    {
+        SceneManager.LoadScene("Feira");
+    }
+
     public void Quit()
     {
         #if UNITY_EDITOR

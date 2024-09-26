@@ -11,6 +11,7 @@ public class FeiraLevelManager : MonoBehaviour
     [SerializeField] List<GameObject> chosenFruits = new List<GameObject>();
     [SerializeField] List<GameObject> fruits = new List<GameObject>();
     [SerializeField] List<Stand> stands = new List<Stand>();
+    public float NPCSpeed = 3f;
     // Start is called before the first frame update
     void Awake()
     {
@@ -27,11 +28,6 @@ public class FeiraLevelManager : MonoBehaviour
         GiveRemainingFruits();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void PickFruits()
     {
