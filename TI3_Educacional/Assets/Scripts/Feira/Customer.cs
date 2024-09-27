@@ -55,6 +55,9 @@ public class Customer : MonoBehaviour
 
     public void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        Debug.Log("Hit");
+        if(hit.collider.gameObject.CompareTag("Player"))
+        {
+            FeiraLevelManager.instance.PlayerHit();
+        }
     }
 }

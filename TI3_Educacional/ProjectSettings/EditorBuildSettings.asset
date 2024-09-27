@@ -24,4 +24,5 @@ EditorBuildSettings:
     path: Assets/Scenes/Feira.unity
     guid: c00d97821605b594b958ffd215132fc6
   m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: c3ce9b90fd040714bb1f032ad0fa7239, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 096a88dcce3f5cc4fb730e81a2124a3b, type: 2}

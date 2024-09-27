@@ -42,4 +42,9 @@ public class Stand : MonoBehaviour
         this.chosenFruitIndex = chosenFruitIndex;
         interactSpot.SetActive(true);
     }
+
+    public int GetChosenFruit()
+    {
+        return chosenFruitIndex;
+    }
 }

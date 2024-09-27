@@ -353,6 +353,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: StandBig
       objectReference: {fileID: 0}
+    - target: {fileID: 5021677689813408035, guid: 2b978ed2db54e9947aaf5caf7357cfd9, type: 3}
+      propertyPath: m_Size.x
+      value: 3.8244996
+      objectReference: {fileID: 0}
+    - target: {fileID: 5021677689813408035, guid: 2b978ed2db54e9947aaf5caf7357cfd9, type: 3}
+      propertyPath: m_Size.z
+      value: 8.267316
+      objectReference: {fileID: 0}
+    - target: {fileID: 5021677689813408035, guid: 2b978ed2db54e9947aaf5caf7357cfd9, type: 3}
+      propertyPath: m_Center.x
+      value: -2.4490807
+      objectReference: {fileID: 0}
+    - target: {fileID: 5021677689813408035, guid: 2b978ed2db54e9947aaf5caf7357cfd9, type: 3}
+      propertyPath: m_Center.z
+      value: -0.00000006370276
+      objectReference: {fileID: 0}
     - target: {fileID: 6514969445700923487, guid: 2b978ed2db54e9947aaf5caf7357cfd9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.533
