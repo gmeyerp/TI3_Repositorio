@@ -87,7 +87,7 @@ public class  PlayerRayCast : MonoBehaviour
         if(currentTarget != null)
         {
             CoinCollect notCoin = currentTarget.GetComponent<CoinCollect>();
-            if (notCoin != null)
+            if (notCoin == null)
             {
                 notCoin.ChangeColorOnLook(false);
             }
