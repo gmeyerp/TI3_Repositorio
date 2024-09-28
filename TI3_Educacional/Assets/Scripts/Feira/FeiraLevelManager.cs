@@ -8,6 +8,7 @@ public class FeiraLevelManager : MonoBehaviour
 {
     public static FeiraLevelManager instance;
     [SerializeField] List<Sprite> fruitSprites = new List<Sprite>();
+    [SerializeField] List<Stand> standsSelects = new List<Stand>();
     [SerializeField] Image[] chosenFruitsImages;
     [SerializeField] Image[] checkImage;
     float[] fruitTimer;
@@ -72,6 +73,7 @@ public class FeiraLevelManager : MonoBehaviour
             int s = Random.Range(0, stands.Count);
 
             stands[s].PopulateStand(chosenFruits[i], i);
+            standsSelects.Add(stands[s]);
             stands.RemoveAt(s);
         }
     }

@@ -29,7 +29,7 @@ public class PlayerTestController : MonoBehaviour
         Vector2 movementInput = moveAction.ReadValue<Vector2>();
         movement = characterController.transform.forward * movementInput.y;
         characterController.gameObject.transform.Rotate(0, movementInput.x * rotationSpeed * Time.deltaTime, 0);
-        Debug.Log(movementInput);
+        // Debug.Log(movementInput);
     }
 
     private void FixedUpdate()

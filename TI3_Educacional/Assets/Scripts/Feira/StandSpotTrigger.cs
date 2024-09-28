@@ -1,21 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class StandSpotTrigger : MonoBehaviour
 {
     [SerializeField] Stand stand;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private Vector3 lastPosition;
+
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-           StandComplete();
+            MiniGameManager.instance.TakeLastPosition();
+            MiniGameManager.instance.NewPrice();
+            MiniGameManager.instance.TeleportToMiniGame();
         }
     }
 
