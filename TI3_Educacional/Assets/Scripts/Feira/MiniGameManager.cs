@@ -15,6 +15,8 @@ public class MiniGameManager : MonoBehaviour
     [SerializeField] public int coinsAdquired; // Moedas que o player tem
     [SerializeField] private int coinsToPurchase; // Moedas necessarias para comprar o item
     [SerializeField] private GameObject player;
+    PlayerController playerController;
+    StandSpotTrigger trigger;
     private Vector3 lastPosition; // Pega a última posição do player
 
     [SerializeField] private Vector3 miniGamePosition;
@@ -33,9 +35,14 @@ public class MiniGameManager : MonoBehaviour
         if (player == null)
         {
             player = GameObject.FindWithTag("Player");
+
             if (player == null)
             {
                 Debug.LogError("Jogador não encontrado!");
+            }
+            else
+            {
+                playerController = player.GetComponent<PlayerController>();
             }
         }
     }
@@ -72,6 +79,7 @@ public class MiniGameManager : MonoBehaviour
         {
             Debug.Log("Moedas iguais");
             TeleportToLastestPosition();
+            playerController.enabled = true;
         }
     }
 
@@ -88,10 +96,13 @@ public class MiniGameManager : MonoBehaviour
         player.transform.position = lastPosition; // Teleporta o jogador para a última posição salva
         controller.enabled = true;
         Debug.Log("Voltando para a última posição");
+        trigger.StandComplete();
+        trigger.gameObject.SetActive(false);
     }
 
     public void TeleportToMiniGame()
     {
+        playerController.enabled = false;
         CharacterController controller = player.GetComponent<CharacterController>();
         controller.enabled = false;
         player.transform.position = new Vector3(0, -7.59f, 984.83f); // Teleporta o jogador para o minigame
@@ -103,5 +114,10 @@ public class MiniGameManager : MonoBehaviour
     {
         coinsAdquired = 0;
         coinsToPurchase = Random.Range(0, 9); // Seta um preço para compra
+    }
+
+    public void SetUsedTrigger(StandSpotTrigger trigger)
+    {
+        this.trigger = trigger;
     }
 }

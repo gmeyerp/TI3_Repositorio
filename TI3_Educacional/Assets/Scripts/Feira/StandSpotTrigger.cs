@@ -13,6 +13,8 @@ public class StandSpotTrigger : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+
+            MiniGameManager.instance.SetUsedTrigger(this);
             MiniGameManager.instance.TakeLastPosition();
             MiniGameManager.instance.NewPrice();
             MiniGameManager.instance.TeleportToMiniGame();

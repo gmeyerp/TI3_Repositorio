@@ -27,7 +27,7 @@ public class FeiraLevelManager : MonoBehaviour
     [SerializeField] int hitTimes;
     [SerializeField] float invincibleTimer;
     [SerializeField] GameObject victoryCanvas;
-    float bestTime = 90;
+    float bestTime = 500;
     bool isInvulnerable;
     // Start is called before the first frame update
     void Awake()
