@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerStability : MonoBehaviour
 {
@@ -11,13 +12,24 @@ public class PlayerStability : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.acceleration.x * 90  > stableAngle || Input.acceleration.x * 90 < -stableAngle)
+        Accelerometer accelerometer = Accelerometer.current;
+        if (!accelerometer.enabled)
         {
-            isStable = false;
+            InputSystem.EnableDevice(Accelerometer.current);
+            Debug.Log("Linear Acceleration enabled");
         }
         else
         {
-            isStable = true;
-        }        
+            Vector3 acceleration = accelerometer.acceleration.value;
+
+            if (acceleration.x * 90 > stableAngle || acceleration.x * 90 < -stableAngle)
+            {
+                isStable = false;
+            }
+            else
+            {
+                isStable = true;
+            }
+        }
     }
 }

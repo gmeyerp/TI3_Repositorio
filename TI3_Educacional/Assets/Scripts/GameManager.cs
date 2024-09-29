@@ -34,6 +34,25 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene("Feira");
     }
+    public void InfoFeira()
+    {
+        SceneManager.LoadScene("Feira Info");
+    }
+
+    public void StartAccelerometer()
+    {
+        SceneManager.LoadScene("Acelerometro");
+    }
+
+    public void InfoAccelerometer()
+    {
+        SceneManager.LoadScene("Accelerometer Info");
+    }
+
+    public void ReloadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
 
     public void Quit()
     {

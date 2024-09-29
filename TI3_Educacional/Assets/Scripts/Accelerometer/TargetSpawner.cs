@@ -16,12 +16,6 @@ public class TargetSpawner : MonoBehaviour
         InvokeRepeating(nameof(SpawnTarget), 0, time);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void SpawnTarget()
     {
         float angle = Random.Range(0, maxAngle);
