@@ -121,8 +121,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointValue: 1
   lifeTime: 3
-  startingColor: {r: 0, g: 1, b: 0.042345047, a: 1}
-  endingColor: {r: 1, g: 0, b: 0, a: 1}
+  startingColor: {r: 0.75686276, g: 1, b: 0.44705883, a: 1}
+  endingColor: {r: 0.972549, g: 0.39607844, b: 0.39607844, a: 1}
   material: {fileID: 0}
 --- !u!54 &7765696278919251386
 Rigidbody:
