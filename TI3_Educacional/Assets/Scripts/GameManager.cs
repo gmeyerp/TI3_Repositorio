@@ -35,6 +35,11 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("Feira");
     }
 
+    public void ReloadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
     public void Quit()
     {
         #if UNITY_EDITOR
