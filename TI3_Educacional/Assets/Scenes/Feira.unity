@@ -290,6 +290,7 @@ MonoBehaviour:
   coinsAdquired: 0
   coinsToPurchase: 0
   player: {fileID: 0}
+  playerController: {fileID: 227566934}
   miniGamePosition: {x: 0, y: 0, z: 0}
 --- !u!4 &21394875 stripped
 Transform:

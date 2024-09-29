@@ -15,7 +15,7 @@ public class MiniGameManager : MonoBehaviour
     [SerializeField] public int coinsAdquired; // Moedas que o player tem
     [SerializeField] private int coinsToPurchase; // Moedas necessarias para comprar o item
     [SerializeField] private GameObject player;
-    PlayerController playerController;
+    [SerializeField] PlayerController playerController;
     StandSpotTrigger trigger;
     private Vector3 lastPosition; // Pega a última posição do player
 
@@ -39,10 +39,6 @@ public class MiniGameManager : MonoBehaviour
             if (player == null)
             {
                 Debug.LogError("Jogador não encontrado!");
-            }
-            else
-            {
-                playerController = player.GetComponent<PlayerController>();
             }
         }
     }
