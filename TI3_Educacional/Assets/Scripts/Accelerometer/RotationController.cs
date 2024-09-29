@@ -2,11 +2,16 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class RotationController : MonoBehaviour
 {
     [SerializeField] float rotationSpeed = 0.3f;
 
+    private void Awake()
+    {
+        Accelerometer accelerometer = Accelerometer.current;
+    }
     // Update is called once per frame
     void Update()
     {
