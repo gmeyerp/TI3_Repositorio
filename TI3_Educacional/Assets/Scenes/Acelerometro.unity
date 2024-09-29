@@ -2155,13 +2155,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28a3e313da15e1443b58f02e0e4d3a7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelTimer: 5
+  levelTimer: 60
   endCanvas: {fileID: 431157632}
   gameplayCanvas: {fileID: 314554744}
   timerText: {fileID: 405563204}
   newRecordText: {fileID: 698982280}
   scoreText: {fileID: 452325120}
   bestScore: 5
+  spawner: {fileID: 1002955874}
 --- !u!4 &1226836499
 Transform:
   m_ObjectHideFlags: 0

@@ -12,6 +12,7 @@ public class AccelerometerLevelManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI newRecordText;
     [SerializeField] TextMeshProUGUI scoreText;
     [SerializeField] int bestScore = 5;
+    [SerializeField] TargetSpawner spawner;
     float timer;
     // Start is called before the first frame update
     void Start()
@@ -40,7 +41,8 @@ public class AccelerometerLevelManager : MonoBehaviour
     }
 
     void EndGame()
-    {
+    {        
+        spawner.gameObject.SetActive(false);
         gameplayCanvas.SetActive(false);
         endCanvas.SetActive(true);
         scoreText.text = GameTracker.instance.GetScore().ToString() + " pontos";
