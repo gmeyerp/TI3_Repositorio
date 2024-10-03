@@ -29,6 +29,7 @@ public class FeiraLevelManager : MonoBehaviour
     [SerializeField] GameObject victoryCanvas;
     float bestTime = 500;
     bool isInvulnerable;
+    [SerializeField] AudioClip playerHitSFX;
     // Start is called before the first frame update
     void Awake()
     {
@@ -92,14 +93,22 @@ public class FeiraLevelManager : MonoBehaviour
 
     public void PlayerHit()
     {
+        if (isInvulnerable)
+        {
+            return;
+        }
         hitTimes++;
-        SetInvincible(invincibleTimer);
+        isInvulnerable = true;
+        StartCoroutine(SetInvincible());
+        Gerenciador_Audio.TocarSFX(playerHitSFX);
     }
 
-    IEnumerable SetInvincible(float timer)
+    public IEnumerator SetInvincible()
     {
-        yield return timer;
-        isInvulnerable = true;
+        Debug.Log("Start");
+        yield return new WaitForSeconds(invincibleTimer);
+        Debug.Log("End");
+        isInvulnerable = false;
     }
 
     public void CollectedFruit(int collectedFruit)

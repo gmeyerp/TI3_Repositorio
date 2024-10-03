@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private CharacterController player;
     [SerializeField] private Camera playerCamera;
     [SerializeField] private float speed = 1;
+    [SerializeField] AudioClip stepSFX;
 
     private enum StepState
     {
@@ -95,6 +96,7 @@ public class PlayerController : MonoBehaviour
         if (movement != Vector3.zero)
         {
             player.Move(movement);
+            Gerenciador_Audio.TocarSFX(stepSFX);
             movement = Vector3.zero;
         }
     }

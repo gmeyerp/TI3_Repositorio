@@ -78,6 +78,11 @@ MonoBehaviour:
   - {fileID: 0}
   speed: 0
   pingPong: 0
+  isPlayer:
+    serializedVersion: 2
+    m_Bits: 128
+  onPathAudioFrequency: 2
+  playerOnPathSFX: []
 --- !u!1 &2263523863291853064
 GameObject:
   m_ObjectHideFlags: 0

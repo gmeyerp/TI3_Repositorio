@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 9951960}
   - component: {fileID: 9951959}
   - component: {fileID: 9951958}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Fruits
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -309,7 +309,7 @@ GameObject:
   - component: {fileID: 23294897}
   - component: {fileID: 23294896}
   - component: {fileID: 23294895}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GameCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -568,7 +568,7 @@ GameObject:
   - component: {fileID: 95515033}
   - component: {fileID: 95515034}
   - component: {fileID: 95515035}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: TimerText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -915,13 +915,13 @@ GameObject:
   m_Component:
   - component: {fileID: 227566933}
   - component: {fileID: 227566934}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PlayerController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &227566933
 Transform:
   m_ObjectHideFlags: 0
@@ -952,6 +952,7 @@ MonoBehaviour:
   player: {fileID: 907292809}
   playerCamera: {fileID: 959308592}
   speed: 1
+  stepSFX: {fileID: 8300000, guid: 272131db717808e40ae61ead9ccd9894, type: 3}
   stepSensorThreshhold: 0.2
   stepResetCooldown: 1
 --- !u!1 &231577712
@@ -966,7 +967,7 @@ GameObject:
   - component: {fileID: 231577716}
   - component: {fileID: 231577715}
   - component: {fileID: 231577714}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: VictoryCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1349,6 +1350,63 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 329726971}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &331023693
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3705114319077927448, guid: 090bc1c7fcdcee4428045546980d3984, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3705114319077927448, guid: 090bc1c7fcdcee4428045546980d3984, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3705114319077927448, guid: 090bc1c7fcdcee4428045546980d3984, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3705114319077927448, guid: 090bc1c7fcdcee4428045546980d3984, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3705114319077927448, guid: 090bc1c7fcdcee4428045546980d3984, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3705114319077927448, guid: 090bc1c7fcdcee4428045546980d3984, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3705114319077927448, guid: 090bc1c7fcdcee4428045546980d3984, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3705114319077927448, guid: 090bc1c7fcdcee4428045546980d3984, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3705114319077927448, guid: 090bc1c7fcdcee4428045546980d3984, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3705114319077927448, guid: 090bc1c7fcdcee4428045546980d3984, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6041580448004534935, guid: 090bc1c7fcdcee4428045546980d3984, type: 3}
+      propertyPath: m_Name
+      value: Gerenciador_Audio
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 090bc1c7fcdcee4428045546980d3984, type: 3}
 --- !u!1 &338300003
 GameObject:
   m_ObjectHideFlags: 0
@@ -2267,7 +2325,7 @@ GameObject:
   - component: {fileID: 698561767}
   - component: {fileID: 698561768}
   - component: {fileID: 698561769}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Fruit  (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2724,7 +2782,7 @@ GameObject:
   - component: {fileID: 843279316}
   - component: {fileID: 843279317}
   - component: {fileID: 843279318}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Fruit (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2959,7 +3017,7 @@ GameObject:
   - component: {fileID: 907292808}
   - component: {fileID: 907292809}
   - component: {fileID: 907292810}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -3040,7 +3098,7 @@ GameObject:
   - component: {fileID: 922354923}
   - component: {fileID: 922354925}
   - component: {fileID: 922354924}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3320,7 +3378,7 @@ GameObject:
   - component: {fileID: 959308591}
   - component: {fileID: 959308589}
   - component: {fileID: 959308594}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -4079,6 +4137,7 @@ MonoBehaviour:
   hitTimes: 0
   invincibleTimer: 5
   victoryCanvas: {fileID: 231577712}
+  playerHitSFX: {fileID: 8300000, guid: a762e0a8f31fc3b4a9c5d33eb2003893, type: 3}
 --- !u!4 &1131287323
 Transform:
   m_ObjectHideFlags: 0
@@ -4105,7 +4164,7 @@ GameObject:
   - component: {fileID: 1142267309}
   - component: {fileID: 1142267311}
   - component: {fileID: 1142267310}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4771,7 +4830,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1362742936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4785,7 +4844,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterController: {fileID: 907292809}
-  speed: 3
+  speed: 10
   rotationSpeed: 30
   inputActions: {fileID: -944628639613478452, guid: 669101383eb9e384491e2aacc5cc023c, type: 3}
 --- !u!4 &1362742937
@@ -4959,7 +5018,7 @@ GameObject:
   - component: {fileID: 1633867153}
   - component: {fileID: 1633867154}
   - component: {fileID: 1633867155}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Check (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5075,7 +5134,7 @@ GameObject:
   - component: {fileID: 1656800743}
   - component: {fileID: 1656800745}
   - component: {fileID: 1656800744}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: HitText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5358,7 +5417,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1000013165000468, guid: c43602d5712fe4fd4bf33173bb6b8e26, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4000014274899290, guid: c43602d5712fe4fd4bf33173bb6b8e26, type: 3}
       propertyPath: m_RootOrder
@@ -5551,7 +5610,7 @@ GameObject:
   - component: {fileID: 1842001900}
   - component: {fileID: 1842001901}
   - component: {fileID: 1842001902}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Check
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5628,8 +5687,12 @@ PrefabInstance:
       value: CardboardReticlePointer
       objectReference: {fileID: 0}
     - target: {fileID: 171526, guid: 15fcd94adb15b48f7bb4a80622ae7046, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 171526, guid: 15fcd94adb15b48f7bb4a80622ae7046, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 482300, guid: 15fcd94adb15b48f7bb4a80622ae7046, type: 3}
       propertyPath: m_RootOrder
@@ -5677,7 +5740,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 723926960, guid: 15fcd94adb15b48f7bb4a80622ae7046, type: 3}
       propertyPath: ReticleInteractionLayerMask.m_Bits
-      value: 384
+      value: 320
       objectReference: {fileID: 0}
     - target: {fileID: 723926960, guid: 15fcd94adb15b48f7bb4a80622ae7046, type: 3}
       propertyPath: RecticleInteractionLayerMask.m_Bits
@@ -5708,7 +5771,7 @@ GameObject:
   - component: {fileID: 1890970751}
   - component: {fileID: 1890970750}
   - component: {fileID: 1890970749}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Check (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5923,7 +5986,7 @@ GameObject:
   - component: {fileID: 2007916517}
   - component: {fileID: 2007916518}
   - component: {fileID: 2007916519}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Fruit (0)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6440,3 +6503,4 @@ SceneRoots:
   - {fileID: 1320396866}
   - {fileID: 518931037}
   - {fileID: 1655379571}
+  - {fileID: 331023693}

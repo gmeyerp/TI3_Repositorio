@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Stand : MonoBehaviour
 {
+    [SerializeField] SOFruit fruitInfo;
     [SerializeField] Transform[] fruitSpot;
     [SerializeField] GameObject interactSpot;
+    [SerializeField] AudioClip fruitAudio;
     int chosenFruitIndex = -1;
     public bool isChosen;
     public bool hasFruit = false;
@@ -19,6 +21,14 @@ public class Stand : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.layer == 7 && isChosen) //PlayerLayer
+        {
+            Gerenciador_Audio.TocarSFX(fruitAudio);
+        }
     }
 
     public void PopulateStand(GameObject fruit)

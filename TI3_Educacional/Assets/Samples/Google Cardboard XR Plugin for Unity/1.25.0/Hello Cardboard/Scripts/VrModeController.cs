@@ -27,6 +27,7 @@ using UnityEngine.XR.Management;
 using UnityEngine.SceneManagement;
 
 using InputSystemTouchPhase = UnityEngine.InputSystem.TouchPhase;
+using UnityEditor.Build.Content;
 
 /// <summary>
 /// Turns VR mode on and off.
@@ -109,11 +110,12 @@ public class VrModeController : MonoBehaviour
         }
         else
         {
+            EnterVR();
             // TODO(b/171727815): Add a button to switch to VR mode.
-            if (_isScreenTouched)
-            {
-                EnterVR();
-            }
+            //if (_isScreenTouched)
+            //{
+            //    EnterVR();
+            //}
         }
     }
 
