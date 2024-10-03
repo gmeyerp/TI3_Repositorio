@@ -9,6 +9,12 @@ public class Customer : MonoBehaviour
     int currentWaypoint;
     [SerializeField] float speed; //vai pegar o valor do level manager
     [SerializeField] bool pingPong;
+    [SerializeField] LayerMask isPlayer;
+    [SerializeField] float onPathAudioFrequency = 2f;
+    [SerializeField] AudioClip[] playerOnPathSFX;
+    float mag;
+    bool isOnPath;
+    float audioTimer;
     int modifier = 1;
     // Start is called before the first frame update
     void Awake()
@@ -23,11 +29,29 @@ public class Customer : MonoBehaviour
     {
         speed = FeiraLevelManager.instance.NPCSpeed;
     }
+    private void Update()
+    {
+        audioTimer -= Time.deltaTime;
+    }
 
     // Update is called once per frame
     void FixedUpdate()
-    {
+    {        
         Vector3 direction = waypoints[currentWaypoint].position - transform.position;
+        Vector3 origin = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
+        Vector3 aim = new Vector3(waypoints[currentWaypoint].position.x, waypoints[currentWaypoint].position.y + 1, waypoints[currentWaypoint].position.z);
+        Debug.DrawRay(origin, direction, Color.red);
+        mag = (aim - origin).magnitude;
+        isOnPath = Physics.Raycast(origin, direction, (aim-origin).magnitude, isPlayer);
+        if (isOnPath)
+        {
+            if (audioTimer < 0)
+            {
+                audioTimer = onPathAudioFrequency;
+                int sfx = Random.Range(0, playerOnPathSFX.Length);
+                Gerenciador_Audio.TocarSFX(playerOnPathSFX[sfx]);
+            }
+        }
         characterController.SimpleMove(direction.normalized * speed);
         if (direction.magnitude < 0.1f)
         {

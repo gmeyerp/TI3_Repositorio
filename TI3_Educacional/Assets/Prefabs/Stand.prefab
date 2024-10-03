@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7122298860178031981}
   - component: {fileID: 7026044439538783890}
-  - component: {fileID: 5021677689813408035}
+  - component: {fileID: 6353167661358130953}
   m_Layer: 0
   m_Name: Stand
   m_TagString: Untagged
@@ -89,10 +89,11 @@ MonoBehaviour:
   - {fileID: 6304452896962716483}
   - {fileID: 415938260419221801}
   interactSpot: {fileID: 4273098873342028267}
+  fruitAudio: {fileID: 8300000, guid: 998627d12e3662d47b3230d7e072c5e3, type: 3}
   isChosen: 0
   hasFruit: 0
---- !u!65 &5021677689813408035
-BoxCollider:
+--- !u!135 &6353167661358130953
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -106,12 +107,12 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.5328579, y: 3.6428561, z: 3.9590209}
-  m_Center: {x: -1.3032732, y: 1.8287811, z: 0}
+  m_Radius: 8
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2220729198213804863
 GameObject:
   m_ObjectHideFlags: 0
@@ -375,6 +376,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7868942489192011494}
+  - component: {fileID: 6128365687314659166}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
@@ -407,6 +409,27 @@ Transform:
   - {fileID: 7948223019528502434}
   m_Father: {fileID: 7122298860178031981}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &6128365687314659166
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6244280425843447292}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.5328579, y: 3.6428561, z: 3.9590209}
+  m_Center: {x: 0.8, y: 1.8287811, z: 0}
 --- !u!1 &6333559326471042345
 GameObject:
   m_ObjectHideFlags: 0

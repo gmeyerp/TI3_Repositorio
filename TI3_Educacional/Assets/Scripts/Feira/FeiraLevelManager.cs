@@ -14,8 +14,8 @@ public class FeiraLevelManager : MonoBehaviour
     float[] fruitTimer;
     bool[] collectedFruit = new bool[3];
     [SerializeField] int numberOfFruits = 3;
-    [SerializeField] List<GameObject> chosenFruits = new List<GameObject>();
-    [SerializeField] List<GameObject> fruits = new List<GameObject>();
+    [SerializeField] List<SOFruit> chosenFruits;
+    [SerializeField] List<SOFruit> fruits;
     [SerializeField] List<Stand> stands = new List<Stand>();
     public float NPCSpeed = 3f;
 
@@ -29,6 +29,7 @@ public class FeiraLevelManager : MonoBehaviour
     [SerializeField] GameObject victoryCanvas;
     float bestTime = 500;
     bool isInvulnerable;
+    [SerializeField] AudioClip playerHitSFX;
     // Start is called before the first frame update
     void Awake()
     {
@@ -58,9 +59,8 @@ public class FeiraLevelManager : MonoBehaviour
         for (int i = 0; i < numberOfFruits; i++)
         {
             int fruit = Random.Range(0, fruits.Count);
-            Debug.Log(fruit);
             chosenFruits.Add(fruits[fruit]);
-            chosenFruitsImages[i].sprite = fruitSprites[fruit];
+            chosenFruitsImages[i].sprite = fruits[fruit].sprite;
             fruits.RemoveAt(fruit);
             fruitSprites.RemoveAt(fruit);
         }       
@@ -92,14 +92,22 @@ public class FeiraLevelManager : MonoBehaviour
 
     public void PlayerHit()
     {
+        if (isInvulnerable)
+        {
+            return;
+        }
         hitTimes++;
-        SetInvincible(invincibleTimer);
+        isInvulnerable = true;
+        StartCoroutine(SetInvincible());
+        Gerenciador_Audio.TocarSFX(playerHitSFX);
     }
 
-    IEnumerable SetInvincible(float timer)
+    public IEnumerator SetInvincible()
     {
-        yield return timer;
-        isInvulnerable = true;
+        Debug.Log("Start");
+        yield return new WaitForSeconds(invincibleTimer);
+        Debug.Log("End");
+        isInvulnerable = false;
     }
 
     public void CollectedFruit(int collectedFruit)
