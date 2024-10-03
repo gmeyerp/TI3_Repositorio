@@ -921,7 +921,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &227566933
 Transform:
   m_ObjectHideFlags: 0
@@ -4111,13 +4111,13 @@ MonoBehaviour:
   numberOfFruits: 3
   chosenFruits: []
   fruits:
-  - {fileID: 6754865903623863735, guid: d59d815094de0654dae18726b157a2ea, type: 3}
-  - {fileID: 4771682721201252188, guid: 228e97cc8884d55438f64a8d972577be, type: 3}
-  - {fileID: 5682458421874183226, guid: d821fb31bfe08764e9c097dc07c59a4c, type: 3}
-  - {fileID: 7345520242483376414, guid: 743f9b8ae70dffe4bbaa71085e959d03, type: 3}
-  - {fileID: 6497076379573233763, guid: 26dfb3a35c2c14d4facf0d8719f76d4a, type: 3}
-  - {fileID: 5891749393963080728, guid: 3af9d0c7d041e3d47bf68b5b6447ecb9, type: 3}
-  - {fileID: 985899019269032060, guid: fbe26a9103abfdb42b3d72236d5fca1d, type: 3}
+  - {fileID: 11400000, guid: b24600bc9618e52448646c7115e6cf1e, type: 2}
+  - {fileID: 11400000, guid: bdc4a2913ae0b1240b689bfaa5e3af2f, type: 2}
+  - {fileID: 11400000, guid: 95800506ab26209499ae52c1957517c3, type: 2}
+  - {fileID: 11400000, guid: af5e476c5d2380d4b9621f8a8b4292a8, type: 2}
+  - {fileID: 11400000, guid: afdb3beed638295408ac8d89309a5ea8, type: 2}
+  - {fileID: 11400000, guid: 8102d10861aaabc4cb3d1f2a4b8fb8f7, type: 2}
+  - {fileID: 11400000, guid: 4e93a27466a9a9e4caebd4b5ad02ef63, type: 2}
   stands:
   - {fileID: 672920395}
   - {fileID: 26216499075755081}
@@ -4830,7 +4830,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1362742936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5417,7 +5417,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1000013165000468, guid: c43602d5712fe4fd4bf33173bb6b8e26, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4000014274899290, guid: c43602d5712fe4fd4bf33173bb6b8e26, type: 3}
       propertyPath: m_RootOrder
@@ -5692,7 +5692,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 171526, guid: 15fcd94adb15b48f7bb4a80622ae7046, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 482300, guid: 15fcd94adb15b48f7bb4a80622ae7046, type: 3}
       propertyPath: m_RootOrder

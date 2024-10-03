@@ -14,8 +14,8 @@ public class FeiraLevelManager : MonoBehaviour
     float[] fruitTimer;
     bool[] collectedFruit = new bool[3];
     [SerializeField] int numberOfFruits = 3;
-    [SerializeField] List<GameObject> chosenFruits = new List<GameObject>();
-    [SerializeField] List<GameObject> fruits = new List<GameObject>();
+    [SerializeField] List<SOFruit> chosenFruits;
+    [SerializeField] List<SOFruit> fruits;
     [SerializeField] List<Stand> stands = new List<Stand>();
     public float NPCSpeed = 3f;
 
@@ -59,9 +59,8 @@ public class FeiraLevelManager : MonoBehaviour
         for (int i = 0; i < numberOfFruits; i++)
         {
             int fruit = Random.Range(0, fruits.Count);
-            Debug.Log(fruit);
             chosenFruits.Add(fruits[fruit]);
-            chosenFruitsImages[i].sprite = fruitSprites[fruit];
+            chosenFruitsImages[i].sprite = fruits[fruit].sprite;
             fruits.RemoveAt(fruit);
             fruitSprites.RemoveAt(fruit);
         }       

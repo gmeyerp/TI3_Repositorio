@@ -27,25 +27,27 @@ public class Stand : MonoBehaviour
     {
         if (other.gameObject.layer == 7 && isChosen) //PlayerLayer
         {
-            Gerenciador_Audio.TocarSFX(fruitAudio);
+            Gerenciador_Audio.TocarSFX(fruitInfo.announceClip);
         }
     }
 
-    public void PopulateStand(GameObject fruit)
+    public void PopulateStand(SOFruit fruit)
     {
+        fruitInfo = fruit;
         foreach (Transform spot in fruitSpot)
         {
-            Instantiate(fruit, spot.position, fruit.transform.rotation, transform);
+            Instantiate(fruit.prefab, spot.position, fruit.prefab.transform.rotation, transform);
         }
         hasFruit = true;
         interactSpot.SetActive(false);
     }
 
-    public void PopulateStand(GameObject fruit, int chosenFruitIndex)
+    public void PopulateStand(SOFruit fruit, int chosenFruitIndex)
     {
+        fruitInfo = fruit;
         foreach (Transform spot in fruitSpot)
         {
-            Instantiate(fruit, spot.position, fruit.transform.rotation, transform);
+            Instantiate(fruit.prefab, spot.position, fruit.prefab.transform.rotation, transform);
         }
         hasFruit = true;
         isChosen = true;

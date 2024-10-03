@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a51e6973b6fe7f40840c6d2e2c9ba9b, type: 3}
+  m_Name: Blueberry
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 7345520242483376414, guid: 743f9b8ae70dffe4bbaa71085e959d03, type: 3}
+  sprite: {fileID: 21300000, guid: 6688e1906823e094292e6465008c27f0, type: 3}
+  announceClip: {fileID: 8300000, guid: 998627d12e3662d47b3230d7e072c5e3, type: 3}

@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Fruit")]
 public class SOFruit : ScriptableObject
 {
-    [SerializeField] GameObject prefab;
-    [SerializeField] Sprite sprite;
-    [SerializeField] AudioClip clip;
+    public GameObject prefab;
+    public Sprite sprite;
+    public AudioClip announceClip;
 }
