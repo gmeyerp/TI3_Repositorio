@@ -158,20 +158,20 @@ PrefabInstance:
       objectReference: {fileID: 6968451077467391967}
     - target: {fileID: 8928163240463364679, guid: e1724e8336c7a054d8dac4458a565808, type: 3}
       propertyPath: playerOnPathSFX.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8928163240463364679, guid: e1724e8336c7a054d8dac4458a565808, type: 3}
       propertyPath: playerOnPathSFX.Array.data[0]
       value: 
-      objectReference: {fileID: 8300000, guid: 8fb735e13acd28748b78407b60f73a84, type: 3}
+      objectReference: {fileID: 8300000, guid: 3af509677da54f6488f852d22e550e18, type: 3}
     - target: {fileID: 8928163240463364679, guid: e1724e8336c7a054d8dac4458a565808, type: 3}
       propertyPath: playerOnPathSFX.Array.data[1]
       value: 
-      objectReference: {fileID: 8300000, guid: 08be4b56b96705845997cc662ad63ccb, type: 3}
+      objectReference: {fileID: 8300000, guid: 259e7dcaadd704a4b88e4f49ec3ac929, type: 3}
     - target: {fileID: 8928163240463364679, guid: e1724e8336c7a054d8dac4458a565808, type: 3}
       propertyPath: playerOnPathSFX.Array.data[2]
       value: 
-      objectReference: {fileID: 8300000, guid: 08be4b56b96705845997cc662ad63ccb, type: 3}
+      objectReference: {fileID: 8300000, guid: a55ac3af6f0d43045abe2fa835e80b63, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
