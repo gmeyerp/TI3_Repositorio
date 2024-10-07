@@ -71,7 +71,7 @@ public class MiniGameManager : MonoBehaviour
     public void GetoutMiniGame()
     {
         // Se coinsAdquired for igual a coinsToPurchase então teleporta o player para a posição antiga.
-        if(coinsAdquired == coinsToPurchase)
+        if(coinsAdquired >= coinsToPurchase)
         {
             Debug.Log("Moedas iguais");
             TeleportToLastestPosition();
