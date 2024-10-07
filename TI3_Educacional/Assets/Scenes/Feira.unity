@@ -4137,7 +4137,7 @@ MonoBehaviour:
   hitTimes: 0
   invincibleTimer: 5
   victoryCanvas: {fileID: 231577712}
-  playerHitSFX: {fileID: 8300000, guid: a762e0a8f31fc3b4a9c5d33eb2003893, type: 3}
+  playerHitSFX: {fileID: 8300000, guid: aee3defb925e5f8438f8e878b05a1081, type: 3}
 --- !u!4 &1131287323
 Transform:
   m_ObjectHideFlags: 0
