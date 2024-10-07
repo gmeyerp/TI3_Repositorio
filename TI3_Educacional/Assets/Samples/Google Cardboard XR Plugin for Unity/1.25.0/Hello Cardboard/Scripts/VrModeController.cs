@@ -27,7 +27,6 @@ using UnityEngine.XR.Management;
 using UnityEngine.SceneManagement;
 
 using InputSystemTouchPhase = UnityEngine.InputSystem.TouchPhase;
-using UnityEditor.Build.Content;
 
 /// <summary>
 /// Turns VR mode on and off.

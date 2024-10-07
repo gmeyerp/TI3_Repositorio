@@ -8,6 +8,7 @@ public class Stand : MonoBehaviour
     [SerializeField] Transform[] fruitSpot;
     [SerializeField] GameObject interactSpot;
     [SerializeField] AudioClip fruitAudio;
+    [SerializeField] AudioSource audioSource;
     int chosenFruitIndex = -1;
     public bool isChosen;
     public bool hasFruit = false;
@@ -27,7 +28,7 @@ public class Stand : MonoBehaviour
     {
         if (other.gameObject.layer == 7 && isChosen) //PlayerLayer
         {
-            Gerenciador_Audio.TocarSFX(fruitInfo.announceClip);
+            audioSource.PlayOneShot(fruitInfo.announceClip);
         }
     }
 

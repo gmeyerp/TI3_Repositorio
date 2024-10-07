@@ -12,6 +12,8 @@ public class Customer : MonoBehaviour
     [SerializeField] LayerMask isPlayer;
     [SerializeField] float onPathAudioFrequency = 2f;
     [SerializeField] AudioClip[] playerOnPathSFX;
+    [SerializeField] AudioClip[] collisionSFX;
+    [SerializeField] AudioSource audioSource;
     float mag;
     bool isOnPath;
     float audioTimer;
@@ -49,7 +51,7 @@ public class Customer : MonoBehaviour
             {
                 audioTimer = onPathAudioFrequency;
                 int sfx = Random.Range(0, playerOnPathSFX.Length);
-                Gerenciador_Audio.TocarSFX(playerOnPathSFX[sfx]);
+                audioSource.PlayOneShot(playerOnPathSFX[sfx]);
             }
         }
         characterController.SimpleMove(direction.normalized * speed);
@@ -82,6 +84,12 @@ public class Customer : MonoBehaviour
         if(hit.collider.gameObject.CompareTag("Player"))
         {
             FeiraLevelManager.instance.PlayerHit();
+            if (!FeiraLevelManager.instance.isInvulnerable)
+            {
+                int sfx = Random.Range(0, collisionSFX.Length);
+                audioSource.PlayOneShot(collisionSFX[sfx]);
+            }
+            
         }
     }
 }
