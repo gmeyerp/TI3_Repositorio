@@ -4,20 +4,26 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+public enum FeiraCustomers { Nenhum, Poucos, Médio, Muitos}
 public class FeiraLevelManager : MonoBehaviour
 {
     public static FeiraLevelManager instance;
-    [SerializeField] List<Sprite> fruitSprites = new List<Sprite>();
+    [Header("Fruit Randomizer")]
     [SerializeField] List<Stand> standsSelects = new List<Stand>();
     [SerializeField] Image[] chosenFruitsImages;
     [SerializeField] Image[] checkImage;
-    float[] fruitTimer;
-    bool[] collectedFruit = new bool[3];
+    bool[] collectedFruit;
     [SerializeField] int numberOfFruits = 3;
     [SerializeField] List<SOFruit> chosenFruits;
     [SerializeField] List<SOFruit> fruits;
     [SerializeField] List<Stand> stands = new List<Stand>();
+
+    [Header("Customer Options")]
     public float NPCSpeed = 3f;
+    [SerializeField] FeiraCustomers customersDifficulty = FeiraCustomers.Poucos;
+    [SerializeField] GameObject[] poucosCustomers;
+    [SerializeField] GameObject[] medioCustomers;
+    [SerializeField] GameObject[] muitosCustomers;
 
     [SerializeField] GameObject gameplayCanvas;
     float timer;
@@ -43,9 +49,11 @@ public class FeiraLevelManager : MonoBehaviour
 
     private void Start()
     {
+        collectedFruit = new bool[numberOfFruits];
         PickFruits();
         GiveChosenFruits();
         GiveRemainingFruits();
+        StartCustomers(customersDifficulty);
     }
 
     private void Update()
@@ -62,7 +70,6 @@ public class FeiraLevelManager : MonoBehaviour
             chosenFruits.Add(fruits[fruit]);
             chosenFruitsImages[i].sprite = fruits[fruit].sprite;
             fruits.RemoveAt(fruit);
-            fruitSprites.RemoveAt(fruit);
         }       
     }
 
@@ -150,5 +157,41 @@ public class FeiraLevelManager : MonoBehaviour
             timerText.text = "Recorde: " + timer.ToString("0.0");
         }
         hitsText.text = "Batidas: " + hitTimes.ToString();
+    }
+
+    public void StartCustomers(FeiraCustomers customerDifficulty)
+    {
+        switch (customerDifficulty)
+        {
+            case FeiraCustomers.Poucos:
+                {
+                    foreach (GameObject c in poucosCustomers)
+                    {
+                        c.SetActive(true);
+                    }
+                    break;
+                }
+            case FeiraCustomers.Médio:
+                {
+                    foreach (GameObject c in medioCustomers)
+                    {
+                        c.SetActive(true);
+                    }
+                    break;
+                }
+            case FeiraCustomers.Muitos:
+                {
+                    foreach (GameObject c in muitosCustomers)
+                    {
+                        c.SetActive(true);
+                    }
+                    break;
+                }
+            case FeiraCustomers.Nenhum:
+                {
+                    Debug.Log("No Customers");
+                    break;
+                }
+        }
     }
 }
