@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class CoinCollect : MonoBehaviour
 {
@@ -9,6 +11,8 @@ public class CoinCollect : MonoBehaviour
 
     private MeshRenderer meshRenderer;
     private Collider coinCollider;
+    [SerializeField] GameObject objectCanvas;
+    [SerializeField] Image completion;
 
     private void Start() 
     {
@@ -27,6 +31,8 @@ public class CoinCollect : MonoBehaviour
         {
             //Quando estiver olhando, alterará a cor atual até a cor ativa com o metodo Color.Lerp
             meshRenderer.material.color = Color.Lerp(meshRenderer.material.color, activeColor, lerpSpeed);
+            completion.fillAmount += (Time.deltaTime / PlayerRayCast.instance.timeToCollect);
+            completion.color = meshRenderer.material.color;
         }
         else
         {
@@ -34,10 +40,13 @@ public class CoinCollect : MonoBehaviour
             {
                 //Quando não estiver olhando, alterará a cor atual até a cor inativa com o metodo Color.Lerp
                 meshRenderer.material.color = Color.Lerp(meshRenderer.material.color, inactiveColor, lerpSpeed);
+                completion.fillAmount = 0;
             }
             else
             {
                 meshRenderer.material.color = inactiveColor;
+                completion.fillAmount = 0;
+                completion.color = inactiveColor;
             }
         }
     }
