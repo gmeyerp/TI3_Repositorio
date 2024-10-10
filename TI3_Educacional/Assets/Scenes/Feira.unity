@@ -428,7 +428,7 @@ Canvas:
   m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: 0
+  m_SortingLayerID: 1572899091
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!1 &27296944
@@ -1046,7 +1046,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &227566933
 Transform:
   m_ObjectHideFlags: 0
@@ -5239,9 +5239,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc63e1564940c8647a643416507a3730, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 907292807}
+  player: {fileID: 959308587}
   correctAngle: 50
   tutorialSpriteAnim: {fileID: 393134901}
+  txt: {fileID: 0}
 --- !u!1001 &1188032821
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5992,7 +5993,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1362742936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6714,7 +6715,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1000013165000468, guid: c43602d5712fe4fd4bf33173bb6b8e26, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4000014274899290, guid: c43602d5712fe4fd4bf33173bb6b8e26, type: 3}
       propertyPath: m_RootOrder
