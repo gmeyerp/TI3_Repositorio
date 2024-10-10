@@ -99,5 +99,6 @@ public class PlayerController : MonoBehaviour
             Gerenciador_Audio.TocarSFX(stepSFX);
             movement = Vector3.zero;
         }
+
     }
 }

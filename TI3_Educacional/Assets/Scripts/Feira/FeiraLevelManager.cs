@@ -25,6 +25,9 @@ public class FeiraLevelManager : MonoBehaviour
     [SerializeField] GameObject[] medioCustomers;
     [SerializeField] GameObject[] muitosCustomers;
 
+    [Header("Tutorial")]
+    public bool isStartDone;
+
     [SerializeField] GameObject gameplayCanvas;
     float timer;
     bool isBestTime;
