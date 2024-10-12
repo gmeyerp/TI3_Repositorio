@@ -12,7 +12,7 @@ public class FeiraLevelManager : MonoBehaviour
     [SerializeField] List<Stand> standsSelects = new List<Stand>();
     [SerializeField] Image[] chosenFruitsImages;
     [SerializeField] Image[] checkImage;
-    bool[] collectedFruit;
+    public bool[] collectedFruit;
     [SerializeField] int numberOfFruits = 3;
     [SerializeField] List<SOFruit> chosenFruits;
     [SerializeField] List<SOFruit> fruits;

@@ -14,6 +14,9 @@ public class Customer : MonoBehaviour
     [SerializeField] AudioClip[] playerOnPathSFX;
     [SerializeField] AudioClip[] collisionSFX;
     [SerializeField] AudioSource audioSource;
+    [SerializeField] GameObject model;
+    [SerializeField] Animator animator;
+    bool isGreeting;
     float mag;
     bool isOnPath;
     float audioTimer;
@@ -54,7 +57,10 @@ public class Customer : MonoBehaviour
                 audioSource.PlayOneShot(playerOnPathSFX[sfx]);
             }
         }
-        characterController.SimpleMove(direction.normalized * speed);
+        if (!isGreeting)
+        {
+            characterController.SimpleMove(direction.normalized * speed);
+        }
         if (direction.magnitude < 0.1f)
         {
             NewWaypoint();
@@ -77,6 +83,11 @@ public class Customer : MonoBehaviour
                 currentWaypoint += modifier;
             }
         }
+
+        model.transform.LookAt(waypoints[currentWaypoint]);
+        animator.SetBool("isWalking", false);
+        isGreeting = true;
+
     }
 
     public void OnControllerColliderHit(ControllerColliderHit hit)
@@ -91,5 +102,11 @@ public class Customer : MonoBehaviour
             }
             
         }
+    }
+
+    public void GreetingOver()
+    {
+        isGreeting = false;
+        animator.SetBool("isWalking", true);
     }
 }
