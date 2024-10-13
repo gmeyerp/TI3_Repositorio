@@ -1,20 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class  PlayerRayCast : MonoBehaviour
 {
-    public static PlayerRayCast instance { get; private set; }
-    [SerializeField] protected float maxDistance = 10.0f; // Distância máxima do raycast
-    [SerializeField] public float timeToCollect = 2.0f; // Tempo que o jogador deve olhar para coletar a moeda
+    public static PlayerRayCast Instance { get; private set; }
+    [SerializeField] public float maxDistance = 10.0f; // Distância máxima do raycast
+
+    [Header("Timers")]
+    [SerializeField] public float timeToCollect = 3.0f; // Tempo que o jogador deve olhar para coletar a moeda
     private float lookTime = 0.0f; // Tempo que o jogador está a olhar para o objeto
+
     [SerializeField] private GameObject currentTarget; // Referência ao objeto atual que o jogador está olhando
     private Camera mainCamera; // Referência à câmara principal
 
     void Awake()
     {
-        if (instance == null)
-            instance = this;
+        if (Instance == null)
+            Instance = this;
         else
             Destroy(this.gameObject);
     }
@@ -56,8 +60,19 @@ public class  PlayerRayCast : MonoBehaviour
                         // Caso o tempo de olhar exceder o tempo necessário para coletar
                         if (lookTime >= timeToCollect)
                         {
-                            // A moeda será coletada
-                            coin.Collect();
+                            // A moeda será selecionada ou deselecionada
+                            if(!coin.collected)
+                            {
+                                coin.collected = true;
+                                coin.Collect();
+                            }
+                            else
+                            {
+                                coin.collected = false;
+                                coin.UnCollect();
+                            }
+
+                                
                             currentTarget = null;
                             lookTime = 0.0f;
                         }
@@ -81,6 +96,41 @@ public class  PlayerRayCast : MonoBehaviour
             ResetLook();
         }
     }
+
+    /*public void LookNPC()
+    {
+        Ray ray = new Ray(mainCamera.transform.position, mainCamera.transform.forward);
+        RaycastHit hit;
+
+        if(Physics.Raycast(ray, out hit, maxDistance))
+        {
+            Debug.DrawLine(transform.position, hit.point);
+            if(hit.collider.CompareTag("NPC"))
+            {
+                currentTarget = hit.collider.gameObject;
+                CodigodoNPC npc = hit.collider.GetComponent<>();
+                if(npc != null)
+                {
+                    if(currentTarget == hit.collider.gameObject)
+                    {
+                        StartCoroutine(MiniGameManager.Instance.TeleportToMiniGame());
+                    }
+                }
+                else
+                {
+                    currentTarget = hit.collider.gameObject;
+                }
+            }
+            else
+            {
+                ResetLook();
+            }
+        }
+        else
+        {
+            ResetLook();
+        }
+    }*/
 
     private void ResetLook()
     {

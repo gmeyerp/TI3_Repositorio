@@ -6,18 +6,16 @@ using UnityEngine.UIElements;
 public class StandSpotTrigger : MonoBehaviour
 {
     [SerializeField] Stand stand;
-    private Vector3 lastPosition;
 
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-
-            MiniGameManager.instance.SetUsedTrigger(this);
-            MiniGameManager.instance.TakeLastPosition();
-            MiniGameManager.instance.NewPrice();
-            MiniGameManager.instance.TeleportToMiniGame();
+            MiniGameManager.Instance.SetUsedTrigger(this);
+            MiniGameManager.Instance.TakeLastPosition();
+            MiniGameManager.Instance.NewPrice();
+            MiniGameManager.Instance.TeleportToMiniGame();
         }
     }
 
