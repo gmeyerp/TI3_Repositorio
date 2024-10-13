@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a51e6973b6fe7f40840c6d2e2c9ba9b, type: 3}
   m_Name: AppleGreen
   m_EditorClassIdentifier: 
-  prefab: {fileID: 6754865903623863735, guid: d59d815094de0654dae18726b157a2ea, type: 3}
-  sprite: {fileID: 21300000, guid: 9b9275373ff311a43b2a13a12644c80a, type: 3}
+  prefab: {fileID: 6754865903623863735, guid: 69531a25632e6d7489d8a115a83aa47b, type: 3}
+  sprite: {fileID: 21300000, guid: 00a817ff58e181a4d88afca14e021ba7, type: 3}
   announceClip: {fileID: 8300000, guid: 998627d12e3662d47b3230d7e072c5e3, type: 3}

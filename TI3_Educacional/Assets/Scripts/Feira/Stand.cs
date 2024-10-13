@@ -38,6 +38,7 @@ public class Stand : MonoBehaviour
         if (other.gameObject.layer == 7 && isChosen && !FeiraLevelManager.instance.collectedFruit[chosenFruitIndex]) //PlayerLayer
         {
             animator.SetBool("playerClose", false);
+            animator.SetTrigger("playerExit");
             audioSource.PlayOneShot(fruitInfo.announceClip);
         }
     }

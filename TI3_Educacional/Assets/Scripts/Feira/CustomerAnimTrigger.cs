@@ -8,6 +8,6 @@ public class CustomerAnimTrigger : MonoBehaviour
 
     public void AnimationTrigger()
     {
-        customer.GreetingOver();
+        customer.InterruptionOver();
     }
 }

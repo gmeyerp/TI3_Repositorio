@@ -105,19 +105,23 @@ public class Customer : MonoBehaviour
     {
         if(hit.collider.gameObject.CompareTag("Player"))
         {
+
+            animator.SetBool("isHit", true);
+            isWaiting = true;
+
             FeiraLevelManager.instance.PlayerHit();
             if (!FeiraLevelManager.instance.isInvulnerable)
             {
                 int sfx = Random.Range(0, collisionSFX.Length);
                 audioSource.PlayOneShot(collisionSFX[sfx]);
-            }
-            
+            }            
         }
     }
 
-    public void GreetingOver()
+    public void InterruptionOver()
     {
         isWaiting = false;
         animator.SetBool("isWalking", true);
+        animator.SetBool("isHit", false);
     }
 }

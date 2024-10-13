@@ -1596,13 +1596,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2794932302233475515, guid: 2b978ed2db54e9947aaf5caf7357cfd9, type: 3}
       propertyPath: m_WarningMessage
-      value: "\nBinding warning: Some generic clip(s) animate transforms that are
-        already bound by a Humanoid avatar. These transforms can only be changed
-        by Humanoid clips.\n\tTransform 'mixamorig:Hips'\n\tTransform 'mixamorig:LeftFoot'\n\tTransform
-        'mixamorig:LeftHandThumb2'\n\tTransform 'mixamorig:LeftHandIndex1'\n\tTransform
-        'mixamorig:LeftHandPinky2'\n\tTransform 'mixamorig:RightHandRing2'\n\tTransform
-        'mixamorig:Spine1'\n\tTransform 'mixamorig:RightArm'\n\tTransform 'mixamorig:LeftLeg'\n\tTransform
-        'mixamorig:LeftHandMiddle3'\n\tand more ...\n\tFrom animation clip 'Salute'"
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2881922569559209746, guid: 2b978ed2db54e9947aaf5caf7357cfd9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3529,13 +3523,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2794932302233475515, guid: 2b978ed2db54e9947aaf5caf7357cfd9, type: 3}
       propertyPath: m_WarningMessage
-      value: "\nBinding warning: Some generic clip(s) animate transforms that are
-        already bound by a Humanoid avatar. These transforms can only be changed
-        by Humanoid clips.\n\tTransform 'mixamorig:Hips'\n\tTransform 'mixamorig:LeftFoot'\n\tTransform
-        'mixamorig:LeftHandThumb2'\n\tTransform 'mixamorig:LeftHandIndex1'\n\tTransform
-        'mixamorig:LeftHandPinky2'\n\tTransform 'mixamorig:RightHandRing2'\n\tTransform
-        'mixamorig:Spine1'\n\tTransform 'mixamorig:RightArm'\n\tTransform 'mixamorig:LeftLeg'\n\tTransform
-        'mixamorig:LeftHandMiddle3'\n\tand more ...\n\tFrom animation clip 'Salute'"
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2881922569559209746, guid: 2b978ed2db54e9947aaf5caf7357cfd9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5541,16 +5529,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stand (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 2794932302233475515, guid: 2b978ed2db54e9947aaf5caf7357cfd9, type: 3}
-      propertyPath: m_WarningMessage
-      value: "\nBinding warning: Some generic clip(s) animate transforms that are
-        already bound by a Humanoid avatar. These transforms can only be changed
-        by Humanoid clips.\n\tTransform 'mixamorig:Hips'\n\tTransform 'mixamorig:LeftFoot'\n\tTransform
-        'mixamorig:LeftHandThumb2'\n\tTransform 'mixamorig:LeftHandIndex1'\n\tTransform
-        'mixamorig:LeftHandPinky2'\n\tTransform 'mixamorig:RightHandRing2'\n\tTransform
-        'mixamorig:Spine1'\n\tTransform 'mixamorig:RightArm'\n\tTransform 'mixamorig:LeftLeg'\n\tTransform
-        'mixamorig:LeftHandMiddle3'\n\tand more ...\n\tFrom animation clip 'Salute'"
-      objectReference: {fileID: 0}
     - target: {fileID: 7122298860178031981, guid: 2b978ed2db54e9947aaf5caf7357cfd9, type: 3}
       propertyPath: m_LocalPosition.x
       value: -16.34
@@ -6824,13 +6802,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1539566699391520168, guid: 05eceb70720090547a3968d2bef41d51, type: 3}
       propertyPath: m_WarningMessage
-      value: "\nBinding warning: Some generic clip(s) animate transforms that are
-        already bound by a Humanoid avatar. These transforms can only be changed
-        by Humanoid clips.\n\tTransform 'mixamorig:Hips'\n\tTransform 'mixamorig:LeftFoot'\n\tTransform
-        'mixamorig:LeftHandThumb2'\n\tTransform 'mixamorig:LeftHandIndex1'\n\tTransform
-        'mixamorig:LeftHandPinky2'\n\tTransform 'mixamorig:RightHandRing2'\n\tTransform
-        'mixamorig:Spine1'\n\tTransform 'mixamorig:RightArm'\n\tTransform 'mixamorig:LeftLeg'\n\tTransform
-        'mixamorig:LeftHandMiddle3'\n\tand more ...\n\tFrom animation clip 'Salute'"
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2851142635607406776, guid: 05eceb70720090547a3968d2bef41d51, type: 3}
       propertyPath: m_Name
@@ -8796,13 +8768,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2794932302233475515, guid: 2b978ed2db54e9947aaf5caf7357cfd9, type: 3}
       propertyPath: m_WarningMessage
-      value: "\nBinding warning: Some generic clip(s) animate transforms that are
-        already bound by a Humanoid avatar. These transforms can only be changed
-        by Humanoid clips.\n\tTransform 'mixamorig:Hips'\n\tTransform 'mixamorig:LeftFoot'\n\tTransform
-        'mixamorig:LeftHandThumb2'\n\tTransform 'mixamorig:LeftHandIndex1'\n\tTransform
-        'mixamorig:LeftHandPinky2'\n\tTransform 'mixamorig:RightHandRing2'\n\tTransform
-        'mixamorig:Spine1'\n\tTransform 'mixamorig:RightArm'\n\tTransform 'mixamorig:LeftLeg'\n\tTransform
-        'mixamorig:LeftHandMiddle3'\n\tand more ...\n\tFrom animation clip 'Salute'"
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2881922569559209746, guid: 2b978ed2db54e9947aaf5caf7357cfd9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9991,13 +9957,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1539566699391520168, guid: 05eceb70720090547a3968d2bef41d51, type: 3}
       propertyPath: m_WarningMessage
-      value: "\nBinding warning: Some generic clip(s) animate transforms that are
-        already bound by a Humanoid avatar. These transforms can only be changed
-        by Humanoid clips.\n\tTransform 'mixamorig:Hips'\n\tTransform 'mixamorig:LeftFoot'\n\tTransform
-        'mixamorig:LeftHandThumb2'\n\tTransform 'mixamorig:LeftHandIndex1'\n\tTransform
-        'mixamorig:LeftHandPinky2'\n\tTransform 'mixamorig:RightHandRing2'\n\tTransform
-        'mixamorig:Spine1'\n\tTransform 'mixamorig:RightArm'\n\tTransform 'mixamorig:LeftLeg'\n\tTransform
-        'mixamorig:LeftHandMiddle3'\n\tand more ...\n\tFrom animation clip 'Salute'"
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2851142635607406776, guid: 05eceb70720090547a3968d2bef41d51, type: 3}
       propertyPath: m_Name
@@ -11476,13 +11436,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2794932302233475515, guid: 2b978ed2db54e9947aaf5caf7357cfd9, type: 3}
       propertyPath: m_WarningMessage
-      value: "\nBinding warning: Some generic clip(s) animate transforms that are
-        already bound by a Humanoid avatar. These transforms can only be changed
-        by Humanoid clips.\n\tTransform 'mixamorig:Hips'\n\tTransform 'mixamorig:LeftFoot'\n\tTransform
-        'mixamorig:LeftHandThumb2'\n\tTransform 'mixamorig:LeftHandIndex1'\n\tTransform
-        'mixamorig:LeftHandPinky2'\n\tTransform 'mixamorig:RightHandRing2'\n\tTransform
-        'mixamorig:Spine1'\n\tTransform 'mixamorig:RightArm'\n\tTransform 'mixamorig:LeftLeg'\n\tTransform
-        'mixamorig:LeftHandMiddle3'\n\tand more ...\n\tFrom animation clip 'Salute'"
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2881922569559209746, guid: 2b978ed2db54e9947aaf5caf7357cfd9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -13579,13 +13533,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2794932302233475515, guid: 2b978ed2db54e9947aaf5caf7357cfd9, type: 3}
       propertyPath: m_WarningMessage
-      value: "\nBinding warning: Some generic clip(s) animate transforms that are
-        already bound by a Humanoid avatar. These transforms can only be changed
-        by Humanoid clips.\n\tTransform 'mixamorig:Hips'\n\tTransform 'mixamorig:LeftFoot'\n\tTransform
-        'mixamorig:LeftHandThumb2'\n\tTransform 'mixamorig:LeftHandIndex1'\n\tTransform
-        'mixamorig:LeftHandPinky2'\n\tTransform 'mixamorig:RightHandRing2'\n\tTransform
-        'mixamorig:Spine1'\n\tTransform 'mixamorig:RightArm'\n\tTransform 'mixamorig:LeftLeg'\n\tTransform
-        'mixamorig:LeftHandMiddle3'\n\tand more ...\n\tFrom animation clip 'Salute'"
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2881922569559209746, guid: 2b978ed2db54e9947aaf5caf7357cfd9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -14892,13 +14840,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2794932302233475515, guid: 2b978ed2db54e9947aaf5caf7357cfd9, type: 3}
       propertyPath: m_WarningMessage
-      value: "\nBinding warning: Some generic clip(s) animate transforms that are
-        already bound by a Humanoid avatar. These transforms can only be changed
-        by Humanoid clips.\n\tTransform 'mixamorig:Hips'\n\tTransform 'mixamorig:LeftFoot'\n\tTransform
-        'mixamorig:LeftHandThumb2'\n\tTransform 'mixamorig:LeftHandIndex1'\n\tTransform
-        'mixamorig:LeftHandPinky2'\n\tTransform 'mixamorig:RightHandRing2'\n\tTransform
-        'mixamorig:Spine1'\n\tTransform 'mixamorig:RightArm'\n\tTransform 'mixamorig:LeftLeg'\n\tTransform
-        'mixamorig:LeftHandMiddle3'\n\tand more ...\n\tFrom animation clip 'Salute'"
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7122298860178031981, guid: 2b978ed2db54e9947aaf5caf7357cfd9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -15355,13 +15297,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2794932302233475515, guid: 2b978ed2db54e9947aaf5caf7357cfd9, type: 3}
       propertyPath: m_WarningMessage
-      value: "\nBinding warning: Some generic clip(s) animate transforms that are
-        already bound by a Humanoid avatar. These transforms can only be changed
-        by Humanoid clips.\n\tTransform 'mixamorig:Hips'\n\tTransform 'mixamorig:LeftFoot'\n\tTransform
-        'mixamorig:LeftHandThumb2'\n\tTransform 'mixamorig:LeftHandIndex1'\n\tTransform
-        'mixamorig:LeftHandPinky2'\n\tTransform 'mixamorig:RightHandRing2'\n\tTransform
-        'mixamorig:Spine1'\n\tTransform 'mixamorig:RightArm'\n\tTransform 'mixamorig:LeftLeg'\n\tTransform
-        'mixamorig:LeftHandMiddle3'\n\tand more ...\n\tFrom animation clip 'Salute'"
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2881922569559209746, guid: 2b978ed2db54e9947aaf5caf7357cfd9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -16766,13 +16702,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1539566699391520168, guid: 05eceb70720090547a3968d2bef41d51, type: 3}
       propertyPath: m_WarningMessage
-      value: "\nBinding warning: Some generic clip(s) animate transforms that are
-        already bound by a Humanoid avatar. These transforms can only be changed
-        by Humanoid clips.\n\tTransform 'mixamorig:Hips'\n\tTransform 'mixamorig:LeftFoot'\n\tTransform
-        'mixamorig:LeftHandThumb2'\n\tTransform 'mixamorig:LeftHandIndex1'\n\tTransform
-        'mixamorig:LeftHandPinky2'\n\tTransform 'mixamorig:RightHandRing2'\n\tTransform
-        'mixamorig:Spine1'\n\tTransform 'mixamorig:RightArm'\n\tTransform 'mixamorig:LeftLeg'\n\tTransform
-        'mixamorig:LeftHandMiddle3'\n\tand more ...\n\tFrom animation clip 'Salute'"
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1572070601549956433, guid: 05eceb70720090547a3968d2bef41d51, type: 3}
       propertyPath: m_LocalPosition.x
@@ -18112,13 +18042,13 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1799306720}
+  - {fileID: 1362742937}
   - {fileID: 1335679976}
   - {fileID: 907292808}
   - {fileID: 900356989}
   - {fileID: 948015789}
   - {fileID: 738850534}
   - {fileID: 1131287323}
-  - {fileID: 1362742937}
   - {fileID: 1741534934}
   - {fileID: 1320396866}
   - {fileID: 518931037}
