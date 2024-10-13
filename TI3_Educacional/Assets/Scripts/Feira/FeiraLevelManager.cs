@@ -17,6 +17,7 @@ public class FeiraLevelManager : MonoBehaviour
     [SerializeField] List<SOFruit> chosenFruits;
     [SerializeField] List<SOFruit> fruits;
     [SerializeField] List<Stand> stands = new List<Stand>();
+    [SerializeField] FruitSpritesTween fruitSpritesTween;
 
     [Header("Customer Options")]
     public float NPCSpeed = 3f;
@@ -56,6 +57,7 @@ public class FeiraLevelManager : MonoBehaviour
         collectedFruit = new bool[numberOfFruits];
         PickFruits();
         GiveChosenFruits();
+        fruitSpritesTween.GiveFruitSprites();
         GiveRemainingFruits();
         StartCustomers(customersDifficulty);
     }

@@ -202,7 +202,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9951956}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
   m_Name: 
@@ -217,7 +217,7 @@ MonoBehaviour:
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
-  m_ChildControlHeight: 1
+  m_ChildControlHeight: 0
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
@@ -340,6 +340,7 @@ GameObject:
   - component: {fileID: 23294897}
   - component: {fileID: 23294896}
   - component: {fileID: 23294895}
+  - component: {fileID: 23294898}
   m_Layer: 7
   m_Name: GameCanvas
   m_TagString: Untagged
@@ -431,6 +432,25 @@ Canvas:
   m_SortingLayerID: 1572899091
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &23294898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 23294893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38af2a64f37d99b498d73cace41365c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initHeight: -0.1
+  rectTransform:
+  - {fileID: 2007916517}
+  - {fileID: 843279316}
+  - {fileID: 698561767}
+  delay: 2
+  duration: 1.5
 --- !u!1 &27296944
 GameObject:
   m_ObjectHideFlags: 0
@@ -5625,10 +5645,10 @@ RectTransform:
   - {fileID: 1890970751}
   m_Father: {fileID: 9951957}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0.3675, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 1.1665832, y: -0.18554997}
+  m_SizeDelta: {x: 0.3675, y: 0.37109995}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &698561768
 CanvasRenderer:
@@ -6266,10 +6286,10 @@ RectTransform:
   - {fileID: 1633867153}
   m_Father: {fileID: 9951957}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0.3675, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 0.69995, y: -0.18554997}
+  m_SizeDelta: {x: 0.3675, y: 0.37109995}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &843279317
 CanvasRenderer:
@@ -7893,6 +7913,7 @@ MonoBehaviour:
   - {fileID: 298777445}
   - {fileID: 715789138}
   - {fileID: 373694328}
+  fruitSpritesTween: {fileID: 23294898}
   NPCSpeed: 5
   customersDifficulty: 1
   poucosCustomers:
@@ -14750,10 +14771,10 @@ RectTransform:
   - {fileID: 1842001900}
   m_Father: {fileID: 9951957}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0.3675, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 0.23331666, y: -0.18554997}
+  m_SizeDelta: {x: 0.3675, y: 0.37109995}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2007916518
 CanvasRenderer:
