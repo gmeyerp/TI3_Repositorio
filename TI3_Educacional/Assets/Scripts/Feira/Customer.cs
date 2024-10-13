@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Customer : MonoBehaviour
 {
@@ -14,6 +15,10 @@ public class Customer : MonoBehaviour
     [SerializeField] AudioClip[] playerOnPathSFX;
     [SerializeField] AudioClip[] collisionSFX;
     [SerializeField] AudioSource audioSource;
+    [SerializeField] GameObject model;
+    [SerializeField] Animator animator;
+    UnityEvent changeWaypoint = new UnityEvent();
+    bool isWaiting;
     float mag;
     bool isOnPath;
     float audioTimer;
@@ -30,6 +35,12 @@ public class Customer : MonoBehaviour
     private void Start()
     {
         speed = FeiraLevelManager.instance.NPCSpeed;
+        changeWaypoint.AddListener(NewWaypoint);
+
+        if (FeiraLevelManager.instance.customerStops)
+        {
+            changeWaypoint.AddListener(StartWaiting);
+        }
     }
     private void Update()
     {
@@ -54,10 +65,13 @@ public class Customer : MonoBehaviour
                 audioSource.PlayOneShot(playerOnPathSFX[sfx]);
             }
         }
-        characterController.SimpleMove(direction.normalized * speed);
+        if (!isWaiting)
+        {
+            characterController.SimpleMove(direction.normalized * speed);
+        }
         if (direction.magnitude < 0.1f)
         {
-            NewWaypoint();
+            changeWaypoint.Invoke();
         }
     }
 
@@ -77,19 +91,37 @@ public class Customer : MonoBehaviour
                 currentWaypoint += modifier;
             }
         }
+
+        model.transform.LookAt(waypoints[currentWaypoint]);
+    }
+
+    public void StartWaiting()
+    {
+        animator.SetBool("isWalking", false);
+        isWaiting = true;
     }
 
     public void OnControllerColliderHit(ControllerColliderHit hit)
     {
         if(hit.collider.gameObject.CompareTag("Player"))
         {
+
+            animator.SetBool("isHit", true);
+            isWaiting = true;
+
             FeiraLevelManager.instance.PlayerHit();
             if (!FeiraLevelManager.instance.isInvulnerable)
             {
                 int sfx = Random.Range(0, collisionSFX.Length);
                 audioSource.PlayOneShot(collisionSFX[sfx]);
-            }
-            
+            }            
         }
+    }
+
+    public void InterruptionOver()
+    {
+        isWaiting = false;
+        animator.SetBool("isWalking", true);
+        animator.SetBool("isHit", false);
     }
 }

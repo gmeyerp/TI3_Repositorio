@@ -38,6 +38,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        if (FeiraLevelManager.instance.isPaused) return;
         Accelerometer accelerometer = Accelerometer.current;
         GravitySensor gravitySensor = GravitySensor.current;
         if (!accelerometer.enabled)
@@ -93,6 +94,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (FeiraLevelManager.instance.isPaused) return;
         if (movement != Vector3.zero)
         {
             player.Move(movement);

@@ -9,6 +9,7 @@ public class Stand : MonoBehaviour
     [SerializeField] GameObject interactSpot;
     [SerializeField] AudioClip fruitAudio;
     [SerializeField] AudioSource audioSource;
+    [SerializeField] Animator animator;
     int chosenFruitIndex = -1;
     public bool isChosen;
     public bool hasFruit = false;
@@ -24,10 +25,20 @@ public class Stand : MonoBehaviour
         
     }
 
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer == 7 && isChosen) //PlayerLayer
         {
+            animator.SetBool("playerClose", true);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.layer == 7 && isChosen && !FeiraLevelManager.instance.collectedFruit[chosenFruitIndex]) //PlayerLayer
+        {
+            animator.SetBool("playerClose", false);
+            animator.SetTrigger("playerExit");
             audioSource.PlayOneShot(fruitInfo.announceClip);
         }
     }

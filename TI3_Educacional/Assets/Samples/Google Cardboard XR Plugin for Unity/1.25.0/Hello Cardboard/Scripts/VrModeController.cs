@@ -33,6 +33,7 @@ using InputSystemTouchPhase = UnityEngine.InputSystem.TouchPhase;
 /// </summary>
 public class VrModeController : MonoBehaviour
 {
+    [SerializeField] GameObject pauseMenu;
     // Field of view value to be used when the scene is not in VR mode. In case
     // XR isn't initialized on startup, this value could be taken from the main
     // camera and stored.
@@ -93,6 +94,7 @@ public class VrModeController : MonoBehaviour
     /// </summary>
     public void Update()
     {
+        if (pauseMenu.activeSelf) return;
         if (_isVrModeEnabled)
         {
             if (Api.IsCloseButtonPressed)
@@ -165,6 +167,7 @@ public class VrModeController : MonoBehaviour
     /// </summary>
     private void ExitVR()
     {
+        pauseMenu.SetActive(true);
         StopXR();
     }
 
@@ -212,6 +215,6 @@ public class VrModeController : MonoBehaviour
         _mainCamera.ResetAspect();
         _mainCamera.fieldOfView = _defaultFieldOfView;
 
-        SceneManager.LoadScene("Level Selection");
+        //SceneManager.LoadScene("Level Selection"); alterado para o botão de confirmação
     }
 }
