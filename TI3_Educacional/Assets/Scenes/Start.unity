@@ -372,6 +372,7 @@ GameObject:
   - component: {fileID: 118668364}
   - component: {fileID: 118668366}
   - component: {fileID: 118668365}
+  - component: {fileID: 118668367}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -441,6 +442,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 118668363}
   m_CullTransparentMesh: 1
+--- !u!114 &118668367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 118668363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd2a332e0b97fc941bc108e96ef21503, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttons:
+  - {fileID: 1771818951}
+  - {fileID: 489380524}
+  - {fileID: 1336856297}
+  - {fileID: 1656721550}
+  delay: 0.5
 --- !u!1 &224003745
 GameObject:
   m_ObjectHideFlags: 0
@@ -452,6 +471,7 @@ GameObject:
   - component: {fileID: 224003746}
   - component: {fileID: 224003748}
   - component: {fileID: 224003747}
+  - component: {fileID: 224003749}
   m_Layer: 5
   m_Name: Titulo
   m_TagString: Untagged
@@ -473,11 +493,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 118668364}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.56181246}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.00024414062, y: 0.00012207031}
-  m_SizeDelta: {x: 0.00012207, y: 0}
-  m_Pivot: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 539.5}
+  m_SizeDelta: {x: 1696.0001, y: 841}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &224003747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -525,7 +545,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 158.85
+  m_fontSize: 200
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -575,6 +595,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 224003745}
   m_CullTransparentMesh: 1
+--- !u!114 &224003749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 224003745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33096b1b490169f45b9576db9353829e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startSize: 0
+  maxSize: 1
+  tweenType: 30
+  time: 2.5
 --- !u!1 &316090761
 GameObject:
   m_ObjectHideFlags: 0
@@ -1741,7 +1777,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 169.1
+  m_fontSize: 200
   m_fontSizeBase: 121.5
   m_fontWeight: 400
   m_enableAutoSizing: 1
