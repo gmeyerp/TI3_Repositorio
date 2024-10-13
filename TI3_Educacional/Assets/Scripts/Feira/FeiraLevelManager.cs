@@ -24,6 +24,7 @@ public class FeiraLevelManager : MonoBehaviour
     [SerializeField] GameObject[] poucosCustomers;
     [SerializeField] GameObject[] medioCustomers;
     [SerializeField] GameObject[] muitosCustomers;
+    public bool customerStops;
 
     [Header("Tutorial")]
     public bool isStartDone;

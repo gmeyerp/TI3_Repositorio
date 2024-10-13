@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Customer : MonoBehaviour
 {
@@ -16,7 +17,8 @@ public class Customer : MonoBehaviour
     [SerializeField] AudioSource audioSource;
     [SerializeField] GameObject model;
     [SerializeField] Animator animator;
-    bool isGreeting;
+    UnityEvent changeWaypoint = new UnityEvent();
+    bool isWaiting;
     float mag;
     bool isOnPath;
     float audioTimer;
@@ -33,6 +35,12 @@ public class Customer : MonoBehaviour
     private void Start()
     {
         speed = FeiraLevelManager.instance.NPCSpeed;
+        changeWaypoint.AddListener(NewWaypoint);
+
+        if (FeiraLevelManager.instance.customerStops)
+        {
+            changeWaypoint.AddListener(StartWaiting);
+        }
     }
     private void Update()
     {
@@ -57,13 +65,13 @@ public class Customer : MonoBehaviour
                 audioSource.PlayOneShot(playerOnPathSFX[sfx]);
             }
         }
-        if (!isGreeting)
+        if (!isWaiting)
         {
             characterController.SimpleMove(direction.normalized * speed);
         }
         if (direction.magnitude < 0.1f)
         {
-            NewWaypoint();
+            changeWaypoint.Invoke();
         }
     }
 
@@ -85,9 +93,12 @@ public class Customer : MonoBehaviour
         }
 
         model.transform.LookAt(waypoints[currentWaypoint]);
-        animator.SetBool("isWalking", false);
-        isGreeting = true;
+    }
 
+    public void StartWaiting()
+    {
+        animator.SetBool("isWalking", false);
+        isWaiting = true;
     }
 
     public void OnControllerColliderHit(ControllerColliderHit hit)
@@ -106,7 +117,7 @@ public class Customer : MonoBehaviour
 
     public void GreetingOver()
     {
-        isGreeting = false;
+        isWaiting = false;
         animator.SetBool("isWalking", true);
     }
 }
