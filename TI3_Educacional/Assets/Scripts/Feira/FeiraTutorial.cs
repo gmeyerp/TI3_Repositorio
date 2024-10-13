@@ -9,11 +9,6 @@ public class FeiraTutorial : MonoBehaviour
     [SerializeField] float correctAngle;
     [SerializeField] Animator tutorialSpriteAnim;
     [SerializeField] TextMeshProUGUI txt;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()

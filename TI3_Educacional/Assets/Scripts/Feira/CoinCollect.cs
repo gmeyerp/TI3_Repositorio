@@ -6,56 +6,79 @@ using UnityEngine.UI;
 
 public class CoinCollect : MonoBehaviour
 {
-    [SerializeField] private Color inactiveColor; // Referência a cor quando jogador não estiver olhando
-    [SerializeField] private Color activeColor; // Referência a cor quando jogador estiver olhando
+    public bool collected;
+
+    [Header("Color Coins")]
+    [SerializeField] private Color inactiveColor; // Referï¿½ncia a cor quando jogador nï¿½o estiver olhando
+    [SerializeField] private Color activeColor; // Referï¿½ncia a cor quando jogador estiver olhando
+    [SerializeField] private Color limitColor; // ReferÃªncia a cor de quando o jogador ultrapassar o limite de moedas necessÃ¡rias
+
+    [Header("Coin Value and Images")]
+    [SerializeField] public int valueCoin; // Valor da moeda
+    [SerializeField] public Image coinsCollected;
+    [SerializeField] GameObject objectCanvas;
+    [SerializeField] Image completion;
+
 
     private MeshRenderer meshRenderer;
     private Collider coinCollider;
-    [SerializeField] GameObject objectCanvas;
-    [SerializeField] Image completion;
 
     private void Start() 
     {
         //Ativando o MeshRenderer e o Collider da moeda
         meshRenderer = GetComponent<MeshRenderer>(); 
         coinCollider = GetComponent<Collider>();
+        collected = false;
 
         meshRenderer.material.color = inactiveColor; //Atribui ao material a cor inativa
+    }
+    
+    public void Update()
+    {
+        if (MiniGameManager.Instance.coinsAcquired > MiniGameManager.Instance.coinsToPurchase)
+        {
+            //Quando ultrapassar o valor necessario de moedas elas ficarÃ£o vermelhas.
+            meshRenderer.material.color = limitColor;
+        }
     }
 
     public void ChangeColorOnLook(bool isLooking)
     {
-        float lerpSpeed = Time.deltaTime / PlayerRayCast.instance.timeToCollect;
+        float lerpSpeed = Time.deltaTime / PlayerRayCast.Instance.timeToCollect;
 
-        if (isLooking)
+        if (MiniGameManager.Instance.coinsAcquired > MiniGameManager.Instance.coinsToPurchase)
         {
-            //Quando estiver olhando, alterará a cor atual até a cor ativa com o metodo Color.Lerp
+            //Quando ultrapassar o valor necessario de moedas elas ficarÃ£o vermelhas.
+            meshRenderer.material.color = limitColor;
+        }
+        else if (isLooking && collected)
+        {
+            meshRenderer.material.color = Color.Lerp(meshRenderer.material.color, inactiveColor, lerpSpeed);
+        }
+        else if (isLooking && !collected)
+        {
+            //Quando estiver olhando, alterarï¿½ a cor atual atï¿½ a cor ativa com o metodo Color.Lerp
             meshRenderer.material.color = Color.Lerp(meshRenderer.material.color, activeColor, lerpSpeed);
-            completion.fillAmount += (Time.deltaTime / PlayerRayCast.instance.timeToCollect);
-            completion.color = meshRenderer.material.color;
         }
-        else
-        {
-            if (meshRenderer.material.color != inactiveColor) // Se a cor atual for diferente da cor inativa
-            {
-                //Quando não estiver olhando, alterará a cor atual até a cor inativa com o metodo Color.Lerp
-                meshRenderer.material.color = Color.Lerp(meshRenderer.material.color, inactiveColor, lerpSpeed);
-                completion.fillAmount = 0;
-            }
-            else
-            {
-                meshRenderer.material.color = inactiveColor;
-                completion.fillAmount = 0;
-                completion.color = inactiveColor;
-            }
-        }
+
     }
 
     public void Collect()
     {
-        Debug.Log("Moeda coletada!");
-        MiniGameManager.instance.coinsAdquired++;
-        MiniGameManager.instance.GetoutMiniGame();
-        Destroy(gameObject);
+        Debug.Log("Moeda selecionada!");
+        MiniGameManager.Instance.coinsAcquired += valueCoin;
+
+        MiniGameManager.Instance.GetoutMiniGame();
+        CoinInfos.Instance.UpdateDisplayCoin();
+        //Destroy(gameObject);
+    }
+
+    public void UnCollect()
+    {
+        Debug.Log("Moeda deselecionada!");
+        MiniGameManager.Instance.coinsAcquired -= valueCoin;
+
+        MiniGameManager.Instance.GetoutMiniGame();
+        CoinInfos.Instance.UpdateDisplayCoin();
     }
 }

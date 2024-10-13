@@ -72,9 +72,9 @@ public class GameManager : MonoBehaviour
     public void Quit()
     {
         ButtonClicked();
-#if UNITY_EDITOR
+        #if UNITY_EDITOR
         // Sai do modo de jogo do editor
-        UnityEditor.EditorApplication.isPlaying = false;
+            UnityEditor.EditorApplication.isPlaying = false;
         #else
             // Sai da aplicação
             Application.Quit();
