@@ -18,19 +18,21 @@ public class CoinCollect : MonoBehaviour
     [SerializeField] public Image coinsCollected;
     [SerializeField] GameObject objectCanvas;
     [SerializeField] Image completion;
+    [SerializeField] SpriteRenderer coinSprite;
 
 
-    private MeshRenderer meshRenderer;
+    //private MeshRenderer meshRenderer;
     private Collider coinCollider;
 
     private void Start() 
     {
         //Ativando o MeshRenderer e o Collider da moeda
-        meshRenderer = GetComponent<MeshRenderer>(); 
+        //meshRenderer = GetComponent<MeshRenderer>(); 
+        coinSprite = GetComponent<SpriteRenderer>();
         coinCollider = GetComponent<Collider>();
         collected = false;
 
-        meshRenderer.material.color = inactiveColor; //Atribui ao material a cor inativa
+        coinSprite.color = inactiveColor; //Atribui ao material a cor inativa
     }
     
     public void Update()
@@ -38,7 +40,7 @@ public class CoinCollect : MonoBehaviour
         if (MiniGameManager.Instance.coinsAcquired > MiniGameManager.Instance.coinsToPurchase)
         {
             //Quando ultrapassar o valor necessario de moedas elas ficarão vermelhas.
-            meshRenderer.material.color = limitColor;
+            coinSprite.color = limitColor;
         }
     }
 
@@ -49,24 +51,27 @@ public class CoinCollect : MonoBehaviour
         if (MiniGameManager.Instance.coinsAcquired > MiniGameManager.Instance.coinsToPurchase)
         {
             //Quando ultrapassar o valor necessario de moedas elas ficarão vermelhas.
-            meshRenderer.material.color = limitColor;
+            coinSprite.color = limitColor;
         }
         else if (isLooking && collected)
         {
-            meshRenderer.material.color = Color.Lerp(meshRenderer.material.color, inactiveColor, lerpSpeed);
+            coinSprite.color = Color.Lerp(coinSprite.color, inactiveColor, lerpSpeed);
         }
         else if (isLooking && !collected)
         {
             //Quando estiver olhando, alterar� a cor atual at� a cor ativa com o metodo Color.Lerp
-            meshRenderer.material.color = Color.Lerp(meshRenderer.material.color, activeColor, lerpSpeed);
+            coinSprite.color = Color.Lerp(coinSprite.color, activeColor, lerpSpeed);
+            completion.fillAmount += lerpSpeed;
         }
-
+        completion.color = coinSprite.color;
     }
 
     public void Collect()
     {
         Debug.Log("Moeda selecionada!");
         MiniGameManager.Instance.coinsAcquired += valueCoin;
+        completion.fillAmount = 0;
+        completion.color = inactiveColor;
 
         MiniGameManager.Instance.GetoutMiniGame();
         CoinInfos.Instance.UpdateDisplayCoin();
@@ -77,6 +82,9 @@ public class CoinCollect : MonoBehaviour
     {
         Debug.Log("Moeda deselecionada!");
         MiniGameManager.Instance.coinsAcquired -= valueCoin;
+        coinSprite.color = inactiveColor;
+        completion.fillAmount = 0;
+        completion.color = coinSprite.color;
 
         MiniGameManager.Instance.GetoutMiniGame();
         CoinInfos.Instance.UpdateDisplayCoin();

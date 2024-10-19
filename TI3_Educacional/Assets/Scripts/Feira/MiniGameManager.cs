@@ -22,6 +22,9 @@ public class MiniGameManager : MonoBehaviour
     [Header("Value Coins")]
     [SerializeField] public int coinsAcquired; // Moedas que o player tem
     [SerializeField] public int coinsToPurchase; // Moedas necessarias para comprar o item
+    [SerializeField] int minValue = 20;
+    [SerializeField] int maxValue = 300;
+
     
     [Header("Player")]
     [SerializeField] private GameObject player;
@@ -203,7 +206,7 @@ public class MiniGameManager : MonoBehaviour
     public void NewPrice()
     {
         ResetValueCoin();
-        coinsToPurchase = Random.Range(50, 300);
+        coinsToPurchase = Random.Range(minValue, maxValue);
         Debug.Log($"Moedas para conseguir é de {coinsToPurchase}");
     }
     #endregion
