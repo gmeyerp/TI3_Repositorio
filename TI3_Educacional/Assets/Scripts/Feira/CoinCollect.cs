@@ -37,7 +37,7 @@ public class CoinCollect : MonoBehaviour
     
     public void Update()
     {
-        if (MiniGameManager.Instance.coinsAcquired > MiniGameManager.Instance.coinsToPurchase)
+        if (MiniGameManager.Instance.coinsAcquired > MiniGameManager.Instance.coinsToPurchase && collected)
         {
             //Quando ultrapassar o valor necessario de moedas elas ficarão vermelhas.
             coinSprite.color = limitColor;
