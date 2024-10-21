@@ -48,7 +48,7 @@ public class Stand : MonoBehaviour
         fruitInfo = fruit;
         foreach (Transform spot in fruitSpot)
         {
-            Instantiate(fruit.prefab, spot.position, fruit.prefab.transform.rotation, transform);
+            Instantiate(fruit.prefab, spot.position, spot.transform.rotation, transform);
         }
         hasFruit = true;
         interactSpot.SetActive(false);
