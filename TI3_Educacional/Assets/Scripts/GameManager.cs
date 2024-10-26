@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
 
     public void LevelSelection()
     {
+        Screen.orientation = ScreenOrientation.Portrait;
         SceneManager.LoadScene("Level Selection");
         ButtonClicked();
     }
@@ -37,6 +38,7 @@ public class GameManager : MonoBehaviour
 
     public void StartFeira()
     {
+        Screen.orientation = ScreenOrientation.LandscapeLeft;
         SceneManager.LoadScene("Feira");
         ButtonClicked();
     }
@@ -48,6 +50,7 @@ public class GameManager : MonoBehaviour
 
     public void StartAccelerometer()
     {
+        Screen.orientation = ScreenOrientation.LandscapeLeft;
         SceneManager.LoadScene("Acelerometro");
         ButtonClicked();
     }
