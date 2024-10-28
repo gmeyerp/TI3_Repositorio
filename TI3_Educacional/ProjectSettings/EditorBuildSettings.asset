@@ -15,8 +15,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Credits.unity
     guid: 52763a0a447e35b439f553b46c47edcf
   - enabled: 1
-    path: Assets/Scenes/Level Selection.unity
-    guid: 23decdc4c5fb3724abac986394ef787a
+    path: Assets/Scenes/Level Info.unity
+    guid: ff8daffd5a78442499736c7eb4d9942c
   - enabled: 1
     path: Assets/Scenes/Feira Info.unity
     guid: ab7dbc7725463a84f8aa798891376000

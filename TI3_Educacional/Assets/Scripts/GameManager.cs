@@ -7,20 +7,31 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] TweenFade fade;
+    [SerializeField] CanvasGroup fadeGroup;
+    [SerializeField] float fadeOutTime = 0.5f;
+    [SerializeField] float fadeInTime = 0.5f;
+
+    private void Start()
+    {
+        Debug.Log("Teste");
+        fadeGroup.alpha = 1f;
+        LeanTween.init();
+        LeanTween.alphaCanvas(fadeGroup, 1, 0f);
+        LeanTween.alphaCanvas(fadeGroup, 0, fadeInTime);
+    }
     public IEnumerator ChangeScene(string sceneName, ScreenOrientation orientation)
     {
-        if (fade != null)
+        if (fadeGroup != null)
         {
-            LeanTween.alpha(gameObject, 0, 0f);
-            LeanTween.alpha(gameObject, 1, fade.time).setOnComplete(() => Screen.orientation = orientation);
+            LeanTween.alphaCanvas(fadeGroup, 0, 0f);
+            LeanTween.alphaCanvas(fadeGroup, 1, fadeOutTime).setOnComplete(() => Screen.orientation = orientation);
         }
         else
         {
             Screen.orientation = orientation;
         }
         
-        yield return new WaitForSeconds(1f + fade.time);
+        yield return new WaitForSeconds(1f + fadeOutTime);
         SceneManager.LoadScene(sceneName);
     }
     public void Config()
@@ -44,7 +55,7 @@ public class GameManager : MonoBehaviour
     public void LevelSelection()
     {
         ButtonClicked();
-        StartCoroutine("Level Selection", ScreenOrientation.Portrait);
+        StartCoroutine(ChangeScene("Level Info", ScreenOrientation.Portrait));
     }
 
 
@@ -57,7 +68,7 @@ public class GameManager : MonoBehaviour
     public void StartFeira()
     {
         ButtonClicked();
-        StartCoroutine("Feira", ScreenOrientation.LandscapeLeft);
+        StartCoroutine(ChangeScene("Feira", ScreenOrientation.LandscapeLeft));
         
     }
     public void InfoFeira()
@@ -69,7 +80,7 @@ public class GameManager : MonoBehaviour
     public void StartAccelerometer()
     {
         ButtonClicked();
-        StartCoroutine("Acelerometro", ScreenOrientation.LandscapeLeft);
+        StartCoroutine(ChangeScene("Acelerometro", ScreenOrientation.LandscapeLeft));
     }
 
     public void InfoAccelerometer()
