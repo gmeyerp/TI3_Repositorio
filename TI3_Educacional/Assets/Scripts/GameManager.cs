@@ -1,10 +1,28 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] TweenFade fade;
+    public IEnumerator ChangeScene(string sceneName, ScreenOrientation orientation)
+    {
+        if (fade != null)
+        {
+            LeanTween.alpha(gameObject, 0, 0f);
+            LeanTween.alpha(gameObject, 1, fade.time).setOnComplete(() => Screen.orientation = orientation);
+        }
+        else
+        {
+            Screen.orientation = orientation;
+        }
+        
+        yield return new WaitForSeconds(1f + fade.time);
+        SceneManager.LoadScene(sceneName);
+    }
     public void Config()
     {
         SceneManager.LoadScene("Config");
@@ -25,10 +43,10 @@ public class GameManager : MonoBehaviour
 
     public void LevelSelection()
     {
-        Screen.orientation = ScreenOrientation.Portrait;
-        SceneManager.LoadScene("Level Selection");
         ButtonClicked();
+        StartCoroutine("Level Selection", ScreenOrientation.Portrait);
     }
+
 
     public void LevelInfo()
     {
@@ -38,9 +56,9 @@ public class GameManager : MonoBehaviour
 
     public void StartFeira()
     {
-        Screen.orientation = ScreenOrientation.LandscapeLeft;
-        SceneManager.LoadScene("Feira");
         ButtonClicked();
+        StartCoroutine("Feira", ScreenOrientation.LandscapeLeft);
+        
     }
     public void InfoFeira()
     {
@@ -50,9 +68,8 @@ public class GameManager : MonoBehaviour
 
     public void StartAccelerometer()
     {
-        Screen.orientation = ScreenOrientation.LandscapeLeft;
-        SceneManager.LoadScene("Acelerometro");
         ButtonClicked();
+        StartCoroutine("Acelerometro", ScreenOrientation.LandscapeLeft);
     }
 
     public void InfoAccelerometer()
@@ -71,6 +88,8 @@ public class GameManager : MonoBehaviour
     {
         Gerenciador_Audio.TocarSFX(Gerenciador_Audio.SFX.buttonClick);
     }
+
+    
 
     public void Quit()
     {
