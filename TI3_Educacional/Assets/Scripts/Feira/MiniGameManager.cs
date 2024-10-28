@@ -143,7 +143,7 @@ public class MiniGameManager : MonoBehaviour
 
             CoinInfos.Instance.textCoin.enabled = false;
         }
-        else
+        else if (coinsAcquired > coinsToPurchase)
         {
             if (FeiraLevelManager.instance.isTutorial == true)
             {

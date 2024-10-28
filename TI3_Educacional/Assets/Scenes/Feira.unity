@@ -317,7 +317,7 @@ MonoBehaviour:
   coinsActive: []
   spawnCenter: {fileID: 434331833}
   radius: 10
-  timeToSpawn: 4
+  timeToSpawn: 2
   spawnTimer: 0
   waitTeleportTime: 3
   coinsAcquired: 0
