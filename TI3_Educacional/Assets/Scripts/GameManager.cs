@@ -13,7 +13,6 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("Teste");
         fadeGroup.alpha = 1f;
         LeanTween.init();
         LeanTween.alphaCanvas(fadeGroup, 1, 0f);

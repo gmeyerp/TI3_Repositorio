@@ -9,32 +9,78 @@ public class FeiraTutorial : MonoBehaviour
     [SerializeField] float correctAngle;
     [SerializeField] Animator tutorialSpriteAnim;
     [SerializeField] TextMeshProUGUI txt;
+    [SerializeField] TutorialSO moveTutorial;
+    [SerializeField] TutorialSO fruitTutorial;
+    [SerializeField] TutorialSO coinTutorial;
+    [SerializeField] TutorialSO collectTutorial;
+    [SerializeField] TutorialSO desselectTutorial;
 
+
+    public bool isFirstCoinDone;
+
+    public void DoTutorial(bool isTutorial)
+    {
+        if (isTutorial == false)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            moveTutorial.ShowText(txt);
+        }
+    }
     // Update is called once per frame
     void Update()
     {
         if (FeiraLevelManager.instance.isStartDone)
         {
-            Destroy(gameObject);
+            return;
+        }
+        else
+        {
+            float yAngle = player.transform.rotation.eulerAngles.y;
+            if (yAngle < correctAngle || yAngle > 360 - correctAngle)
+            {
+                tutorialSpriteAnim.Play("Default");
+            }
+            else if (yAngle < 360 - correctAngle && yAngle > 180)
+            {
+                tutorialSpriteAnim.Play("LookRight");
+            }
+            else
+            {
+                tutorialSpriteAnim.Play("LookLeft");
+            }
         }
 
         if (player.transform.position.z >= transform.position.z)
         {
             FeiraLevelManager.instance.isStartDone = true;
-        }
-
-        float yAngle = player.transform.rotation.eulerAngles.y;
-        if (yAngle < correctAngle || yAngle > 360 - correctAngle)
-        {
+            fruitTutorial.ShowText(txt);
             tutorialSpriteAnim.Play("Default");
-        }
-        else if (yAngle < 360 - correctAngle && yAngle > 180)
+        }              
+    }
+
+    public void StartCoinTutorial()
+    {
+        Debug.Log("Show text acontecendo");
+        coinTutorial.ShowText(txt);
+        StartCoroutine(coinTutorial.NextTutorial(txt));
+    }
+
+    public void DesselectCoinTutorial()
+    {
+        desselectTutorial.ShowText(txt);
+        desselectTutorial.HideText(txt);
+    }
+
+    public void FruitTutorial()
+    {
+        fruitTutorial.duration = 5f;
+        if (!FeiraLevelManager.instance.HasWin())
         {
-            tutorialSpriteAnim.Play("LookRight");
-        }
-        else
-        {
-            tutorialSpriteAnim.Play("LookLeft");
+            fruitTutorial.ShowText(txt);
+            fruitTutorial.HideText(txt);
         }
     }
 }

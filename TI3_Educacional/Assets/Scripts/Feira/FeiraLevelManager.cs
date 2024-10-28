@@ -30,7 +30,9 @@ public class FeiraLevelManager : MonoBehaviour
     public bool customerStops;
 
     [Header("Tutorial")]
+    public bool isTutorial = true;
     public bool isStartDone;
+    [SerializeField] FeiraTutorial feiraTutorial;
 
     [SerializeField] GameObject gameplayCanvas;
     float timer;
@@ -46,6 +48,7 @@ public class FeiraLevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        Screen.orientation = ScreenOrientation.LandscapeLeft;
         if (instance == null)
         { instance = this; }
         else { Destroy(gameObject); }
@@ -62,6 +65,7 @@ public class FeiraLevelManager : MonoBehaviour
         fruitSpritesTween.GiveFruitSprites();
         GiveRemainingFruits();
         StartCustomers(customersDifficulty);
+        feiraTutorial.DoTutorial(isTutorial);
     }
 
     private void Update()
