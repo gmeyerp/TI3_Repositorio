@@ -219,6 +219,11 @@ public class FeiraLevelManager : MonoBehaviour
         customersDifficulty = (FeiraCustomers)i;
     }
 
+    public FeiraCustomers GetCustomerDifficulty()
+    {
+        return customersDifficulty;
+    }
+
     public void StartCustomers()
     {
         foreach (GameObject c in allCustomers)

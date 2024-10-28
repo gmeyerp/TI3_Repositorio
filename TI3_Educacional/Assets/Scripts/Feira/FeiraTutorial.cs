@@ -10,6 +10,7 @@ public class FeiraTutorial : MonoBehaviour
     [SerializeField] Animator tutorialSpriteAnim;
     [SerializeField] TextMeshProUGUI txt;
     [SerializeField] TutorialSO moveTutorial;
+    [SerializeField] TutorialSO customerTutorial;
     [SerializeField] TutorialSO fruitTutorial;
     [SerializeField] TutorialSO coinTutorial;
     [SerializeField] TutorialSO collectTutorial;
@@ -82,5 +83,11 @@ public class FeiraTutorial : MonoBehaviour
             fruitTutorial.ShowText(txt);
             fruitTutorial.HideText(txt);
         }
+    }
+
+    public void CustomerTrigger()
+    {
+        customerTutorial.ShowText(txt);
+        customerTutorial.HideText(txt);
     }
 }

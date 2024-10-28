@@ -135,7 +135,12 @@ public class MiniGameManager : MonoBehaviour
         {
             TeleportToLastPosition();
             StopCoroutine(SpawnItens());
-            
+            if (FeiraLevelManager.instance.isTutorial == true)
+            {
+                Debug.Log("Start do Manager");
+                feiraTutorial.StartCoinTutorial();
+            }
+
             CoinInfos.Instance.textCoin.enabled = false;
         }
         else
