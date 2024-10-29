@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] CanvasGroup fadeGroup;
     [SerializeField] float fadeOutTime = 0.5f;
     [SerializeField] float fadeInTime = 0.5f;
+    [SerializeField] TabController tabController;
+    
 
     private void Start()
     {
@@ -51,6 +53,18 @@ public class GameManager : MonoBehaviour
         ButtonClicked();
     }
 
+    public void CloseWindow(GameObject close)
+    {
+        close.SetActive(false);
+        ButtonClicked();
+    }
+
+    public void OpenWindow(GameObject close)
+    {
+        close.SetActive(true);
+        ButtonClicked();
+    }
+
     public void LevelSelection()
     {
         ButtonClicked();
@@ -70,6 +84,21 @@ public class GameManager : MonoBehaviour
         StartCoroutine(ChangeScene("Feira", ScreenOrientation.LandscapeLeft));
         
     }
+    public void StartLevel()
+    {
+        ButtonClicked();
+        if (tabController.sceneName == "None" || tabController.sceneName == null)
+        {
+            Color original = tabController.playButton.image.color;
+            LeanTween.color(tabController.playButton.gameObject, Color.red, 0.2f);
+            LeanTween.color(tabController.playButton.gameObject, original, 0.2f).setDelay(0.2f);
+        }
+        else
+        {
+            StartCoroutine(ChangeScene(tabController.sceneName, ScreenOrientation.LandscapeLeft));
+        }
+    }
+
     public void InfoFeira()
     {
         SceneManager.LoadScene("Feira Info");
