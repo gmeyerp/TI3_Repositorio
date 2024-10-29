@@ -202,7 +202,7 @@ public class VrModeController : MonoBehaviour
     /// Stops and deinitializes the Cardboard XR plugin.
     /// See https://docs.unity3d.com/Packages/com.unity.xr.management@3.2/manual/index.html.
     /// </summary>
-    private void StopXR()
+    public void StopXR()
     {
         Debug.Log("Stopping XR...");
         XRGeneralSettings.Instance.Manager.StopSubsystems();

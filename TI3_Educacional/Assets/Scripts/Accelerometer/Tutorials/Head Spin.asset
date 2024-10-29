@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Head Spin
   m_EditorClassIdentifier: 
   duration: 6
-  text: Gire o celular para girar a barra roxa
+  text: "Gire a cabe\xE7a  para girar a barra roxa"
   image: {fileID: 0}
   nextTutorial: {fileID: 11400000, guid: a7fcf9d9eaf45324d86ed2469d1ec9fd, type: 2}

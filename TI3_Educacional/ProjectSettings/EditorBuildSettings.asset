@@ -29,6 +29,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Acelerometro.unity
     guid: cd890618471c2244db77c6fffce77aff
+  - enabled: 1
+    path: Assets/Scenes/VR Acelerometro.unity
+    guid: e0e6361de447e0247930cd05966d554e
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: c3ce9b90fd040714bb1f032ad0fa7239, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 096a88dcce3f5cc4fb730e81a2124a3b, type: 2}

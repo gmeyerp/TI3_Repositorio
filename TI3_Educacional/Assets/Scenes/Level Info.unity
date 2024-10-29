@@ -4853,8 +4853,10 @@ MonoBehaviour:
   - {fileID: 1576116176}
   - {fileID: 1114382774}
   - {fileID: 1390480888}
+  - {fileID: 3770110874380439144}
   configScrollAreas:
   - {fileID: 1143940334}
+  - {fileID: 1092067963006153508}
   - {fileID: 1092067963006153508}
   - {fileID: 1092067963006153508}
   configMainPanel: {fileID: 1220447761}
@@ -4865,6 +4867,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 23360aca9eea79d46be2b160d843870a, type: 2}
   - {fileID: 11400000, guid: 1d0eb8ada35587045be01d51ed619cad, type: 2}
   - {fileID: 11400000, guid: 22e3a3d6757398a498d8367ae8d3d126, type: 2}
+  - {fileID: 11400000, guid: a0ae82aee12158444b94d74ef95bfaaa, type: 2}
   playButton: {fileID: 1584742693}
   sceneName: None
 --- !u!1 &1232580948
@@ -9676,9 +9679,37 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5606780047655256071, guid: 55c1449cfa44c9244a32651501aaf7ad, type: 3}
+      propertyPath: m_text
+      value: Barra VR
+      objectReference: {fileID: 0}
+    - target: {fileID: 5606780047655256071, guid: 55c1449cfa44c9244a32651501aaf7ad, type: 3}
+      propertyPath: m_fontSize
+      value: 78.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5781690532172136838, guid: 55c1449cfa44c9244a32651501aaf7ad, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5781690532172136838, guid: 55c1449cfa44c9244a32651501aaf7ad, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1220447763}
+    - target: {fileID: 5781690532172136838, guid: 55c1449cfa44c9244a32651501aaf7ad, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SwitchTab
+      objectReference: {fileID: 0}
+    - target: {fileID: 5781690532172136838, guid: 55c1449cfa44c9244a32651501aaf7ad, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: TabController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5781690532172136838, guid: 55c1449cfa44c9244a32651501aaf7ad, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8157630650621421347, guid: 55c1449cfa44c9244a32651501aaf7ad, type: 3}
       propertyPath: m_Name
-      value: Gincana
+      value: Barra VR
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9690,6 +9721,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2146903325962856195, guid: 55c1449cfa44c9244a32651501aaf7ad, type: 3}
   m_PrefabInstance: {fileID: 3770110874380439142}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3770110874380439144 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3463604535971282439, guid: 55c1449cfa44c9244a32651501aaf7ad, type: 3}
+  m_PrefabInstance: {fileID: 3770110874380439142}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &4907888742061520133 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7373332418658970426, guid: d3de245daea4f5e41913aa359cdfd88c, type: 3}
