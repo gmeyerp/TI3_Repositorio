@@ -31,6 +31,7 @@ public class TutorialSO : ScriptableObject
     {
         if (duration > 0 && nextTutorial != null)
         {
+            Debug.Log("corotina comeca");
             yield return new WaitForSeconds(duration);
             nextTutorial.ShowText(textMesh);
         }

@@ -40,7 +40,7 @@ public class TabController : MonoBehaviour
         SwitchLevel(number);
         ChangeSize(tab[number].gameObject);
         ChangeSize(configMainPanel.gameObject);
-        sceneName = infos[number].name;
+        sceneName = infos[number].sceneName;
     }
 
 
