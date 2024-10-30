@@ -32,7 +32,7 @@ public class FeiraLevelManager : MonoBehaviour
     [Header("Tutorial")]
     public bool isTutorial = true;
     public bool isStartDone;
-    [SerializeField] FeiraTutorial feiraTutorial;
+    [SerializeField] FeiraTutorialStart feiraTutorial;
 
     [SerializeField] GameObject gameplayCanvas;
     float timer;

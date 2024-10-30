@@ -29,7 +29,7 @@ public class MiniGameManager : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] PlayerController playerController;
     StandSpotTrigger trigger;
-    public FeiraTutorial feiraTutorial;
+    public FeiraTutorialStart feiraTutorial;
     [SerializeField] GameObject fruitSprites;
     
     [Header("Teleports")]

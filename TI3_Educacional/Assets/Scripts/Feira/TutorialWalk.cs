@@ -24,38 +24,33 @@ public class TutorialWalk : MonoBehaviour
     {
         timeSinceLastStep += Time.deltaTime;
 
-        float dynamicCooldown = (cooldown / fadeOutSteps) * (image.color.a * fadeOutSteps);
-
-        int cooldownState = Cooldown(dynamicCooldown, ref timeSinceLastStep);
-        if (cooldownState == 0)
-        { 
+        if (timeSinceLastStep > cooldown && timeSinceLastStep - cooldown < Time.deltaTime)
+        {
             tutorialAnimation.SetBool("Manual", false);
+            tutorialAnimation.SetTrigger("Next");
         }
-        else if (cooldownState > 0 && image.color != Color.white)
+        else if (timeSinceLastStep > cooldown && image.color != Color.white)
         {
             float transparencyStep = (1 / fadeInTime) * Time.deltaTime;
-            image.color += new Color(1, 1, 1, transparencyStep);
+            image.color += new Color(0, 0, 0, Mathf.Min(transparencyStep, 1 - image.color.a));
         }
-    }
-
-    private int Cooldown(float cooldown, ref float timeElapsed)
-    {
-        timeElapsed += Time.deltaTime;
-
-        if (timeElapsed < cooldown)
-        { return -1; }
-
-        if (timeElapsed - cooldown < Time.deltaTime )
-        { return 0; }
-
-        return 1;
     }
 
     public void Next()
     {
-        timeSinceLastStep = 0;
-
-        tutorialAnimation.SetBool("Manual", true);
         tutorialAnimation.SetTrigger("Next");
+    }
+
+    public void Step()
+    {
+        timeSinceLastStep = 0;
+        tutorialAnimation.SetBool("Manual", true);
+
+        float transparencyStep = (1f / fadeOutSteps);
+
+        if (image.color.a != 0 && image.color.a < transparencyStep)
+        { image.color = new Color(1, 1, 1, 0); }
+        else 
+        { image.color -= new Color(0, 0, 0, Mathf.Min(transparencyStep, image.color.a)); }
     }
 }
