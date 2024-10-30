@@ -6,7 +6,7 @@ using UnityEngine;
 public class CustomerTrigger : MonoBehaviour
 {
     [SerializeField] FeiraLevelManager manager;
-    [SerializeField] FeiraTutorial tutorial;
+    [SerializeField] FeiraTutorialStart tutorial;
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer == 7)
