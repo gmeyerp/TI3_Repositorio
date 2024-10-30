@@ -1,50 +1,119 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using static ProfileInfo;
 
 public class ProfileManager : MonoBehaviour
 {
-    ProfileInfo currentProfile;
-    ProfileInfo lastProfile;
+    //static private ProfileManager instance;
 
-    private void Start()
+    public enum InfoGroup
     {
+        general,
+        fair,
+        bar,
+    }
+
+    private readonly Dictionary<InfoGroup, HashSet<Info>> infoGroups = new()
+    {
+        { InfoGroup.general, new() {
+            Info.stringPatientName,
+            Info.intAge,
+            Info.intDautonismo,
+            Info.floatHeight,
+            Info.floatGeneralVolume,
+            Info.floatBgmVolume,
+            Info.floatSfxVolume,
+            Info.floatVrSensibility,
+        } },
+
+        { InfoGroup.fair, new() {
+            Info.intFruitAmount,
+            Info.intVisitorAmount,
+            Info.floatVisitorSpeed,
+            Info.floatCoinSize,
+            Info.boolFruitMemorize,
+            Info.boolTutorialFeira,
+        } },
+
+        { InfoGroup.bar, new() {
+            Info.intMaxAngle,
+            Info.floatGameDuration,
+            Info.boolCanUp,
+            Info.boolCanDown,
+            Info.boolCanRight,
+            Info.boolCanLeft,
+            Info.boolTutorialBar,
+        } },
+    };
+
+    private ProfileInfo currentProfile;
+    private ProfileInfo savedProfile;
+
+    /*
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+    */
+
+    private readonly Dictionary<Info, UnityAction<object>> listeners = new();
+
+    private void Awake()
+    {
+        savedProfile = new ProfileInfo("Saved");
         currentProfile = new ProfileInfo("Teste");
     }
-    public void ReverterGeral()
+
+    public void AddListener(Info info, UnityAction<object> listener)
     {
-        currentProfile.age = lastProfile.age;
-        currentProfile.height = lastProfile.height;
-        currentProfile.dautonismo = lastProfile.dautonismo;
-        currentProfile.generalVolume = lastProfile.generalVolume;
-        currentProfile.bgmVolume = lastProfile.bgmVolume;
-        currentProfile.sfxVolume = lastProfile.sfxVolume;
-        currentProfile.vrSensibility = lastProfile.vrSensibility;
+        if (!listeners.ContainsKey(info))
+        { listeners[info] = listener; }
+        else
+        { listeners[info] += listener; }
+
+        listener.Invoke(currentProfile.Get(info));
     }
 
-    public void SetPatientName (string value) {currentProfile.patientName = value;}
-    public void SetAge (int value) {currentProfile.age = value;}
-    public void SetHeight (float value) {currentProfile.height = value;}
-    public void SetDautonismo (int value) {currentProfile.dautonismo = value;}
-    public void SetGeneralVolume (float value) {currentProfile.generalVolume = value;}
-    public void SetBgmVolume (float value) {currentProfile.bgmVolume = value;}
-    public void SetSfxVolume (float value) {currentProfile.sfxVolume = value;}
-    public void SetVrSensibility (float value) {currentProfile.vrSensibility = value;}
-    public void SetFruitAmount (int value) {currentProfile.fruitAmount = value;}
-    public void SetFruitMemorize (bool value) {currentProfile.fruitMemorize = value;}
-    public void SetVisitorAmount (int value) {currentProfile.visitorAmount = value;}
-    public void SetVisitorSpeed (float value) {currentProfile.visitorSpeed = value;}
-    public void SetCoinSize (float value) {currentProfile.coinSize = value;}
-    public void SetTutorialFeira (bool value) {currentProfile.tutorialFeira = value;}
-    public void SetGameDuration (float value) {currentProfile.gameDuration = value;}
-    public void SetMaxAngle (int value) {currentProfile.maxAngle = value;}
-    public void SetCanUp (bool value) {currentProfile.canUp = value;}
-    public void SetCanDown (bool value) {currentProfile.canDown = value;}
-    public void SetCanRight (bool value) {currentProfile.canRight = value;}
-    public void SetCanLeft (bool value) {currentProfile.canLeft = value;}
-    public void SetTutorialBar(bool value)  {currentProfile.tutorialBar = value;}
+    public void SetCurrent(Info info, object value)
+    {
+        currentProfile.Set(info, value);
+    }
 
+    public void UndoGroup(InfoGroup infoGroup)
+    {
+        foreach (Info info in infoGroups[infoGroup])
+        {
+            object value = savedProfile.Get(info);
+            currentProfile.Set(info, value);
 
+            if (listeners.ContainsKey(info))
+            { listeners[info].Invoke(value); }
+        }
+    }
+    public void SaveGroup(InfoGroup infoGroup)
+    {
+        foreach (Info info in infoGroups[infoGroup])
+        { savedProfile.Set(info, currentProfile.Get(info)); }
 
+        savedProfile.Save();
+    }
+
+    public void UndoGeneral() => UndoGroup(InfoGroup.general);
+    public void UndoFair() => UndoGroup(InfoGroup.fair);
+    public void UndoBar() => UndoGroup(InfoGroup.bar);
+
+    public void SaveGeneral() => SaveGroup(InfoGroup.general);
+    public void SaveFair() => SaveGroup(InfoGroup.fair);
+    public void SaveBar() => SaveGroup(InfoGroup.bar);
 
 }

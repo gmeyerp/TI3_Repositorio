@@ -3,79 +3,106 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using System;
-[Serializable]
+using Newtonsoft.Json;
+
 public class ProfileInfo
 {
-    //[Header("General")]
-    public string patientName = "name";
-    public int age = 99;
-    public float height = 1.00f;
-    public int dautonismo = 0;
-    public float generalVolume = 0.5f;
-    public float bgmVolume = 1f;
-    public float sfxVolume = 1f;
-    public float vrSensibility = 1f;
+    public enum Info
+    {
+        // Geral
+        stringPatientName,
+        intAge,
+        intDautonismo,
+        floatHeight,
+        floatGeneralVolume,
+        floatBgmVolume,
+        floatSfxVolume,
+        floatVrSensibility,
 
-    //[Header("Feira") 
-    public int fruitAmount = 3;
-    public bool fruitMemorize = false;
-    public int visitorAmount = 2;
-    public float visitorSpeed = 4f;
-    public float coinSize = 2f;
-    public bool tutorialFeira = true; 
+        // Feira
+        intFruitAmount,
+        intVisitorAmount,
+        floatVisitorSpeed,
+        floatCoinSize,
+        boolFruitMemorize,
+        boolTutorialFeira,
 
-    //[Header("Bar") {get; set;}
-    public float gameDuration = 60f;
-    public int maxAngle = 70;
-    public bool canUp = true;
-    public bool canDown = true;
-    public bool canRight = true;
-    public bool canLeft = true;
-    public bool tutorialBar = true;
+        // Barra
+        intMaxAngle,
+        floatGameDuration,
+        boolCanUp,
+        boolCanDown,
+        boolCanRight,
+        boolCanLeft,
+        boolTutorialBar,
+    }
 
-    string destination;
+    private Dictionary<Info, object> info = new()
+    {
+        // Geral
+        { Info.stringPatientName, "name" },
+        { Info.intAge, 99 },
+        { Info.intDautonismo, 0 },
+        { Info.floatHeight, 1.00f },
+        { Info.floatGeneralVolume, 0.5f },
+        { Info.floatBgmVolume, 1f },
+        { Info.floatSfxVolume, 1f },
+        { Info.floatVrSensibility, 1f },
+
+        // Feira
+        { Info.intFruitAmount, 3 },
+        { Info.intVisitorAmount, 2 },
+        { Info.floatVisitorSpeed, 4f },
+        { Info.floatCoinSize, 2f },
+        { Info.boolFruitMemorize, false },
+        { Info.boolTutorialFeira, true },
+
+        // Barra
+        { Info.intMaxAngle, 70 },
+        { Info.floatGameDuration, 60f },
+        { Info.boolCanUp, true },
+        { Info.boolCanDown, true },
+        { Info.boolCanRight, true },
+        { Info.boolCanLeft, true },
+        { Info.boolTutorialBar, true },
+    };
 
     public ProfileInfo(string patientName)
     {
-        this.patientName = patientName;
+        info[Info.stringPatientName] = patientName;
     }
 
-    public void Save(string patientName)
+    private string GetDestination() => $"{Application.dataPath}/Perfis/{info[Info.stringPatientName]}.txt";
+
+    public object Get(Info info)
     {
-        destination = Application.dataPath + "/" + patientName;
-        var content = JsonUtility.ToJson(this, true);
-        File.WriteAllText(destination, content);
+        return this.info[info];
+    }
+    public void Set(Info info, object value)
+    {
+        this.info[info] = value;
+    }
+
+    public void Save()
+    {
+        FileInfo fileInfo = new FileInfo(GetDestination());
+        if (!fileInfo.Directory.Exists)
+        { Directory.CreateDirectory(fileInfo.Directory.FullName); }
+
+        string content = JsonConvert.SerializeObject(info, Formatting.Indented);
+        File.WriteAllText(fileInfo.FullName, content);
     }
 
     public void Load(string patientName)
     {
-        string destination = Application.persistentDataPath + "/" + patientName;
-        var content = File.ReadAllText(destination);
-        var p = JsonUtility.FromJson<ProfileInfo>(content);
+        string destination = GetDestination();
+        if (!File.Exists(destination))
+        {
+            Debug.LogError("Houve um erro ao tentar carregar as configurações do perfil.");
+            return;
+        }
 
-        this.patientName = p.patientName;
-        this.age = p.age;
-        this.height = p.height;
-        this.dautonismo = p.dautonismo;
-        this.generalVolume = p.generalVolume;
-        this.bgmVolume = p.bgmVolume;
-        this.sfxVolume = p.sfxVolume;
-        this.vrSensibility = p.vrSensibility;
-
-        this.fruitAmount = p.fruitAmount;
-        this.fruitMemorize = p.fruitMemorize;
-        this.visitorAmount = p.visitorAmount;
-        this.visitorSpeed = p.visitorSpeed;
-        this.coinSize = p.coinSize;
-        this.tutorialFeira = p.tutorialFeira;
-
-        this.gameDuration = p.gameDuration;
-        this.maxAngle = p.maxAngle;
-        this.canUp = p.canUp;
-        this.canDown = p.canDown;
-        this.canRight = p.canRight;
-        this.canLeft = p.canLeft;
-        this.tutorialBar = p.tutorialBar;
+        string content = File.ReadAllText(destination);
+        info = JsonConvert.DeserializeObject<Dictionary<Info, object>>(content);
     }
-
 }
