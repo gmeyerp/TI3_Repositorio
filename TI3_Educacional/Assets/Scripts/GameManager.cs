@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] float fadeOutTime = 0.5f;
     [SerializeField] float fadeInTime = 0.5f;
     [SerializeField] TabController tabController;
+    [SerializeField] GameObject confirmationPanel;
     
 
     private void Start()
@@ -123,12 +124,37 @@ public class GameManager : MonoBehaviour
         ButtonClicked();
     }
 
+    public void ConfirmationPanelToggle()
+    {
+        if (confirmationPanel.activeSelf)
+        {
+            confirmationPanel.SetActive(false);
+            HideChangeSize(confirmationPanel);
+        }
+        else
+        {
+            confirmationPanel.SetActive(true);
+            PopChangeSize(confirmationPanel);
+        }
+        ButtonClicked();
+    }
+
     public void ButtonClicked()
     {
         Gerenciador_Audio.TocarSFX(Gerenciador_Audio.SFX.buttonClick);
     }
 
-    
+    public void PopChangeSize(GameObject gameObject)
+    {
+        LeanTween.scale(gameObject, Vector3.zero, 0f);
+        LeanTween.scale(gameObject, Vector3.one, 0.2f).setEaseInOutBounce();
+    }
+
+    public void HideChangeSize(GameObject gameObject)
+    {
+        LeanTween.scale(gameObject, Vector3.one, 0);
+        LeanTween.scale(gameObject, Vector3.zero, 0.2f);
+    }
 
     public void Quit()
     {
