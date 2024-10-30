@@ -13,6 +13,8 @@ public class AccelerometerLevelManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI scoreText;
     [SerializeField] int bestScore = 5;
     [SerializeField] TargetSpawner spawner;
+    [SerializeField] VrModeController controller;
+
     float timer;
     // Start is called before the first frame update
     void Start()
@@ -31,6 +33,10 @@ public class AccelerometerLevelManager : MonoBehaviour
         }
         else
         {
+            if (controller != null)
+            {
+                controller.StopXR();
+            }
             EndGame();
         }
     }
