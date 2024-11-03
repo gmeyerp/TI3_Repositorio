@@ -485,6 +485,34 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -2.69
       objectReference: {fileID: 0}
+    - target: {fileID: 6514969445700923487, guid: 2b978ed2db54e9947aaf5caf7357cfd9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6514969445700923487, guid: 2b978ed2db54e9947aaf5caf7357cfd9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6514969445700923487, guid: 2b978ed2db54e9947aaf5caf7357cfd9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6514969445700923487, guid: 2b978ed2db54e9947aaf5caf7357cfd9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6514969445700923487, guid: 2b978ed2db54e9947aaf5caf7357cfd9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6514969445700923487, guid: 2b978ed2db54e9947aaf5caf7357cfd9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6514969445700923487, guid: 2b978ed2db54e9947aaf5caf7357cfd9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7026044439538783890, guid: 2b978ed2db54e9947aaf5caf7357cfd9, type: 3}
       propertyPath: fruitSpot.Array.size
       value: 6
@@ -564,6 +592,12 @@ PrefabInstance:
     - {fileID: 4813265019698940272, guid: 2b978ed2db54e9947aaf5caf7357cfd9, type: 3}
     - {fileID: 4821118399695743128, guid: 2b978ed2db54e9947aaf5caf7357cfd9, type: 3}
     - {fileID: 2220729198213804863, guid: 2b978ed2db54e9947aaf5caf7357cfd9, type: 3}
+    - {fileID: 7285809767395650864, guid: 2b978ed2db54e9947aaf5caf7357cfd9, type: 3}
+    - {fileID: 6826214709507602927, guid: 2b978ed2db54e9947aaf5caf7357cfd9, type: 3}
+    - {fileID: 3471223617446506917, guid: 2b978ed2db54e9947aaf5caf7357cfd9, type: 3}
+    - {fileID: 5950742537126361555, guid: 2b978ed2db54e9947aaf5caf7357cfd9, type: 3}
+    - {fileID: 8637140614751079335, guid: 2b978ed2db54e9947aaf5caf7357cfd9, type: 3}
+    - {fileID: 7574852999001165379, guid: 2b978ed2db54e9947aaf5caf7357cfd9, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 7122298860178031981, guid: 2b978ed2db54e9947aaf5caf7357cfd9, type: 3}
       insertIndex: -1
