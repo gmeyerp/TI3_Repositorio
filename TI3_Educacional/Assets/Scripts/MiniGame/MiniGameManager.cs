@@ -17,7 +17,6 @@ public class MiniGameManager : MonoBehaviour
     [Header("Timers")]
     [SerializeField] private float timeToSpawn = 4.0f; // Tempo necess�rio para spawnar
     [SerializeField] private float spawnTimer = 0; // Temporizador para spawnar 
-    [SerializeField] float waitTeleportTime = 3.0f;
     
     [Header("Value Coins")]
     [SerializeField] public int coinsAcquired; // Moedas que o player tem
@@ -26,7 +25,7 @@ public class MiniGameManager : MonoBehaviour
     [SerializeField] int maxValue = 300;
     
     [Header("Player")]
-    [SerializeField] private GameObject player;
+    [SerializeField] public GameObject player;
     [SerializeField] PlayerController playerController;
     StandSpotTrigger trigger;
     public FeiraTutorialStart feiraTutorial;
@@ -74,7 +73,7 @@ public class MiniGameManager : MonoBehaviour
     }
 
 
-    IEnumerator SpawnItens()
+    public IEnumerator SpawnItens()
     {
         yield return new WaitForSeconds(spawnTimer);
 
@@ -127,75 +126,6 @@ public class MiniGameManager : MonoBehaviour
         }
     }
 
-    #region Teleports
-    public void GetoutMiniGame()
-    {
-        // Se coinsAcquired for igual a coinsToPurchase ent�o teleporta o player para a posi��o antiga.
-        if(coinsAcquired == coinsToPurchase)
-        {
-            TeleportToLastPosition();
-            StopCoroutine(SpawnItens());
-            if (FeiraLevelManager.instance.isTutorial == true)
-            {
-                Debug.Log("Start do Manager");
-                feiraTutorial.StartCoinTutorial();
-            }
-
-            CoinInfos.Instance.textCoin.enabled = false;
-        }
-        else if (coinsAcquired > coinsToPurchase)
-        {
-            if (FeiraLevelManager.instance.isTutorial == true)
-            {
-                Debug.Log("Start do Manager");
-                feiraTutorial.DesselectCoinTutorial();
-            }
-        }
-    }
-
-    public void TakeLastPosition()
-    {
-        lastPosition = player.transform.position; // Armazena a �ltima posi��o do jogador
-    }
-
-    public void TeleportToLastPosition()
-    {
-        //playerController.enabled = true;
-        controller.enabled = false;
-
-        player.transform.position = lastPosition; // Teleporta o jogador para a �ltima posi��o salva
-        controller.enabled = true;
-        PlayerRayCast.Instance.maxDistance = 10.0f;
-        CoinInfos.Instance.textCoin.enabled = false;
-
-
-        trigger.StandComplete();
-        fruitSprites.SetActive(true);
-        trigger.gameObject.SetActive(false);
-    }
-
-    public void TeleportToMiniGame()
-    {
-        Debug.Log(FeiraLevelManager.instance.isTutorial);
-        if (FeiraLevelManager.instance.isTutorial == true)
-        {
-            Debug.Log("Start do Manager");
-            feiraTutorial.StartCoinTutorial();
-        }
-        fruitSprites.SetActive(false);
-        DestroycoinsActive();
-
-        CoinInfos.Instance.UpdateDisplayCoin();
-        CoinInfos.Instance.textCoin.enabled = true;
-        controller.enabled = false;
-
-        player.transform.position = miniGamePosition; // Teleporta o jogador para o minigame
-        controller.enabled = true;
-
-        PlayerRayCast.Instance.maxDistance = 100.0f;
-    }
-    #endregion
-
     #region Coins
     public void DestroycoinsActive()
     {
@@ -218,6 +148,12 @@ public class MiniGameManager : MonoBehaviour
     {
         ResetValueCoin();
         coinsToPurchase = Random.Range(minValue, maxValue);
+    }
+
+    public void Infos()
+    {
+        CoinInfos.Instance.UpdateDisplayCoin();
+        CoinInfos.Instance.textCoin.enabled = true;
     }
     #endregion
 

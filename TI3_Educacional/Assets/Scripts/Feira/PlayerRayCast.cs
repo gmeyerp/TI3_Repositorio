@@ -54,25 +54,31 @@ public class  PlayerRayCast : MonoBehaviour
                     if (currentTarget == hit.collider.gameObject)
                     {
                         coin.ChangeColorOnLook(true);
-                        lookTime += Time.deltaTime;
-                        Debug.Log($"Olhando para a moeda à {lookTime}");
+                        lookTime = coin.completion.fillAmount;
 
                         // Caso o tempo de olhar exceder o tempo necessário para coletar
-                        if (lookTime >= timeToCollect)
+                        if (lookTime == 1)
                         {
                             // A moeda será selecionada ou deselecionada
                             if(!coin.collected)
                             {
                                 coin.collected = true;
                                 coin.Collect();
+                                CoinInfos.Instance.UpdateDisplayCoin();
                             }
-                            else
+                                
+                            currentTarget = null;
+                            lookTime = 0.0f;
+                        }
+                        else if(lookTime == 0)
+                        {
+                            if(coin.collected)
                             {
                                 coin.collected = false;
                                 coin.UnCollect();
+                                CoinInfos.Instance.UpdateDisplayCoin();
                             }
 
-                                
                             currentTarget = null;
                             lookTime = 0.0f;
                         }
@@ -96,41 +102,6 @@ public class  PlayerRayCast : MonoBehaviour
             ResetLook();
         }
     }
-
-    /*public void LookNPC()
-    {
-        Ray ray = new Ray(mainCamera.transform.position, mainCamera.transform.forward);
-        RaycastHit hit;
-
-        if(Physics.Raycast(ray, out hit, maxDistance))
-        {
-            Debug.DrawLine(transform.position, hit.point);
-            if(hit.collider.CompareTag("NPC"))
-            {
-                currentTarget = hit.collider.gameObject;
-                CodigodoNPC npc = hit.collider.GetComponent<>();
-                if(npc != null)
-                {
-                    if(currentTarget == hit.collider.gameObject)
-                    {
-                        StartCoroutine(MiniGameManager.Instance.TeleportToMiniGame());
-                    }
-                }
-                else
-                {
-                    currentTarget = hit.collider.gameObject;
-                }
-            }
-            else
-            {
-                ResetLook();
-            }
-        }
-        else
-        {
-            ResetLook();
-        }
-    }*/
 
     private void ResetLook()
     {

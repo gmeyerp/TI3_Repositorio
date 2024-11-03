@@ -13,9 +13,9 @@ public class StandSpotTrigger : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             MiniGameManager.Instance.SetUsedTrigger(this);
-            MiniGameManager.Instance.TakeLastPosition();
+            MiniGameTps.Instance.TakeLastPosition();
             MiniGameManager.Instance.NewPrice();
-            MiniGameManager.Instance.TeleportToMiniGame();
+            MiniGameTps.Instance.TeleportToMiniGame();
         }
     }
 
