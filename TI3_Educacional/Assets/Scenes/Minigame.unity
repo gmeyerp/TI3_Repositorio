@@ -430,10 +430,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 807242220}
   playerCamera: {fileID: 641235648}
-  speed: 1
   stepSFX: {fileID: 8300000, guid: 92adec5d330ec774296e54a8627ea664, type: 3}
+  speed: 1
   stepSensorThreshhold: 0.2
   stepResetCooldown: 1
+  onStep:
+    m_PersistentCalls:
+      m_Calls: []
+  onPrepare:
+    m_PersistentCalls:
+      m_Calls: []
+  onStop:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &614602026
 GameObject:
   m_ObjectHideFlags: 0
@@ -880,8 +889,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c75e51cd66cced44684ab62b006ca0ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnCenter: {fileID: 1513654315}
-  player: {fileID: 0}
   coinsList:
   - {fileID: 3852782665483637308, guid: 2c1689a6c1a2c2048a293096dfd20077, type: 3}
   - {fileID: 3852782665483637308, guid: 7b41a8fa79a6dc24ca1ad154a3a9cd69, type: 3}
@@ -894,6 +901,7 @@ MonoBehaviour:
   - {fileID: 3852782665483637308, guid: d50a2dc57f0542646b05be76bb23e432, type: 3}
   - {fileID: 3852782665483637308, guid: 7b41a8fa79a6dc24ca1ad154a3a9cd69, type: 3}
   coinsActive: []
+  spawnCenter: {fileID: 1513654315}
   radius: 10
   timeToSpawn: 0
   spawnTimer: 0
@@ -901,6 +909,11 @@ MonoBehaviour:
   coinsToPurchase: 0
   minValue: 200
   maxValue: 800
+  player: {fileID: 0}
+  playerController: {fileID: 0}
+  feiraTutorial: {fileID: 0}
+  fruitSprites: {fileID: 0}
+  miniGamePosition: {x: 0, y: 0, z: 0}
 --- !u!114 &983016962
 MonoBehaviour:
   m_ObjectHideFlags: 0
