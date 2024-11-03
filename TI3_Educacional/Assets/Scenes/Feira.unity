@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &4
 LightmapSettings:
@@ -269,6 +269,7 @@ GameObject:
   m_Component:
   - component: {fileID: 11183681}
   - component: {fileID: 11183682}
+  - component: {fileID: 11183683}
   m_Layer: 0
   m_Name: MiniGameManager
   m_TagString: Untagged
@@ -303,6 +304,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c75e51cd66cced44684ab62b006ca0ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnCenter: {fileID: 434331833}
+  player: {fileID: 0}
   coinsList:
   - {fileID: 3852782665483637308, guid: 2c1689a6c1a2c2048a293096dfd20077, type: 3}
   - {fileID: 3852782665483637308, guid: 7b41a8fa79a6dc24ca1ad154a3a9cd69, type: 3}
@@ -315,17 +318,26 @@ MonoBehaviour:
   - {fileID: 3852782665483637308, guid: d50a2dc57f0542646b05be76bb23e432, type: 3}
   - {fileID: 3852782665483637308, guid: 7b41a8fa79a6dc24ca1ad154a3a9cd69, type: 3}
   coinsActive: []
-  spawnCenter: {fileID: 434331833}
   radius: 10
-  timeToSpawn: 4
+  timeToSpawn: 0
   spawnTimer: 0
-  waitTeleportTime: 3
   coinsAcquired: 0
   coinsToPurchase: 0
   minValue: 30
   maxValue: 250
+--- !u!114 &11183683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 11183680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7defa2b5607a5a47a13964f479a3dd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   player: {fileID: 0}
-  playerController: {fileID: 227566934}
   miniGamePosition: {x: 0, y: 0, z: 0}
 --- !u!4 &21394875 stripped
 Transform:
@@ -19537,8 +19549,8 @@ SceneRoots:
   - {fileID: 1362742937}
   - {fileID: 1335679976}
   - {fileID: 907292808}
-  - {fileID: 900356989}
   - {fileID: 948015789}
+  - {fileID: 900356989}
   - {fileID: 738850534}
   - {fileID: 1131287323}
   - {fileID: 1741534934}

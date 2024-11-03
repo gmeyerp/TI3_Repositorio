@@ -14,10 +14,10 @@ public class CoinCollect : MonoBehaviour
     [SerializeField] private Color limitColor; // Referência a cor de quando o jogador ultrapassar o limite de moedas necessárias
 
     [Header("Coin Value and Images")]
-    [SerializeField] public int valueCoin; // Valor da moeda
+    [SerializeField] private int valueCoin; // Valor da moeda
     [SerializeField] public Image coinsCollected;
     [SerializeField] GameObject objectCanvas;
-    [SerializeField] Image completion;
+    [SerializeField] public Image completion;
     [SerializeField] SpriteRenderer coinSprite;
 
 
@@ -52,10 +52,15 @@ public class CoinCollect : MonoBehaviour
         {
             //Quando ultrapassar o valor necessario de moedas elas ficarão vermelhas.
             coinSprite.color = limitColor;
+            if(collected)
+                completion.fillAmount -= lerpSpeed;
+            else
+                completion.fillAmount += lerpSpeed;
         }
         else if (isLooking && collected)
         {
             coinSprite.color = Color.Lerp(coinSprite.color, inactiveColor, lerpSpeed);
+            completion.fillAmount -= lerpSpeed;
         }
         else if (isLooking && !collected)
         {
@@ -70,11 +75,11 @@ public class CoinCollect : MonoBehaviour
     {
         Debug.Log("Moeda selecionada!");
         MiniGameManager.Instance.coinsAcquired += valueCoin;
-        completion.fillAmount = 0;
-        completion.color = inactiveColor;
+        completion.fillAmount = 1;
+        completion.color = activeColor;
 
-        MiniGameManager.Instance.GetoutMiniGame();
         CoinInfos.Instance.UpdateDisplayCoin();
+        MiniGameTps.Instance.GetoutMiniGame();
         //Destroy(gameObject);
     }
 
@@ -86,7 +91,7 @@ public class CoinCollect : MonoBehaviour
         completion.fillAmount = 0;
         completion.color = coinSprite.color;
 
-        MiniGameManager.Instance.GetoutMiniGame();
         CoinInfos.Instance.UpdateDisplayCoin();
+        MiniGameTps.Instance.GetoutMiniGame();
     }
 }

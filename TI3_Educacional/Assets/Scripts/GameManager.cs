@@ -5,6 +5,44 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+
+    #region Fases
+    public void MiniGame()
+    {
+        SceneManager.LoadScene("Minigame");
+        ButtonClicked();
+    }
+    public void StartFeira()
+    {
+        SceneManager.LoadScene("Feira");
+        ButtonClicked();
+    }
+    #endregion
+
+    #region Informacoes
+    public void LevelInfo()
+    {
+        SceneManager.LoadScene("Level Info");
+        ButtonClicked();
+    }
+    public void InfoFeira()
+    {
+        SceneManager.LoadScene("Feira Info");
+        ButtonClicked();
+    }
+    public void InfoAccelerometer()
+    {
+        SceneManager.LoadScene("Accelerometer Info");
+        ButtonClicked();
+    }
+    #endregion
+    
+    #region Menu
+    public void BackToStart()
+    {
+        SceneManager.LoadScene("Start");
+        ButtonClicked();
+    }
     public void Config()
     {
         SceneManager.LoadScene("Config");
@@ -17,47 +55,20 @@ public class GameManager : MonoBehaviour
         ButtonClicked();
     }
 
-    public void BackToStart()
-    {
-        SceneManager.LoadScene("Start");
-        ButtonClicked();
-    }
-
     public void LevelSelection()
     {
         SceneManager.LoadScene("Level Selection");
         ButtonClicked();
     }
+    #endregion
 
-    public void LevelInfo()
-    {
-        SceneManager.LoadScene("Level Info");
-        ButtonClicked();
-    }
 
-    public void StartFeira()
-    {
-        SceneManager.LoadScene("Feira");
-        ButtonClicked();
-    }
-    public void InfoFeira()
-    {
-        SceneManager.LoadScene("Feira Info");
-        ButtonClicked();
-    }
 
     public void StartAccelerometer()
     {
         SceneManager.LoadScene("Acelerometro");
         ButtonClicked();
     }
-
-    public void InfoAccelerometer()
-    {
-        SceneManager.LoadScene("Accelerometer Info");
-        ButtonClicked();
-    }
-
     public void ReloadScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -68,7 +79,6 @@ public class GameManager : MonoBehaviour
     {
         Gerenciador_Audio.TocarSFX(Gerenciador_Audio.SFX.buttonClick);
     }
-
     public void Quit()
     {
         ButtonClicked();
