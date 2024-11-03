@@ -39,19 +39,7 @@ public class FeiraTutorialStart : MonoBehaviour
         }
         else
         {
-            float yAngle = player.transform.rotation.eulerAngles.y;
-            if (yAngle < correctAngle || yAngle > 360 - correctAngle)
-            {
-                tutorialSpriteAnim.Play("Default");
-            }
-            else if (yAngle < 360 - correctAngle && yAngle > 180)
-            {
-                tutorialSpriteAnim.Play("LookRight");
-            }
-            else
-            {
-                tutorialSpriteAnim.Play("LookLeft");
-            }
+            CheckCorrectAngle();
         }
 
         if (player.transform.position.z >= transform.position.z)
@@ -60,6 +48,23 @@ public class FeiraTutorialStart : MonoBehaviour
             fruitTutorial.ShowText(txt);
             tutorialSpriteAnim.Play("Default");
         }              
+    }
+
+    private void CheckCorrectAngle()
+    {
+        float yAngle = player.transform.rotation.eulerAngles.y;
+        if (yAngle < correctAngle || yAngle > 360 - correctAngle)
+        {
+            tutorialSpriteAnim.Play("Default");
+        }
+        else if (yAngle < 360 - correctAngle && yAngle > 180)
+        {
+            tutorialSpriteAnim.Play("LookRight");
+        }
+        else
+        {
+            tutorialSpriteAnim.Play("LookLeft");
+        }
     }
 
     public void StartCoinTutorial()

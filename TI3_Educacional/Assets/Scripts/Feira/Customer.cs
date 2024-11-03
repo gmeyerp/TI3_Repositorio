@@ -49,13 +49,18 @@ public class Customer : MonoBehaviour
 
     // Update is called once per frame
     void FixedUpdate()
-    {        
+    {
         Vector3 direction = waypoints[currentWaypoint].position - transform.position;
         Vector3 origin = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
         Vector3 aim = new Vector3(waypoints[currentWaypoint].position.x, waypoints[currentWaypoint].position.y + 1, waypoints[currentWaypoint].position.z);
         Debug.DrawRay(origin, direction, Color.red);
         mag = (aim - origin).magnitude;
-        isOnPath = Physics.Raycast(origin, direction, (aim-origin).magnitude, isPlayer);
+        isOnPath = Physics.Raycast(origin, direction, (aim - origin).magnitude, isPlayer);
+        Movement(direction);
+    }
+
+    private void Movement(Vector3 direction)
+    {
         if (isOnPath)
         {
             if (audioTimer < 0)
