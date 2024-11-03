@@ -14888,8 +14888,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Mova as pernas como se estivesse andando
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 31cb6278459482d479c9cace62552922, type: 2}
-  m_sharedMaterial: {fileID: 5266683751399518149, guid: 31cb6278459482d479c9cace62552922, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8e32d1bc98c1e8e47b7d5004d49f12af, type: 2}
+  m_sharedMaterial: {fileID: -163905173588061675, guid: 8e32d1bc98c1e8e47b7d5004d49f12af, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

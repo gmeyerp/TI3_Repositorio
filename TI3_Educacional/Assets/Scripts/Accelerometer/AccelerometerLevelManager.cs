@@ -35,7 +35,7 @@ public class AccelerometerLevelManager : MonoBehaviour
         {
             if (controller != null)
             {
-                controller.StopXR();
+                controller.ExitVR();
             }
             EndGame();
         }

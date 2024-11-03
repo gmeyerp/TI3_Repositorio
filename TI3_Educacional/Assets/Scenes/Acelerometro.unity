@@ -2109,8 +2109,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Texto Tutorial
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: f463b9f731861e44eb0c05654566ece0, type: 2}
-  m_sharedMaterial: {fileID: -8128879774080379552, guid: f463b9f731861e44eb0c05654566ece0, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8e32d1bc98c1e8e47b7d5004d49f12af, type: 2}
+  m_sharedMaterial: {fileID: -163905173588061675, guid: 8e32d1bc98c1e8e47b7d5004d49f12af, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2134,7 +2134,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 113.25
+  m_fontSize: 147.05
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2355,6 +2355,7 @@ MonoBehaviour:
   scoreText: {fileID: 452325120}
   bestScore: 5
   spawner: {fileID: 1002955874}
+  controller: {fileID: 0}
 --- !u!4 &1226836499
 Transform:
   m_ObjectHideFlags: 0
