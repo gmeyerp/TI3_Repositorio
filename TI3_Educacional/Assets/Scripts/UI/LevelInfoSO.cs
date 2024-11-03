@@ -12,5 +12,6 @@ public class LevelInfoSO : ScriptableObject
     public Sprite preview;
 
     public string sceneName;
-
+    public bool playButtonState;
+    public Color playButtonColor;
 }

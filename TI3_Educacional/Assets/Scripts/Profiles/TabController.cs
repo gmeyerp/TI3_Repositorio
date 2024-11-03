@@ -52,6 +52,8 @@ public class TabController : MonoBehaviour
 
     public void SwitchLevel(int number)
     {
+        playButton.interactable = infos[number].playButtonState;
+        playButton.image.color = infos[number].playButtonColor;
         title.text = infos[number].title;
         levelInfo.text = infos[number].description;
         levelPreview.sprite = infos[number].preview;
