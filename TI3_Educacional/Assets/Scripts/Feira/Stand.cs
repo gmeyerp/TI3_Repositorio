@@ -7,7 +7,6 @@ public class Stand : MonoBehaviour
     [SerializeField] SOFruit fruitInfo;
     [SerializeField] Transform[] fruitSpot;
     [SerializeField] GameObject interactSpot;
-    [SerializeField] AudioClip fruitAudio;
     [SerializeField] AudioSource audioSource;
     [SerializeField] Animator animator;
     int chosenFruitIndex = -1;

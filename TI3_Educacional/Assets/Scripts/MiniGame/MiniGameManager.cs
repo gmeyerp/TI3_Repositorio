@@ -1,35 +1,43 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class MiniGameManager : MonoBehaviour
 {
-    GameManager gameManager;
     public static MiniGameManager Instance { get; private set; }
-    public Transform spawnCenter;
 
-    [Header("Player")]
-    [SerializeField] public GameObject player;
-    
     [Header("Lists")]
     [SerializeField] List<GameObject> coinsList = new List<GameObject>(); // Lista de moedas
     [SerializeField] List<GameObject> coinsActive = new List<GameObject>(); // Lista de moedas ativas na cena
     
+    public Transform spawnCenter;
     [SerializeField] private float radius = 10.0f;
 
     [Header("Timers")]
-    [SerializeField] private float timeToSpawn = 2.0f; // Tempo necess�rio para spawnar
+    [SerializeField] private float timeToSpawn = 4.0f; // Tempo necess�rio para spawnar
     [SerializeField] private float spawnTimer = 0; // Temporizador para spawnar 
+    [SerializeField] float waitTeleportTime = 3.0f;
     
     [Header("Value Coins")]
     [SerializeField] public int coinsAcquired; // Moedas que o player tem
     [SerializeField] public int coinsToPurchase; // Moedas necessarias para comprar o item
     [SerializeField] int minValue = 20;
     [SerializeField] int maxValue = 300;
- 
+    
+    [Header("Player")]
+    [SerializeField] private GameObject player;
+    [SerializeField] PlayerController playerController;
     StandSpotTrigger trigger;
+    public FeiraTutorialStart feiraTutorial;
+    [SerializeField] GameObject fruitSprites;
+    
+    [Header("Teleports")]
+    [SerializeField] private Vector3 miniGamePosition;
+    private Vector3 lastPosition; // Pega a �ltima posi��o do player
+    
+
+    CharacterController controller;
 
     private void Awake()
     {
@@ -51,6 +59,8 @@ public class MiniGameManager : MonoBehaviour
                 Debug.LogError("Jogador n�o encontrado!");
             }
         }
+        controller = player.GetComponent<CharacterController>();
+        miniGamePosition = spawnCenter.position;
     }
 
     private void Update()
@@ -63,8 +73,8 @@ public class MiniGameManager : MonoBehaviour
         }
     }
 
-    #region MiniGame
-    public IEnumerator SpawnItens()
+
+    IEnumerator SpawnItens()
     {
         yield return new WaitForSeconds(spawnTimer);
 
@@ -75,7 +85,6 @@ public class MiniGameManager : MonoBehaviour
 
         for (int attempt = 0; attempt < maxAttempts; attempt++)
         {
-            Debug.Log("Tentando spawnar a moeda");
             // Gera coordenadas esféricas
             float u = Random.Range(0f, 1f); // Gera um valor entre 0 e 1
             float theta = Random.Range(0f, 2f * Mathf.PI); // Gera um ângulo theta entre 0 e 2 * PI
@@ -117,6 +126,74 @@ public class MiniGameManager : MonoBehaviour
             Debug.LogWarning("Não foi possível encontrar uma posição válida para spawnar a moeda após várias tentativas.");
         }
     }
+
+    #region Teleports
+    public void GetoutMiniGame()
+    {
+        // Se coinsAcquired for igual a coinsToPurchase ent�o teleporta o player para a posi��o antiga.
+        if(coinsAcquired == coinsToPurchase)
+        {
+            TeleportToLastPosition();
+            StopCoroutine(SpawnItens());
+            if (FeiraLevelManager.instance.isTutorial == true)
+            {
+                Debug.Log("Start do Manager");
+                feiraTutorial.StartCoinTutorial();
+            }
+
+            CoinInfos.Instance.textCoin.enabled = false;
+        }
+        else if (coinsAcquired > coinsToPurchase)
+        {
+            if (FeiraLevelManager.instance.isTutorial == true)
+            {
+                Debug.Log("Start do Manager");
+                feiraTutorial.DesselectCoinTutorial();
+            }
+        }
+    }
+
+    public void TakeLastPosition()
+    {
+        lastPosition = player.transform.position; // Armazena a �ltima posi��o do jogador
+    }
+
+    public void TeleportToLastPosition()
+    {
+        //playerController.enabled = true;
+        controller.enabled = false;
+
+        player.transform.position = lastPosition; // Teleporta o jogador para a �ltima posi��o salva
+        controller.enabled = true;
+        PlayerRayCast.Instance.maxDistance = 10.0f;
+        CoinInfos.Instance.textCoin.enabled = false;
+
+
+        trigger.StandComplete();
+        fruitSprites.SetActive(true);
+        trigger.gameObject.SetActive(false);
+    }
+
+    public void TeleportToMiniGame()
+    {
+        Debug.Log(FeiraLevelManager.instance.isTutorial);
+        if (FeiraLevelManager.instance.isTutorial == true)
+        {
+            Debug.Log("Start do Manager");
+            feiraTutorial.StartCoinTutorial();
+        }
+        fruitSprites.SetActive(false);
+        DestroycoinsActive();
+
+        CoinInfos.Instance.UpdateDisplayCoin();
+        CoinInfos.Instance.textCoin.enabled = true;
+        controller.enabled = false;
+
+        player.transform.position = miniGamePosition; // Teleporta o jogador para o minigame
+        controller.enabled = true;
+
+        PlayerRayCast.Instance.maxDistance = 100.0f;
+    }
     #endregion
 
     #region Coins
@@ -141,14 +218,6 @@ public class MiniGameManager : MonoBehaviour
     {
         ResetValueCoin();
         coinsToPurchase = Random.Range(minValue, maxValue);
-        CoinInfos.Instance.UpdateDisplayCoin();
-        Debug.Log($"Moedas para conseguir é de {coinsToPurchase}");
-    }
-
-    public void Infos()
-    {
-        CoinInfos.Instance.UpdateDisplayCoin();
-        CoinInfos.Instance.textCoin.enabled = true;
     }
     #endregion
 
