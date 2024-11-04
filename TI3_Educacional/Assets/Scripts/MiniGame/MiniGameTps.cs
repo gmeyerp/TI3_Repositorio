@@ -36,7 +36,9 @@ public class MiniGameTps : MonoBehaviour
         {
             Debug.Log("Teleportando de volta a feira");
             Debug.Log($"x = {lastPosition.x} | z = {lastPosition.z}");
-            TeleportToLastPosition(); 
+            TeleportToLastPosition();
+            MiniGameManager.Instance.fruitSprites.SetActive(true);
+
             StopCoroutine(MiniGameManager.Instance.SpawnItens());
             
             CoinInfos.Instance.textCoin.enabled = false;
@@ -49,18 +51,18 @@ public class MiniGameTps : MonoBehaviour
 
     public void TeleportToLastPosition()
     {
-        //playerController.enabled = true;
-        //MiniGameManager.Instance.controller.enabled = false;
+        MiniGameManager.Instance.playerController.enabled = true;
+        MiniGameManager.Instance.controller.enabled = false;
 
         player.transform.position = lastPosition; // Teleporta o jogador para a �ltima posi��o salva
-        //MiniGameManager.Instance.controller.enabled = true;
+        MiniGameManager.Instance.controller.enabled = true;
         PlayerRayCast.Instance.maxDistance = 10.0f;
         CoinInfos.Instance.textCoin.enabled = false;
 
         Debug.Log("Voltando para a �ltima posi��o");
 
-        trigger.StandComplete();
-        trigger.gameObject.SetActive(false);
+        MiniGameManager.Instance.trigger.StandComplete();
+        MiniGameManager.Instance.trigger.gameObject.SetActive(false);
     }
 
     public void TakeLastPosition()
@@ -71,13 +73,17 @@ public class MiniGameTps : MonoBehaviour
 
     public void TeleportToMiniGame()
     {
+        if (MiniGameManager.Instance.feiraTutorial != null)
+        {
+            MiniGameManager.Instance.feiraTutorial.StartCoinTutorial();
+        }
         MiniGameManager.Instance.DestroycoinsActive();
-
+        MiniGameManager.Instance.fruitSprites.SetActive(false);
         MiniGameManager.Instance.Infos();
-        //MiniGameManager.Instance.controller.enabled = false;
+        MiniGameManager.Instance.controller.enabled = false;
 
         player.transform.position = miniGamePosition; // Teleporta o jogador para o minigame
-        //MiniGameManager.Instance.controller.enabled = true;
+        MiniGameManager.Instance.controller.enabled = true;
 
         PlayerRayCast.Instance.maxDistance = 100.0f;
         Debug.Log("Indo para o minigame");
