@@ -8,7 +8,7 @@ public class FeiraTutorialStart : MonoBehaviour
     [SerializeField] GameObject player;
     [SerializeField] float correctAngle;
     [SerializeField] Animator tutorialSpriteAnim;
-    [SerializeField] TextMeshProUGUI txt;
+    public TextMeshProUGUI txt;
     [SerializeField] TutorialSO moveTutorial;
     [SerializeField] TutorialSO customerTutorial;
     [SerializeField] TutorialSO fruitTutorial;

@@ -26,17 +26,17 @@ public class MiniGameManager : MonoBehaviour
     
     [Header("Player")]
     [SerializeField] public GameObject player;
-    [SerializeField] PlayerController playerController;
-    StandSpotTrigger trigger;
+    public PlayerController playerController;
+    public StandSpotTrigger trigger;
     public FeiraTutorialStart feiraTutorial;
-    [SerializeField] GameObject fruitSprites;
+    public GameObject fruitSprites;
     
     [Header("Teleports")]
     [SerializeField] private Vector3 miniGamePosition;
     private Vector3 lastPosition; // Pega a �ltima posi��o do player
     
 
-    CharacterController controller;
+    public CharacterController controller;
 
     private void Awake()
     {
