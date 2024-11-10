@@ -8,11 +8,15 @@ public class PlayerController : MonoBehaviour
 {
     [Header("General")]
     [SerializeField] private CharacterController player;
+    [SerializeField] Rigidbody rb;
     [SerializeField] private Camera playerCamera;
     [SerializeField] AudioClip stepSFX;
+    [SerializeField] bool isGincana;
+    [SerializeField] LayerMask isGround;
 
     [Header("Values")]
     [SerializeField] private float speed = 1;
+    [SerializeField] float jumpPower = 10f;
     private enum StepState
     {
         Done,
@@ -21,6 +25,7 @@ public class PlayerController : MonoBehaviour
     }
     private StepState stepState;
     [SerializeField] private float stepSensorThreshhold = .2f;
+    [SerializeField] private float jumpSensorThreshhold = .7f;
     private float timeSinceLastStepUpdate;
     [SerializeField] private float stepResetCooldown = .5f;
     private Vector3 movement;
@@ -38,7 +43,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (FeiraLevelManager.instance.isPaused) return;
+        //if (FeiraLevelManager.instance.isPaused) return;
         Accelerometer accelerometer = Accelerometer.current;
         GravitySensor gravitySensor = GravitySensor.current;
         if (!accelerometer.enabled)
@@ -62,8 +67,18 @@ public class PlayerController : MonoBehaviour
             // Multiplicando pelo movimento pra ter um valor mais preciso
             float verticalAcceleration = verticalWeight * acceleration.magnitude;
 
+
+            // Verificando quando o celular sobe bruscamente
+            if (isGincana && stepState != StepState.Incoming && verticalAcceleration > jumpSensorThreshhold && isGroundCheck())
+            {
+                stepState = StepState.Done;
+                timeSinceLastStepUpdate = 0;
+                Jump();
+
+                onStep.Invoke();
+            }
             // Verificando quando o celular sobe (preparando o passo)
-            if (stepState != StepState.Incoming && verticalAcceleration > stepSensorThreshhold)
+            else if (stepState != StepState.Incoming && verticalAcceleration > stepSensorThreshhold)
             {
                 stepState = StepState.Incoming;
                 timeSinceLastStepUpdate = 0;
@@ -99,7 +114,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (FeiraLevelManager.instance.isPaused) return;
+        //if (FeiraLevelManager.instance.isPaused) return;
 
         if (movement != Vector3.zero)
         {
@@ -116,7 +131,25 @@ public class PlayerController : MonoBehaviour
 
     private void Step()
     {
-        player.Move(movement);
+        if (!isGincana)
+        {
+            player.Move(movement);
+        }
+        else
+        {
+            rb.MovePosition(transform.position + movement);
+        }
         Gerenciador_Audio.TocarSFX(stepSFX);
+    }
+
+    public void Jump()
+    {
+        rb.AddForce(Vector3.up * jumpPower, ForceMode.Acceleration);
+        Debug.Log("Jump");
+    }
+
+    public bool isGroundCheck()
+    {
+        return Physics.Raycast(transform.position, Vector3.down, transform.position.y + 0.1f, isGround);
     }
 }
