@@ -4,13 +4,20 @@ using UnityEngine;
 
 public class Obstacle : MonoBehaviour
 {
+    [SerializeField] bool isDodge;
     public void OnTriggerEnter(Collider other)
     {
-        GincanaLevelManager.instance.HitPlayer();
-    }
-
-    public void OnCollisionEnter(Collision collision)
-    {
-        GincanaLevelManager.instance.HitPlayer();        
+        if (other.CompareTag("Player"))
+        {
+            Debug.Log(gameObject.name);
+            if (!isDodge)
+            {
+                GincanaLevelManager.instance.HitPlayer();
+            }
+            else
+            {
+                GincanaLevelManager.instance.HitPlayer(ObstacleType.Dodge);
+            }
+        }        
     }
 }
