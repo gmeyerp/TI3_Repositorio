@@ -8,6 +8,8 @@ public class Cannon : MonoBehaviour
     [SerializeField] GameObject bullet;
     [SerializeField] float speed = 4f;
     [SerializeField] float cooldown = 2f;
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] ParticleSystem explosionVFX;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +18,15 @@ public class Cannon : MonoBehaviour
 
     void Shoot()
     {
+        if (audioSource != null)
+        {
+            audioSource.Stop();
+            audioSource.Play();
+        }
+        if (explosionVFX != null)
+        {
+            explosionVFX.Play();
+        }
         GameObject bulletGO = Instantiate(bullet, spawner.position, spawner.rotation);
         Bullet bulletScript = bulletGO.GetComponent<Bullet>();
         bulletScript.Shoot(spawner.forward, speed);
