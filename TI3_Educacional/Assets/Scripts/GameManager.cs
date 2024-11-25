@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] float fadeInTime = 0.5f;
     [SerializeField] TabController tabController;
     [SerializeField] GameObject confirmationPanel;
+    [SerializeField] VrModeController vrModeController;
     
 
     private void Start()
@@ -166,5 +167,17 @@ public class GameManager : MonoBehaviour
             // Sai da aplicação
             Application.Quit();
         #endif
+    }
+
+    public void UnpauseVR()
+    {
+        ButtonClicked();
+        vrModeController.isPaused = false;
+    }
+
+    public void ReloadCurrentScene()
+    {
+        ButtonClicked();
+        StartCoroutine(ChangeScene(SceneManager.GetActiveScene().name, ScreenOrientation.LandscapeLeft));
     }
 }

@@ -7,6 +7,7 @@ public class GincanaLevelManager : MonoBehaviour
 {
     public static GincanaLevelManager instance;
     [SerializeField] GameObject player;
+    [SerializeField] Rigidbody playerRB;
     [SerializeField] PlayerController playerController;
     public Vector3 safeSpot;
     public int hitCount = 0;
@@ -32,6 +33,11 @@ public class GincanaLevelManager : MonoBehaviour
         {
             playerController = FindObjectOfType<PlayerController>();
         }
+        if (playerRB == null)
+        {
+            playerRB = player.GetComponent<Rigidbody>();
+        }
+
         safeSpot = player.transform.position;
     }
 
@@ -44,6 +50,7 @@ public class GincanaLevelManager : MonoBehaviour
     {
         Gerenciador_Audio.TocarSFX(hitSFX);
         hitCount++;
+        playerRB.velocity = Vector3.zero;
         player.transform.position = new Vector3(safeSpot.x, safeSpot.y + player.transform.position.y, safeSpot.z);
     }
 
@@ -55,6 +62,7 @@ public class GincanaLevelManager : MonoBehaviour
             {
                 Gerenciador_Audio.TocarSFX(hitSFX);
                 hitCount++;
+                playerRB.velocity = Vector3.zero;
                 player.transform.position = new Vector3(safeSpot.x, safeSpot.y + player.transform.position.y, safeSpot.z);
             }
         }
@@ -64,8 +72,17 @@ public class GincanaLevelManager : MonoBehaviour
             {
                 Gerenciador_Audio.TocarSFX(hitSFX);
                 hitCount++;
+                playerRB.velocity = Vector3.zero;
                 player.transform.position = new Vector3(safeSpot.x, safeSpot.y + player.transform.position.y, safeSpot.z);
             }
+        }
+    }
+
+    public void FixedUpdate()
+    {
+        if (player.transform.position.y <= - 3f)
+        {
+            HitPlayer();
         }
     }
 }

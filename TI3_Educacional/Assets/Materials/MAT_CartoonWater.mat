@@ -38,11 +38,13 @@ Material:
     - _BUILTIN_ZWrite: 1
     - _BUILTIN_ZWriteControl: 0
     - _RippleContour: 4
-    - _RippleSize: 80
+    - _RippleSize: 40
     - _RippleSpeed: 1
+    - _SmallRipleSpeed: 1.5
+    - _SmallRippleSize: 80
     m_Colors:
     - _BaseColor: {r: 0, g: 0.682353, b: 1, a: 1}
-    - _RippleColor: {r: 0.4897187, g: 0.7405483, b: 0.8566037, a: 1}
+    - _RippleColor: {r: 0.20426483, g: 0.63241124, b: 0.82641506, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &1581209543294025919
 MonoBehaviour:
