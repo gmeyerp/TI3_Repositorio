@@ -50,10 +50,10 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if ((!isGincana && FeiraLevelManager.instance.isPaused) || (isGincana && GincanaLevelManager.instance.isPaused))
-        {
-            return;
-        }
+        //if ((!isGincana && FeiraLevelManager.instance != null && FeiraLevelManager.instance.isPaused) || (isGincana && GincanaLevelManager.instance != null && GincanaLevelManager.instance.isPaused))
+        //{
+        //    return;
+        //}
         Accelerometer accelerometer = Accelerometer.current;
         GravitySensor gravitySensor = GravitySensor.current;
         if (!accelerometer.enabled)
@@ -90,14 +90,14 @@ public class PlayerController : MonoBehaviour
                 smallCollider.enabled = false;
                 isDodging = false;
                 // Verificando quando o celular sobe bruscamente
-                if (isGincana && stepState != StepState.Incoming && verticalAcceleration > jumpSensorThreshhold && IsGroundCheck())
-                {
-                    stepState = StepState.Done;
-                    timeSinceLastStepUpdate = 0;
-                    Jump();
-
-                    onStep.Invoke();
-                }
+                //if (isGincana && stepState != StepState.Incoming && verticalAcceleration > jumpSensorThreshhold && IsGroundCheck())
+                //{
+                //    stepState = StepState.Done;
+                //    timeSinceLastStepUpdate = 0;
+                //    Jump();
+                //
+                //    onStep.Invoke();
+                //}
 
                 // Verificando quando o celular desce bruscamente
                 //else if (isGincana && stepState != StepState.Incoming && verticalAcceleration < -dodgeSensorThreshhold && IsGroundCheck() && !isDodging)
@@ -110,7 +110,8 @@ public class PlayerController : MonoBehaviour
                 //}
 
                 // Verificando quando o celular sobe (preparando o passo)
-                else if (stepState != StepState.Incoming && verticalAcceleration > stepSensorThreshhold)
+                //else 
+                if (stepState != StepState.Incoming && verticalAcceleration > stepSensorThreshhold)
                 {
                     stepState = StepState.Incoming;
                     timeSinceLastStepUpdate = 0;
@@ -147,10 +148,10 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if ((!isGincana && FeiraLevelManager.instance.isPaused) || (isGincana && GincanaLevelManager.instance.isPaused))
-        {
-            return;
-        }
+        //if ((!isGincana && FeiraLevelManager.instance != null && FeiraLevelManager.instance.isPaused) || (isGincana && GincanaLevelManager.instance != null && GincanaLevelManager.instance.isPaused))
+        //{
+        //    return;
+        //}
 
         if (movement != Vector3.zero)
         {

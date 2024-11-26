@@ -1373,27 +1373,27 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 349134667106303787, guid: 58a6c96addcb48943b64de2daced3586, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 349134667106303787, guid: 58a6c96addcb48943b64de2daced3586, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 349134667106303787, guid: 58a6c96addcb48943b64de2daced3586, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 77.096924
       objectReference: {fileID: 0}
     - target: {fileID: 349134667106303787, guid: 58a6c96addcb48943b64de2daced3586, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 1626.6183
       objectReference: {fileID: 0}
     - target: {fileID: 349134667106303787, guid: 58a6c96addcb48943b64de2daced3586, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 138.54846
       objectReference: {fileID: 0}
     - target: {fileID: 349134667106303787, guid: 58a6c96addcb48943b64de2daced3586, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -813.30914
       objectReference: {fileID: 0}
     - target: {fileID: 1502804065671926551, guid: 58a6c96addcb48943b64de2daced3586, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1501,55 +1501,59 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6425771966134859154, guid: 58a6c96addcb48943b64de2daced3586, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6425771966134859154, guid: 58a6c96addcb48943b64de2daced3586, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6425771966134859154, guid: 58a6c96addcb48943b64de2daced3586, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 77.096924
       objectReference: {fileID: 0}
     - target: {fileID: 6425771966134859154, guid: 58a6c96addcb48943b64de2daced3586, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 1626.6183
       objectReference: {fileID: 0}
     - target: {fileID: 6425771966134859154, guid: 58a6c96addcb48943b64de2daced3586, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 492.7423
       objectReference: {fileID: 0}
     - target: {fileID: 6425771966134859154, guid: 58a6c96addcb48943b64de2daced3586, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -813.30914
       objectReference: {fileID: 0}
     - target: {fileID: 7615508335395228034, guid: 58a6c96addcb48943b64de2daced3586, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7615508335395228034, guid: 58a6c96addcb48943b64de2daced3586, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7615508335395228034, guid: 58a6c96addcb48943b64de2daced3586, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 77.096924
       objectReference: {fileID: 0}
     - target: {fileID: 7615508335395228034, guid: 58a6c96addcb48943b64de2daced3586, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 1626.6183
       objectReference: {fileID: 0}
     - target: {fileID: 7615508335395228034, guid: 58a6c96addcb48943b64de2daced3586, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 315.6454
       objectReference: {fileID: 0}
     - target: {fileID: 7615508335395228034, guid: 58a6c96addcb48943b64de2daced3586, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -813.30914
       objectReference: {fileID: 0}
     - target: {fileID: 8873279452344798503, guid: 58a6c96addcb48943b64de2daced3586, type: 3}
       propertyPath: m_Name
       value: PauseMenuVertical
+      objectReference: {fileID: 0}
+    - target: {fileID: 8873279452344798503, guid: 58a6c96addcb48943b64de2daced3586, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
