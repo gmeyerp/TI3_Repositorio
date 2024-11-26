@@ -86,9 +86,12 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                mainCollider.enabled = true;
-                smallCollider.enabled = false;
-                isDodging = false;
+                if (isGincana)
+                {
+                    mainCollider.enabled = true;
+                    smallCollider.enabled = false;
+                    isDodging = false;
+                }
                 // Verificando quando o celular sobe bruscamente
                 //if (isGincana && stepState != StepState.Incoming && verticalAcceleration > jumpSensorThreshhold && IsGroundCheck())
                 //{
