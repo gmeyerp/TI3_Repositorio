@@ -9,11 +9,13 @@ public class ProfileInfo
 {
     public enum Info
     {
-        // Geral
+        // Paciente
         stringPatientName,
         intAge,
         intDautonismo,
         floatHeight,
+
+        // Geral
         floatGeneralVolume,
         floatBgmVolume,
         floatSfxVolume,
@@ -39,11 +41,13 @@ public class ProfileInfo
 
     private Dictionary<Info, object> info = new()
     {
-        // Geral
+        // Paciente
         { Info.stringPatientName, "name" },
         { Info.intAge, 99 },
         { Info.intDautonismo, 0 },
         { Info.floatHeight, 1.00f },
+
+        // Geral
         { Info.floatGeneralVolume, 0.5f },
         { Info.floatBgmVolume, 1f },
         { Info.floatSfxVolume, 1f },
@@ -69,10 +73,13 @@ public class ProfileInfo
 
     public ProfileInfo(string patientName)
     {
+        // Garantindo que o nome é alterado quando o paciente não existir ainda
         info[Info.stringPatientName] = patientName;
+
+        Load(patientName);
     }
 
-    private string GetDestination() => $"{Application.dataPath}/Perfis/{info[Info.stringPatientName]}.txt";
+    private string GetDestination() => $"{Application.dataPath}/Perfis/{info[Info.stringPatientName]}.json";
 
     public object Get(Info info)
     {
@@ -98,7 +105,7 @@ public class ProfileInfo
         string destination = GetDestination();
         if (!File.Exists(destination))
         {
-            Debug.LogError("Houve um erro ao tentar carregar as configurações do perfil.");
+            Debug.LogWarning("Não foi possível carregar as configurações do perfil.");
             return;
         }
 

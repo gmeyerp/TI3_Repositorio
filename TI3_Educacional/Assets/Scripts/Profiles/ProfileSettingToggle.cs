@@ -7,7 +7,6 @@ using UnityEngine.UI;
 
 public class ProfileSettingToggle : MonoBehaviour
 {
-    [SerializeField] private ProfileManager profileManager;
     [SerializeField] private ProfileInfo.Info info;
 
     private Toggle toggle;
@@ -18,7 +17,7 @@ public class ProfileSettingToggle : MonoBehaviour
 
     private void Start()
     {
-        profileManager.AddListener(info, (value) =>
+        ProfileManager.AddListener(info, (value) =>
         {
             toggle.isOn = Convert.ToBoolean(value);
         });
@@ -26,6 +25,6 @@ public class ProfileSettingToggle : MonoBehaviour
 
     public void SetBool(bool value)
     {
-        profileManager.SetCurrent(info, value);
+        ProfileManager.SetCurrent(info, value);
     }
 }

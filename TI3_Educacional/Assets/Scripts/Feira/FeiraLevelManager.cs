@@ -59,12 +59,16 @@ public class FeiraLevelManager : MonoBehaviour
 
     private void Start()
     {
+        numberOfFruits = System.Convert.ToInt32(ProfileManager.GetCurrent(ProfileInfo.Info.intFruitAmount));
         collectedFruit = new bool[numberOfFruits];
         PickFruits();
         GiveChosenFruits();
         fruitSpritesTween.GiveFruitSprites();
         GiveRemainingFruits();
+
+        customersDifficulty = (FeiraCustomers)System.Convert.ToInt32(ProfileManager.GetCurrent(ProfileInfo.Info.intVisitorAmount));
         StartCustomers(customersDifficulty);
+
         feiraTutorial.DoTutorial(isTutorial);
     }
 
