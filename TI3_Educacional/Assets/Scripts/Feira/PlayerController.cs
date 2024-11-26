@@ -78,7 +78,7 @@ public class PlayerController : MonoBehaviour
             float verticalAcceleration = verticalWeight * acceleration.magnitude;
             
             Vector3 direction = accelerometer.acceleration.value;
-            if (direction.z * -90 > dodgeInclination)
+            if (isGincana && direction.z * -90 > dodgeInclination)
             {
                 mainCollider.enabled = false;
                 smallCollider.enabled = true;
