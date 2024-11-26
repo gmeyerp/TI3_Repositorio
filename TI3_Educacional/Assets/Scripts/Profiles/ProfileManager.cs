@@ -6,10 +6,11 @@ using static ProfileInfo;
 
 public class ProfileManager : MonoBehaviour
 {
-    //static private ProfileManager instance;
+    private static ProfileManager instance;
 
     public enum InfoGroup
     {
+        patient,
         general,
         fair,
         bar,
@@ -17,11 +18,14 @@ public class ProfileManager : MonoBehaviour
 
     private readonly Dictionary<InfoGroup, HashSet<Info>> infoGroups = new()
     {
-        { InfoGroup.general, new() {
+        { InfoGroup.patient, new() {
             Info.stringPatientName,
             Info.intAge,
             Info.intDautonismo,
             Info.floatHeight,
+        } },
+
+        { InfoGroup.general, new() {
             Info.floatGeneralVolume,
             Info.floatBgmVolume,
             Info.floatSfxVolume,
@@ -51,30 +55,23 @@ public class ProfileManager : MonoBehaviour
     private ProfileInfo currentProfile;
     private ProfileInfo savedProfile;
 
-    /*
+    private readonly Dictionary<Info, UnityAction<object>> listeners = new();
+
     private void Awake()
     {
         if (instance == null)
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
-    */
 
-    private readonly Dictionary<Info, UnityAction<object>> listeners = new();
-
-    private void Awake()
-    {
-        savedProfile = new ProfileInfo("Saved");
-        currentProfile = new ProfileInfo("Teste");
+            savedProfile = new ProfileInfo("Paciente Anônimo");
+            currentProfile = new ProfileInfo("Paciente Anônimo");
+        }
+        else { Destroy(gameObject); }
     }
 
-    public void AddListener(Info info, UnityAction<object> listener)
+    static public void AddListener(Info info, UnityAction<object> listener) => instance?.Instance_AddListener(info, listener);
+    private void Instance_AddListener(Info info, UnityAction<object> listener)
     {
         if (!listeners.ContainsKey(info))
         { listeners[info] = listener; }
@@ -84,13 +81,23 @@ public class ProfileManager : MonoBehaviour
         listener.Invoke(currentProfile.Get(info));
     }
 
-    public void SetCurrent(Info info, object value)
+    static public object GetCurrent(Info info) => instance?.Instance_GetCurrent(info);
+    private object Instance_GetCurrent(Info info)
+    {
+        return currentProfile.Get(info);
+    }
+    static public void SetCurrent(Info info, object value) => instance?.Instance_SetCurrent(info, value);
+    private void Instance_SetCurrent(Info info, object value)
     {
         currentProfile.Set(info, value);
     }
 
-    public void UndoGroup(InfoGroup infoGroup)
+    static public void UndoGroup(InfoGroup infoGroup) => instance?.Instance_UndoGroup(infoGroup);
+    private void Instance_UndoGroup(InfoGroup infoGroup)
     {
+        if (infoGroup != InfoGroup.patient)
+        { UndoGroup(InfoGroup.patient); }
+
         foreach (Info info in infoGroups[infoGroup])
         {
             object value = savedProfile.Get(info);
@@ -100,20 +107,23 @@ public class ProfileManager : MonoBehaviour
             { listeners[info].Invoke(value); }
         }
     }
-    public void SaveGroup(InfoGroup infoGroup)
+    static public void SaveGroup(InfoGroup infoGroup) => instance?.Instance_SaveGroup(infoGroup);
+    private void Instance_SaveGroup(InfoGroup infoGroup)
     {
+        if (infoGroup != InfoGroup.patient)
+        { SaveGroup(InfoGroup.patient); }
+
         foreach (Info info in infoGroups[infoGroup])
         { savedProfile.Set(info, currentProfile.Get(info)); }
 
         savedProfile.Save();
     }
 
-    public void UndoGeneral() => UndoGroup(InfoGroup.general);
-    public void UndoFair() => UndoGroup(InfoGroup.fair);
-    public void UndoBar() => UndoGroup(InfoGroup.bar);
-
-    public void SaveGeneral() => SaveGroup(InfoGroup.general);
-    public void SaveFair() => SaveGroup(InfoGroup.fair);
-    public void SaveBar() => SaveGroup(InfoGroup.bar);
-
+    static public void ChangePatient(string name) => instance.Instance_ChangePatient(name);
+    private void Instance_ChangePatient(string name)
+    {
+        savedProfile.Load(name);
+        foreach (KeyValuePair<InfoGroup, HashSet<Info>> infoGroup in infoGroups)
+        { UndoGroup(infoGroup.Key); }
+    }
 }

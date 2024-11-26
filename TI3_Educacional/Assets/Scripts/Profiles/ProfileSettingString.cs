@@ -5,23 +5,23 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ProfileSettingSlider : MonoBehaviour
+public class ProfileSettingString : MonoBehaviour
 {
     [SerializeField] private TMP_Text text;
 
     [SerializeField] private ProfileInfo.Info info;
 
-    private Slider slider;
+    private TMP_InputField input;
     private void Awake()
     {
-        slider = GetComponent<Slider>();
+        input = GetComponent<TMP_InputField>();
     }
 
     private void Start()
     {
         ProfileManager.AddListener(info, (value) =>
         {
-            slider.value = Convert.ToSingle(value);
+            input.text = value.ToString();
             UpdateText(value);
         });
     }
@@ -30,10 +30,10 @@ public class ProfileSettingSlider : MonoBehaviour
     {
         if (text == null) return;
 
-        text.text = slider.wholeNumbers ? value.ToString() : string.Format("{0:N2}", value);
+        text.text = value.ToString();
     }
 
-    public void SetFloat(float value)
+    public void SetString(string value)
     {
         ProfileManager.SetCurrent(info, value);
         UpdateText(value);
