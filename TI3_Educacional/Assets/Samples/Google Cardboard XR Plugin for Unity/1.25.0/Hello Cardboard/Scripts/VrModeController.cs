@@ -34,6 +34,7 @@ using InputSystemTouchPhase = UnityEngine.InputSystem.TouchPhase;
 public class VrModeController : MonoBehaviour
 {
     [SerializeField] GameObject pauseMenu;
+    public bool isPaused = false;
     // Field of view value to be used when the scene is not in VR mode. In case
     // XR isn't initialized on startup, this value could be taken from the main
     // camera and stored.
@@ -94,7 +95,7 @@ public class VrModeController : MonoBehaviour
     /// </summary>
     public void Update()
     {
-        if (pauseMenu.activeSelf) return;
+        if (isPaused) return;
         if (_isVrModeEnabled)
         {
             if (Api.IsCloseButtonPressed)
@@ -167,7 +168,11 @@ public class VrModeController : MonoBehaviour
     /// </summary>
     public void ExitVR()
     {
-        pauseMenu.SetActive(true);
+        if (pauseMenu != null)
+        {
+            pauseMenu.SetActive(true);
+            isPaused = true;
+        }
         StopXR();
     }
 
