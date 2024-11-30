@@ -46,15 +46,19 @@ public class GincanaLevelManager : MonoBehaviour
         timer += Time.deltaTime;
     }
 
-    public void HitPlayer()
+    public void HitPlayer(string name)
     {
         Gerenciador_Audio.TocarSFX(hitSFX);
         hitCount++;
         playerRB.velocity = Vector3.zero;
         player.transform.position = new Vector3(safeSpot.x, safeSpot.y + player.transform.position.y, safeSpot.z);
+        if (AnalyticsTest.instance != null)
+        {
+            AnalyticsTest.instance.AddAnalytics(name, "Jogador Atingido", "true");
+        }
     }
 
-    public void HitPlayer(ObstacleType type)
+    public void HitPlayer(ObstacleType type, string name)
     {
         if (type == ObstacleType.Jump)
         {
@@ -82,7 +86,16 @@ public class GincanaLevelManager : MonoBehaviour
     {
         if (player.transform.position.y <= - 3f)
         {
-            HitPlayer();
+            HitPlayer("FallTrigger");
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (AnalyticsTest.instance != null)
+        {
+            AnalyticsTest.instance.AddAnalytics(gameObject.name, "Gincana Numero de Atingido", hitCount.ToString());
+            AnalyticsTest.instance.AddAnalytics(gameObject.name, "Gincana Tempo", timer.ToString());
         }
     }
 }

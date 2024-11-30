@@ -119,6 +119,10 @@ public class Customer : MonoBehaviour
             {
                 int sfx = Random.Range(0, collisionSFX.Length);
                 audioSource.PlayOneShot(collisionSFX[sfx]);
+                if (AnalyticsTest.instance != null)
+                {
+                    AnalyticsTest.instance.AddAnalytics(gameObject.name, "Jogador Atingido", "true");
+                }
             }            
         }
     }

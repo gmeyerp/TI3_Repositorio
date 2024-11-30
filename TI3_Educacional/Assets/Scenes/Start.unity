@@ -774,7 +774,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "JOGO\nPARA \nFISIOTERAPIA"
+  m_text: 'Fisio
+
+    VR'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 31cb6278459482d479c9cace62552922, type: 2}
   m_sharedMaterial: {fileID: 5266683751399518149, guid: 31cb6278459482d479c9cace62552922, type: 2}
@@ -801,7 +803,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 141.85
+  m_fontSize: 105.4
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -4884,6 +4886,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2141051149}
   m_CullTransparentMesh: 1
+--- !u!1001 &1389797006819820565
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2479693278218917845, guid: 92e76e15d272dc140b22eec663d672dd, type: 3}
+      propertyPath: m_Name
+      value: Analytics
+      objectReference: {fileID: 0}
+    - target: {fileID: 6293536692051329429, guid: 92e76e15d272dc140b22eec663d672dd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 11.909037
+      objectReference: {fileID: 0}
+    - target: {fileID: 6293536692051329429, guid: 92e76e15d272dc140b22eec663d672dd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.6427054
+      objectReference: {fileID: 0}
+    - target: {fileID: 6293536692051329429, guid: 92e76e15d272dc140b22eec663d672dd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 23.799112
+      objectReference: {fileID: 0}
+    - target: {fileID: 6293536692051329429, guid: 92e76e15d272dc140b22eec663d672dd, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6293536692051329429, guid: 92e76e15d272dc140b22eec663d672dd, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6293536692051329429, guid: 92e76e15d272dc140b22eec663d672dd, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6293536692051329429, guid: 92e76e15d272dc140b22eec663d672dd, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6293536692051329429, guid: 92e76e15d272dc140b22eec663d672dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6293536692051329429, guid: 92e76e15d272dc140b22eec663d672dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6293536692051329429, guid: 92e76e15d272dc140b22eec663d672dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 92e76e15d272dc140b22eec663d672dd, type: 3}
 --- !u!1001 &7785700252853550799
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5051,3 +5110,4 @@ SceneRoots:
   - {fileID: 1377317875}
   - {fileID: 184913619}
   - {fileID: 542219740}
+  - {fileID: 1389797006819820565}

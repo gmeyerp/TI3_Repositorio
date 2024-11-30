@@ -21,7 +21,7 @@ public class Casket : Bullet
         if (collision.gameObject.CompareTag("Player"))
         {
             Debug.Log(gameObject.name);
-            GincanaLevelManager.instance.HitPlayer(ObstacleType.Jump);
+            GincanaLevelManager.instance.HitPlayer(ObstacleType.Jump, gameObject.name);
             Destroy(gameObject);
         }
     }

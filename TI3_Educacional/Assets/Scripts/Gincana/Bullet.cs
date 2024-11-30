@@ -36,7 +36,7 @@ public class Bullet : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             Debug.Log(gameObject.name);
-            GincanaLevelManager.instance.HitPlayer();
+            GincanaLevelManager.instance.HitPlayer(gameObject.name);
         }
         Destroy(gameObject);
     }

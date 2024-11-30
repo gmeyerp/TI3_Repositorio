@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -19,6 +20,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Collider smallCollider;
     [SerializeField] float dodgeInclination = 60f;
     public bool isDodging;
+    int steps = 0;
 
     [Header("Values")]
     [SerializeField] private float speed = 1;
@@ -180,6 +182,7 @@ public class PlayerController : MonoBehaviour
             rb.MovePosition(transform.position + movement);
         }
         Gerenciador_Audio.TocarSFX(stepSFX);
+        steps++;
     }
 
     public void Jump()
@@ -204,5 +207,13 @@ public class PlayerController : MonoBehaviour
     public bool IsGroundCheck()
     {
         return Physics.Raycast(transform.position, Vector3.down, transform.position.y + 0.1f, isGround);
+    }
+
+    private void OnDestroy()
+    {
+        if (AnalyticsTest.instance != null)
+        {
+            AnalyticsTest.instance.AddAnalytics(gameObject.name, "Numero de Passos em " + SceneManager.GetActiveScene().name, steps.ToString());
+        }
     }
 }

@@ -13,6 +13,7 @@ public class MiniGameTps : MonoBehaviour
     [Header("Teleports")]
     [SerializeField] private Vector3 miniGamePosition;
     private Vector3 lastPosition; // Pega a �ltima posi��o do player
+    float coinTimer = 0;
 
     private void Awake()
     {
@@ -62,6 +63,12 @@ public class MiniGameTps : MonoBehaviour
         Debug.Log("Voltando para a �ltima posi��o");
 
         MiniGameManager.Instance.trigger.StandComplete();
+
+        if (AnalyticsTest.instance != null)
+        {
+            AnalyticsTest.instance.AddAnalytics(gameObject.name, "Duração Moedas", (Time.time - coinTimer).ToString());
+        }
+
         MiniGameManager.Instance.trigger.gameObject.SetActive(false);
     }
 
@@ -77,6 +84,8 @@ public class MiniGameTps : MonoBehaviour
         {
             MiniGameManager.Instance.feiraTutorial.StartCoinTutorial();
         }
+
+        coinTimer = Time.time;
         MiniGameManager.Instance.DestroycoinsActive();
         MiniGameManager.Instance.fruitSprites.SetActive(false);
         MiniGameManager.Instance.Infos();

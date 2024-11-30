@@ -51,7 +51,7 @@ public class CoinCollect : MonoBehaviour
         if (MiniGameManager.Instance.coinsAcquired > MiniGameManager.Instance.coinsToPurchase)
         {
             //Quando ultrapassar o valor necessario de moedas elas ficarão vermelhas.
-            coinSprite.color = limitColor;
+            completion.color = limitColor;
             if(collected)
                 completion.fillAmount -= lerpSpeed;
             else
@@ -59,16 +59,15 @@ public class CoinCollect : MonoBehaviour
         }
         else if (isLooking && collected)
         {
-            coinSprite.color = Color.Lerp(coinSprite.color, inactiveColor, lerpSpeed);
+            completion.color = Color.Lerp(completion.color, inactiveColor, lerpSpeed);
             completion.fillAmount -= lerpSpeed;
         }
         else if (isLooking && !collected)
         {
             //Quando estiver olhando, alterar� a cor atual at� a cor ativa com o metodo Color.Lerp
-            coinSprite.color = Color.Lerp(coinSprite.color, activeColor, lerpSpeed);
+            completion.color = Color.Lerp(completion.color, activeColor, lerpSpeed);
             completion.fillAmount += lerpSpeed;
         }
-        completion.color = coinSprite.color;
     }
 
     public void Collect()
@@ -87,9 +86,8 @@ public class CoinCollect : MonoBehaviour
     {
         Debug.Log("Moeda deselecionada!");
         MiniGameManager.Instance.coinsAcquired -= valueCoin;
-        coinSprite.color = inactiveColor;
+        completion.color = inactiveColor;
         completion.fillAmount = 0;
-        completion.color = coinSprite.color;
 
         CoinInfos.Instance.UpdateDisplayCoin();
         MiniGameTps.Instance.GetoutMiniGame();
