@@ -24,7 +24,6 @@ public class AnalyticsTest : MonoBehaviour
         }
         DontDestroyOnLoad(gameObject);
         AddAnalytics(this.name, "Sessão iniciada", DateTime.Now.ToString("d/M/y hh:mm"));
-        Save();
     }
 
     public void AddAnalytics(string sender, string track, string value)
@@ -39,8 +38,22 @@ public class AnalyticsTest : MonoBehaviour
         AnalyticsFile f = new AnalyticsFile();
         f.dados = data.ToArray();
         string json = JsonUtility.ToJson(f, true);
-        SaveFile(json);
-        SendEmail(json);
+        try
+        {
+            SaveFile(json);
+        }
+        catch
+        {
+
+        }
+        try
+        {
+            SendEmail(json);
+        }
+        catch
+        {
+
+        }
     }
 
     public void SaveFile(string text)
@@ -61,8 +74,8 @@ public class AnalyticsTest : MonoBehaviour
         Debug.Log("Email enviado");
     }
 
-    private void OnDestroy()
-    {
-        Save();
-    }
+    //private void OnApplicationFocus(bool pause)
+    //{
+    //    Save();
+    //}
 }
