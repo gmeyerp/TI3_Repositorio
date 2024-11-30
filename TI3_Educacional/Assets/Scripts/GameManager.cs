@@ -33,7 +33,14 @@ public class GameManager : MonoBehaviour
         {
             Screen.orientation = orientation;
         }
-        
+
+        if (AnalyticsTest.instance != null)
+        {
+            AnalyticsTest.instance.AddAnalytics(gameObject.name, "Duração Cena", SceneManager.GetActiveScene().name + " para " + sceneName +
+            ": " + (Time.time - AnalyticsTest.instance.sceneTimer).ToString());
+            AnalyticsTest.instance.sceneTimer = Time.time;
+        }
+
         yield return new WaitForSeconds(1f + fadeOutTime);
         SceneManager.LoadScene(sceneName);
     }

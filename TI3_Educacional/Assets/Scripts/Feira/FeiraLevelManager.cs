@@ -70,6 +70,10 @@ public class FeiraLevelManager : MonoBehaviour
         StartCustomers(customersDifficulty);
 
         feiraTutorial.DoTutorial(isTutorial);
+        if (AnalyticsTest.instance != null)
+        {
+            AnalyticsTest.instance.AddAnalytics(gameObject.name, "Quantidade de Frutas Escolhidas", numberOfFruits.ToString());
+        }
     }
 
     private void Update()
@@ -167,6 +171,11 @@ public class FeiraLevelManager : MonoBehaviour
         }
         gameplayCanvas.SetActive(false);
         victoryCanvas.SetActive(true);
+        if (AnalyticsTest.instance != null)
+        {
+            AnalyticsTest.instance.AddAnalytics(gameObject.name, "Vitoria", timer.ToString());
+            AnalyticsTest.instance.AddAnalytics(gameObject.name, "Feira Numero de Atingido", hitTimes.ToString());
+        }
         if (isBestTime)
         {
             timerText.gameObject.SetActive(true);
@@ -181,6 +190,10 @@ public class FeiraLevelManager : MonoBehaviour
         {
             if (c.activeSelf)
             c.SetActive(false);
+            if (AnalyticsTest.instance != null)
+            {
+                AnalyticsTest.instance.AddAnalytics(gameObject.name, "Feira Dificuldade", customerDifficulty.ToString());
+            }
         }
         switch (customerDifficulty)
         {

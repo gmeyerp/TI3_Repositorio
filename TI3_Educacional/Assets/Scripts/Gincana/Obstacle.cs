@@ -12,11 +12,11 @@ public class Obstacle : MonoBehaviour
             Debug.Log(gameObject.name);
             if (!isDodge)
             {
-                GincanaLevelManager.instance.HitPlayer();
+                GincanaLevelManager.instance.HitPlayer(gameObject.name);
             }
             else
             {
-                GincanaLevelManager.instance.HitPlayer(ObstacleType.Dodge);
+                GincanaLevelManager.instance.HitPlayer(ObstacleType.Dodge, gameObject.name);
             }
         }        
     }

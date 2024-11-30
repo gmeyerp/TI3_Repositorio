@@ -23,4 +23,12 @@ public class StandSpotTrigger : MonoBehaviour
     {
         FeiraLevelManager.instance.CollectedFruit(stand.GetChosenFruit());
     }
+
+    public void NPCInteraction()
+    {
+        MiniGameManager.Instance.SetUsedTrigger(this);
+        MiniGameTps.Instance.TakeLastPosition();
+        MiniGameManager.Instance.NewPrice();
+        MiniGameTps.Instance.TeleportToMiniGame();
+    }
 }
