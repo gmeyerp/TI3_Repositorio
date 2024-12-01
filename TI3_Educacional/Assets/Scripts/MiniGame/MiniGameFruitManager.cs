@@ -36,6 +36,8 @@ public class MiniGameFruitManager : MonoBehaviour
     [Header("Teleports")]
     [SerializeField] private Vector3 miniGamePosition;
     private Vector3 lastPosition; // Pega a �ltima posi��o do player
+
+    public bool isStarted;
     
 
     public CharacterController controller;
@@ -73,11 +75,14 @@ public class MiniGameFruitManager : MonoBehaviour
 
     private void Update()
     {
-        spawnTimer += Time.deltaTime;
-        if (spawnTimer >= timeToSpawn)
+        if (isStarted)
         {
-            StartCoroutine(SpawnItens());
-            spawnTimer = 0.0f; // Reiniciar o temporizador
+            spawnTimer += Time.deltaTime;
+            if (spawnTimer >= timeToSpawn)
+            {
+                StartCoroutine(SpawnItens());
+                spawnTimer = 0.0f; // Reiniciar o temporizador
+            }
         }
     }
 

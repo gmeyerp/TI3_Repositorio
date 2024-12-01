@@ -4,10 +4,25 @@ using UnityEngine;
 
 public class PlayerInteraction : MonoBehaviour
 {
+    public static PlayerInteraction instance;
+    public RectTransform completeCircle;
+    public RectTransform timerCircle;
     Camera mainCamera;
     [SerializeField] float maxDistance = 10f;
     [SerializeField] LayerMask interactableLayer;
     VRInteractable interactable;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     // Start is called before the first frame update
     void Start()

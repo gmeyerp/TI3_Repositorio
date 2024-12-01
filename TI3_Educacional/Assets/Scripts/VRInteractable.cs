@@ -16,8 +16,8 @@ public class VRInteractable : MonoBehaviour
     // Update is called once per frame
     void Start()
     {
-        completeCircle = GameObject.Find("Clock").GetComponent<RectTransform>();
-        timerCircle = GameObject.Find("ClockHand").GetComponent<RectTransform>();
+        completeCircle = PlayerInteraction.instance.completeCircle;
+        timerCircle = PlayerInteraction.instance.timerCircle;
     }
     void Update()
     {
