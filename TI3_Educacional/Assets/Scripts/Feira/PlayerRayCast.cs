@@ -64,7 +64,8 @@ public class  PlayerRayCast : MonoBehaviour
                             {
                                 coin.collected = true;
                                 coin.Collect();
-                                CoinInfos.Instance.UpdateDisplayCoin();
+                                //CoinInfos.Instance.UpdateDisplayCoin();
+                                FruitInfos.Instance.UpdateDisplayFruit();
                             }
                                 
                             currentTarget = null;
@@ -76,7 +77,8 @@ public class  PlayerRayCast : MonoBehaviour
                             {
                                 coin.collected = false;
                                 coin.UnCollect();
-                                CoinInfos.Instance.UpdateDisplayCoin();
+                                //CoinInfos.Instance.UpdateDisplayCoin();
+                                FruitInfos.Instance.UpdateDisplayFruit();
                             }
 
                             currentTarget = null;

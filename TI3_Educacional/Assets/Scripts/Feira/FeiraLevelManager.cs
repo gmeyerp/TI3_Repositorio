@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum FeiraCustomers { Nenhum, Poucos, Médio, Muitos}
+public enum FeiraCustomers { Nenhum, Poucos, Medio, Muitos}
 public class FeiraLevelManager : MonoBehaviour
 {
     public static FeiraLevelManager instance;
@@ -14,8 +14,8 @@ public class FeiraLevelManager : MonoBehaviour
     [SerializeField] Image[] chosenFruitsImages;
     [SerializeField] Image[] checkImage;
     public bool[] collectedFruit;
-    [SerializeField] int numberOfFruits = 3;
-    [SerializeField] List<SOFruit> chosenFruits;
+    [SerializeField] public int numberOfFruits = 3;
+    [SerializeField] public List<SOFruit> chosenFruits;
     [SerializeField] List<SOFruit> fruits;
     [SerializeField] List<Stand> stands = new List<Stand>();
     [SerializeField] FruitSpritesTween fruitSpritesTween;
@@ -205,7 +205,7 @@ public class FeiraLevelManager : MonoBehaviour
                     }
                     break;
                 }
-            case FeiraCustomers.Médio:
+            case FeiraCustomers.Medio:
                 {
                     foreach (GameObject c in medioCustomers)
                     {
@@ -258,7 +258,7 @@ public class FeiraLevelManager : MonoBehaviour
                     }
                     break;
                 }
-            case FeiraCustomers.Médio:
+            case FeiraCustomers.Medio:
                 {
                     foreach (GameObject c in medioCustomers)
                     {

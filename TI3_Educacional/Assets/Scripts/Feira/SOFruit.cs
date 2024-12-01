@@ -8,4 +8,5 @@ public class SOFruit : ScriptableObject
     public GameObject prefab;
     public Sprite sprite;
     public AudioClip announceClip;
+    public GameObject spritePrefab;
 }

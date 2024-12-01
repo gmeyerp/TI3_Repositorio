@@ -6,6 +6,7 @@ using UnityEngine.UIElements;
 public class StandSpotTrigger : MonoBehaviour
 {
     [SerializeField] Stand stand;
+    SOFruit soFruit;
 
 
     private void OnTriggerEnter(Collider other)
@@ -16,6 +17,9 @@ public class StandSpotTrigger : MonoBehaviour
             MiniGameTps.Instance.TakeLastPosition();
             MiniGameManager.Instance.NewPrice();
             MiniGameTps.Instance.TeleportToMiniGame();
+            MiniGameFruitManager.Instance.SetUsedTrigger(this);
+            MiniGameFruitManager.Instance.NewPrice();
+            MiniGameFruitManager.Instance.AddFruits(stand.fruitInfo);
         }
     }
 
@@ -26,9 +30,14 @@ public class StandSpotTrigger : MonoBehaviour
 
     public void NPCInteraction()
     {
-        MiniGameManager.Instance.SetUsedTrigger(this);
+        //MiniGameManager.Instance.SetUsedTrigger(this);
         MiniGameTps.Instance.TakeLastPosition();
-        MiniGameManager.Instance.NewPrice();
+        //MiniGameManager.Instance.NewPrice();
         MiniGameTps.Instance.TeleportToMiniGame();
+        MiniGameFruitManager.Instance.Infos();
+        MiniGameFruitManager.Instance.SetUsedTrigger(this);
+        MiniGameFruitManager.Instance.NewPrice();
+        MiniGameFruitManager.Instance.AddFruits(stand.fruitInfo);
+        FruitInfos.Instance.UpdateDisplayFruit();
     }
 }
