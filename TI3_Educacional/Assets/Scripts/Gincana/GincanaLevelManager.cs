@@ -87,6 +87,7 @@ public class GincanaLevelManager : MonoBehaviour
         if (player.transform.position.y <= - 3f)
         {
             HitPlayer("FallTrigger");
+            GincanaTutorial.instance.FallTutorial();
         }
     }
 

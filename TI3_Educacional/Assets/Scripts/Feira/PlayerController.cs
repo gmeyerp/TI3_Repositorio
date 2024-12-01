@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -21,6 +22,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float dodgeInclination = 60f;
     public bool isDodging;
     int steps = 0;
+    [SerializeField] TextMeshProUGUI debugText;
 
     [Header("Values")]
     [SerializeField] private float speed = 1;
@@ -80,6 +82,11 @@ public class PlayerController : MonoBehaviour
             float verticalAcceleration = verticalWeight * acceleration.magnitude;
             
             Vector3 direction = accelerometer.acceleration.value;
+            if (debugText != null && debugText.gameObject.activeSelf == true)
+            {
+                DebugGame(direction.z);
+            }
+            
             if (isGincana && direction.z * -90 > dodgeInclination)
             {
                 mainCollider.enabled = false;
@@ -95,14 +102,20 @@ public class PlayerController : MonoBehaviour
                     isDodging = false;
                 }
                 // Verificando quando o celular sobe bruscamente
-                //if (isGincana && stepState != StepState.Incoming && verticalAcceleration > jumpSensorThreshhold && IsGroundCheck())
-                //{
-                //    stepState = StepState.Done;
-                //    timeSinceLastStepUpdate = 0;
-                //    Jump();
-                //
-                //    onStep.Invoke();
-                //}
+                if (isGincana && verticalAcceleration > jumpSensorThreshhold && IsGroundCheck())
+                {
+                    if (debugText != null && debugText.gameObject.activeSelf == true)
+                    {
+                        debugText.text = "Jumpeeeeeeeeeeed";
+                    }
+                    
+
+                    stepState = StepState.Done;
+                    timeSinceLastStepUpdate = 0;
+                    Jump();
+                
+                    onStep.Invoke();
+                }
 
                 // Verificando quando o celular desce bruscamente
                 //else if (isGincana && stepState != StepState.Incoming && verticalAcceleration < -dodgeSensorThreshhold && IsGroundCheck() && !isDodging)
@@ -148,6 +161,25 @@ public class PlayerController : MonoBehaviour
                     onStop.Invoke();
                 }
             }            
+        }
+    }
+
+    void DebugGame(float debug)
+    {
+        if (!IsGroundCheck())
+        {
+            debugText.text = "Jump";
+        }
+        else
+        {
+            if (isGincana && debug * -90 > dodgeInclination)
+            {
+                debugText.text = "Dodge";
+            }
+            else
+            {
+                debugText.text = "Neutral";
+            }
         }
     }
 
