@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efa6d7a4cd539d3408211a3ef03c4835, type: 3}
   m_Name: Head Spin
   m_EditorClassIdentifier: 
-  duration: 6
+  duration: 10
   text: "Gire a cabe\xE7a  para girar a barra roxa"
   image: {fileID: 0}
   nextTutorial: {fileID: 11400000, guid: a7fcf9d9eaf45324d86ed2469d1ec9fd, type: 2}

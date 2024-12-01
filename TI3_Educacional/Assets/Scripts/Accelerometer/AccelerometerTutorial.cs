@@ -5,17 +5,51 @@ using UnityEngine;
 
 public class AccelerometerTutorial : MonoBehaviour
 {
-    [SerializeField] TutorialSO tutorials;
-    [SerializeField] TextMeshProUGUI text;
+    [SerializeField] TutorialSO firstTutorial;
+    [SerializeField] TutorialSO secondTutorial;
+    [SerializeField] TextMeshProUGUI txt;
+    float timer = 0;
     bool isTutorial = true;
+    bool isFirstDone;
 
     private void Start()
     {
-        if (isTutorial)
+        if (isTutorial == false)
         {
-            tutorials.ShowText(text);
-            StartCoroutine(tutorials.NextTutorial(text));
-            StartCoroutine(tutorials.nextTutorial.HideText(text)); 
+            Destroy(gameObject);
+        }
+        else
+        {
+            CreateTutorialText(firstTutorial.duration, firstTutorial.text);
+        }
+    }
+    private void Update()
+    {
+        timer -= Time.deltaTime;
+
+        if (txt != null)
+        {
+            if (timer <= 0)
+            {
+                if (isFirstDone == false)
+                {
+                    CreateTutorialText(secondTutorial.duration, secondTutorial.text);
+                    isFirstDone = true;
+                }
+                else
+                {
+                    txt.gameObject.SetActive(false);
+                }
+            }
+        }
+    }
+    public void CreateTutorialText(float duration, string text)
+    {
+        if (txt != null)
+        {
+            txt.gameObject.SetActive(true);
+            timer = duration;
+            txt.text = text;
         }
     }
 }

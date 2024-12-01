@@ -157,7 +157,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1520.6846, y: -65.72511}
+  m_AnchoredPosition: {x: 1520.6846, y: -561.2394}
   m_SizeDelta: {x: 1121.3691, y: 360.08}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &136157927
@@ -428,7 +428,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 960, y: -914.5226}
+  m_AnchoredPosition: {x: 960, y: -3392.0938}
   m_SizeDelta: {x: 1459.7057, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &237423489
@@ -1360,7 +1360,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1818.443, y: -723.0723}
+  m_AnchoredPosition: {x: 1818.443, y: -2209.615}
   m_SizeDelta: {x: 1716.886, y: 205.817}
   m_Pivot: {x: 1, y: 0}
 --- !u!1001 &468910738
@@ -2239,7 +2239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28a3e313da15e1443b58f02e0e4d3a7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelTimer: 60
+  levelTimer: 300
   endCanvas: {fileID: 431157632}
   gameplayCanvas: {fileID: 314554744}
   timerText: {fileID: 1269454279}
@@ -2247,7 +2247,8 @@ MonoBehaviour:
   scoreText: {fileID: 452325120}
   bestScore: 5
   spawner: {fileID: 1002955874}
-  controller: {fileID: 0}
+  controller: {fileID: 1406757295}
+  isStarted: 0
 --- !u!4 &1226836499
 Transform:
   m_ObjectHideFlags: 0
@@ -3161,8 +3162,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0c7032b4d5689944bfa00a417149427, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tutorials: {fileID: 11400000, guid: 9d97e664303a2554796dba66107400e2, type: 2}
-  text: {fileID: 139945380}
+  firstTutorial: {fileID: 11400000, guid: 9d97e664303a2554796dba66107400e2, type: 2}
+  secondTutorial: {fileID: 11400000, guid: a7fcf9d9eaf45324d86ed2469d1ec9fd, type: 2}
+  txt: {fileID: 139945380}
 --- !u!1001 &2146565899
 PrefabInstance:
   m_ObjectHideFlags: 0

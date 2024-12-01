@@ -70,6 +70,11 @@ public class MiniGameTps : MonoBehaviour
             AnalyticsTest.instance.AddAnalytics(gameObject.name, "Duração Moedas", (Time.time - coinTimer).ToString());
         }
 
+        if (FeiraTutorialStart.instance != null)
+        {
+            FeiraTutorialStart.instance.FruitTutorial();
+        }
+
         MiniGameFruitManager.Instance.trigger.gameObject.SetActive(false);
     }
 
@@ -81,9 +86,9 @@ public class MiniGameTps : MonoBehaviour
 
     public void TeleportToMiniGame()
     {
-        if (MiniGameFruitManager.Instance.feiraTutorial != null)
+        if (FeiraTutorialStart.instance != null)
         {
-            MiniGameFruitManager.Instance.feiraTutorial.StartCoinTutorial();
+            FeiraTutorialStart.instance.CollectFruitTutorial();
         }
         MiniGameFruitManager.Instance.playerController.enabled = false;
         coinTimer = Time.time;
