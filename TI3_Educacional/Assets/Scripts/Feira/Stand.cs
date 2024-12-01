@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Stand : MonoBehaviour
 {
-    [SerializeField] SOFruit fruitInfo;
+    [SerializeField] public SOFruit fruitInfo;
     [SerializeField] Transform[] fruitSpot;
     [SerializeField] GameObject interactSpot;
     [SerializeField] AudioSource audioSource;

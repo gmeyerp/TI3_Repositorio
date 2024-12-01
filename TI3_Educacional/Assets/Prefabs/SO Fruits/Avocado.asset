@@ -15,3 +15,4 @@ MonoBehaviour:
   prefab: {fileID: 6754865903623863735, guid: 9de0b7fc2aadca54fbdd7b23f67d76da, type: 3}
   sprite: {fileID: 21300000, guid: b9017fb2f76aac644845113087da3261, type: 3}
   announceClip: {fileID: 8300000, guid: 998627d12e3662d47b3230d7e072c5e3, type: 3}
+  spritePrefab: {fileID: 1283838247237462716, guid: 81db1bffe3d1600408e3bfb455217839, type: 3}

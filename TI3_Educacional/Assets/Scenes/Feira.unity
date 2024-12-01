@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &4
 LightmapSettings:
@@ -170,6 +170,7 @@ GameObject:
   - component: {fileID: 11183681}
   - component: {fileID: 11183682}
   - component: {fileID: 11183683}
+  - component: {fileID: 11183684}
   m_Layer: 0
   m_Name: MiniGameManager
   m_TagString: Untagged
@@ -199,7 +200,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 11183680}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c75e51cd66cced44684ab62b006ca0ec, type: 3}
   m_Name: 
@@ -245,6 +246,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   miniGamePosition: {x: 0, y: 0, z: 0}
+--- !u!114 &11183684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 11183680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 687f1a986fb9867438d975da741775f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fruitList: []
+  fruitActive: []
+  spawnCenter: {fileID: 434331833}
+  radius: 10
+  timeToSpawn: 0
+  spawnTimer: 0
+  fruitsAcquired: 0
+  fruitsToPurchase: 0
+  minValue: 5
+  maxValue: 10
+  player: {fileID: 907292807}
+  playerController: {fileID: 227566934}
+  trigger: {fileID: 0}
+  feiraTutorial: {fileID: 1145797802}
+  fruitSprites: {fileID: 9951956}
+  miniGamePosition: {x: 0, y: 0, z: 0}
+  controller: {fileID: 0}
 --- !u!4 &21394875 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3322658248935890487, guid: 570dfe156466c28478b2bddcd150bb3a, type: 3}
@@ -16758,6 +16788,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f45958af79717fe4aa9ee338bf091736, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1965834777 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2543426231149972300, guid: 4445ebd36bc8dfd4a8b1ef927ad7ba33, type: 3}
+  m_PrefabInstance: {fileID: 4608990165108404959}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1966821439 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1208862552188169683, guid: b1390bd5eed7b1b43b4144daf0a8e1ed, type: 3}
@@ -20962,10 +21003,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3432313783149087968, guid: 4445ebd36bc8dfd4a8b1ef927ad7ba33, type: 3}
-      propertyPath: isGround.m_Bits
-      value: 512
-      objectReference: {fileID: 0}
+    - target: {fileID: -5753482152833966096, guid: 4445ebd36bc8dfd4a8b1ef927ad7ba33, type: 3}
+      propertyPath: textFruit
+      value: 
+      objectReference: {fileID: 1965834777}
     - target: {fileID: 6578948743282234933, guid: 4445ebd36bc8dfd4a8b1ef927ad7ba33, type: 3}
       propertyPath: m_Name
       value: Player

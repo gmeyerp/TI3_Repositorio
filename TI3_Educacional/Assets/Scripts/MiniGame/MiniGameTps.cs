@@ -25,51 +25,51 @@ public class MiniGameTps : MonoBehaviour
 
     void Start()
     {
-        miniGamePosition = MiniGameManager.Instance.spawnCenter.position;
+        miniGamePosition = MiniGameFruitManager.Instance.spawnCenter.position;
         
-        player = MiniGameManager.Instance.player;
+        player = MiniGameFruitManager.Instance.player;
     }
     public void GetoutMiniGame()
     {
-        // Se coinsAcquired for igual a coinsToPurchase ent�o teleporta o player para a posi��o antiga.
+        // Se fruitsAcquired for igual a fruitsToPurchase ent�o teleporta o player para a posi��o antiga.
         Debug.Log("Numero de moedas igual a quantidade necess�ria");
-        if(MiniGameManager.Instance.coinsAcquired == MiniGameManager.Instance.coinsToPurchase)
+        if(MiniGameFruitManager.Instance.fruitsAcquired == MiniGameFruitManager.Instance.fruitsToPurchase)
         {
             Debug.Log("Teleportando de volta a feira");
             Debug.Log($"x = {lastPosition.x} | z = {lastPosition.z}");
             TeleportToLastPosition();
-            MiniGameManager.Instance.fruitSprites.SetActive(true);
+            MiniGameFruitManager.Instance.fruitSprites.SetActive(true);
 
-            StopCoroutine(MiniGameManager.Instance.SpawnItens());
+            StopCoroutine(MiniGameFruitManager.Instance.SpawnItens());
             
-            CoinInfos.Instance.textCoin.enabled = false;
+            FruitInfos.Instance.textFruit.enabled = false;
         }
         else
         {
-            Debug.Log($"Moedas adquiridas {MiniGameManager.Instance.coinsAcquired} / {MiniGameManager.Instance.coinsToPurchase}");
+            Debug.Log($"Moedas adquiridas {MiniGameFruitManager.Instance.fruitsAcquired} / {MiniGameFruitManager.Instance.fruitsToPurchase}");
         }
     }
 
     public void TeleportToLastPosition()
     {
-        MiniGameManager.Instance.playerController.enabled = true;
-        MiniGameManager.Instance.controller.enabled = false;
+        MiniGameFruitManager.Instance.playerController.enabled = true;
+        MiniGameFruitManager.Instance.controller.enabled = false;
 
         player.transform.position = lastPosition; // Teleporta o jogador para a �ltima posi��o salva
-        MiniGameManager.Instance.controller.enabled = true;
+        MiniGameFruitManager.Instance.controller.enabled = true;
         PlayerRayCast.Instance.maxDistance = 10.0f;
-        CoinInfos.Instance.textCoin.enabled = false;
+        FruitInfos.Instance.textFruit.enabled = false;
 
         Debug.Log("Voltando para a �ltima posi��o");
 
-        MiniGameManager.Instance.trigger.StandComplete();
+        MiniGameFruitManager.Instance.trigger.StandComplete();
 
         if (AnalyticsTest.instance != null)
         {
             AnalyticsTest.instance.AddAnalytics(gameObject.name, "Duração Moedas", (Time.time - coinTimer).ToString());
         }
 
-        MiniGameManager.Instance.trigger.gameObject.SetActive(false);
+        MiniGameFruitManager.Instance.trigger.gameObject.SetActive(false);
     }
 
     public void TakeLastPosition()
@@ -80,19 +80,19 @@ public class MiniGameTps : MonoBehaviour
 
     public void TeleportToMiniGame()
     {
-        if (MiniGameManager.Instance.feiraTutorial != null)
+        if (MiniGameFruitManager.Instance.feiraTutorial != null)
         {
-            MiniGameManager.Instance.feiraTutorial.StartCoinTutorial();
+            MiniGameFruitManager.Instance.feiraTutorial.StartCoinTutorial();
         }
 
         coinTimer = Time.time;
-        MiniGameManager.Instance.DestroycoinsActive();
-        MiniGameManager.Instance.fruitSprites.SetActive(false);
-        MiniGameManager.Instance.Infos();
-        MiniGameManager.Instance.controller.enabled = false;
+        MiniGameFruitManager.Instance.DestroyfruitActive();
+        MiniGameFruitManager.Instance.fruitSprites.SetActive(false);
+        MiniGameFruitManager.Instance.Infos();
+        MiniGameFruitManager.Instance.controller.enabled = false;
 
         player.transform.position = miniGamePosition; // Teleporta o jogador para o minigame
-        MiniGameManager.Instance.controller.enabled = true;
+        MiniGameFruitManager.Instance.controller.enabled = true;
 
         PlayerRayCast.Instance.maxDistance = 100.0f;
         Debug.Log("Indo para o minigame");

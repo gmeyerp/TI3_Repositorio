@@ -364,7 +364,7 @@ MonoBehaviour:
   isGincana: 0
   isGround:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
   mainCollider: {fileID: 0}
   smallCollider: {fileID: 0}
   dodgeInclination: 60
@@ -1709,7 +1709,7 @@ GameObject:
   - component: {fileID: 8812686515472248557}
   - component: {fileID: 297134458790177343}
   - component: {fileID: 6303853806055287783}
-  - component: {fileID: 5808652823386850377}
+  - component: {fileID: -5753482152833966096}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -1775,7 +1775,7 @@ MonoBehaviour:
   maxDistance: 20
   timeToCollect: 3
   currentTarget: {fileID: 0}
---- !u!114 &5808652823386850377
+--- !u!114 &-5753482152833966096
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1784,10 +1784,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6578948743282234933}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f33d2c51409a4c64989c4be86ed3bbff, type: 3}
+  m_Script: {fileID: 11500000, guid: e7a432613bb9737489c590d78b0eeed5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textCoin: {fileID: 2543426231149972300}
+  textFruit: {fileID: 2543426231149972300}
 --- !u!1 &6619308231451272635
 GameObject:
   m_ObjectHideFlags: 0

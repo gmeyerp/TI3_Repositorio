@@ -75,8 +75,6 @@ public class MiniGameManager : MonoBehaviour
 
     public IEnumerator SpawnItens()
     {
-        yield return new WaitForSeconds(spawnTimer);
-
         Vector3 spawnPosition = Vector3.zero;
         bool validPosition = false;
         int maxAttempts = 10;  // Limite de tentativas para encontrar uma posição válida
@@ -124,6 +122,8 @@ public class MiniGameManager : MonoBehaviour
         {
             Debug.LogWarning("Não foi possível encontrar uma posição válida para spawnar a moeda após várias tentativas.");
         }
+
+        yield return null;
     }
 
     #region Coins

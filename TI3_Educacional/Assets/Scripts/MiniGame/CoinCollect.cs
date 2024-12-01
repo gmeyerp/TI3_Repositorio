@@ -9,12 +9,12 @@ public class CoinCollect : MonoBehaviour
     public bool collected;
 
     [Header("Color Coins")]
-    [SerializeField] private Color inactiveColor; // Refer�ncia a cor quando jogador n�o estiver olhando
-    [SerializeField] private Color activeColor; // Refer�ncia a cor quando jogador estiver olhando
-    [SerializeField] private Color limitColor; // Referência a cor de quando o jogador ultrapassar o limite de moedas necessárias
+    [SerializeField] private Color inactiveColor = new Color(); // Refer�ncia a cor quando jogador n�o estiver olhando
+    [SerializeField] private Color activeColor = new Color(); // Refer�ncia a cor quando jogador estiver olhando
+    [SerializeField] private Color limitColor = new Color(); // Referência a cor de quando o jogador ultrapassar o limite de moedas necessárias
 
     [Header("Coin Value and Images")]
-    [SerializeField] private int valueCoin; // Valor da moeda
+    [SerializeField] public int valueCoin; // Valor da moeda
     [SerializeField] public Image coinsCollected;
     [SerializeField] GameObject objectCanvas;
     [SerializeField] public Image completion;
@@ -26,8 +26,9 @@ public class CoinCollect : MonoBehaviour
 
     private void Start() 
     {
-        //Ativando o MeshRenderer e o Collider da moeda
-        //meshRenderer = GetComponent<MeshRenderer>(); 
+        ColorUtility.TryParseHtmlString("#FAFAFA", out inactiveColor);  // Cor da moeda/fruta quando estiver em inatividade
+        ColorUtility.TryParseHtmlString("#00FF08", out activeColor);   // Cor da moeda/fruta quando estiver ativa
+        ColorUtility.TryParseHtmlString("#FF0000", out limitColor);    // Cor da moeda/fruta quando passar o limite estabelecido
         coinSprite = GetComponent<SpriteRenderer>();
         coinCollider = GetComponent<Collider>();
         collected = false;
@@ -37,7 +38,7 @@ public class CoinCollect : MonoBehaviour
     
     public void Update()
     {
-        if (MiniGameManager.Instance.coinsAcquired > MiniGameManager.Instance.coinsToPurchase && collected)
+        if (MiniGameFruitManager.Instance.fruitsAcquired > MiniGameFruitManager.Instance.fruitsToPurchase && collected)
         {
             //Quando ultrapassar o valor necessario de moedas elas ficarão vermelhas.
             coinSprite.color = limitColor;
@@ -48,7 +49,7 @@ public class CoinCollect : MonoBehaviour
     {
         float lerpSpeed = Time.deltaTime / PlayerRayCast.Instance.timeToCollect;
 
-        if (MiniGameManager.Instance.coinsAcquired > MiniGameManager.Instance.coinsToPurchase)
+        /*if (MiniGameManager.Instance.coinsAcquired > MiniGameManager.Instance.coinsToPurchase)
         {
             //Quando ultrapassar o valor necessario de moedas elas ficarão vermelhas.
             completion.color = limitColor;
@@ -56,8 +57,8 @@ public class CoinCollect : MonoBehaviour
                 completion.fillAmount -= lerpSpeed;
             else
                 completion.fillAmount += lerpSpeed;
-        }
-        else if (isLooking && collected)
+        }*/
+        if (isLooking && collected)
         {
             completion.color = Color.Lerp(completion.color, inactiveColor, lerpSpeed);
             completion.fillAmount -= lerpSpeed;
@@ -74,22 +75,25 @@ public class CoinCollect : MonoBehaviour
     {
         Debug.Log("Moeda selecionada!");
         MiniGameManager.Instance.coinsAcquired += valueCoin;
+        MiniGameFruitManager.Instance.fruitsAcquired += valueCoin;
         completion.fillAmount = 1;
         completion.color = activeColor;
+        coinSprite.color = activeColor;
 
-        CoinInfos.Instance.UpdateDisplayCoin();
+        FruitInfos.Instance.UpdateDisplayFruit();
         MiniGameTps.Instance.GetoutMiniGame();
-        //Destroy(gameObject);
     }
 
     public void UnCollect()
     {
         Debug.Log("Moeda deselecionada!");
         MiniGameManager.Instance.coinsAcquired -= valueCoin;
-        completion.color = inactiveColor;
+        MiniGameFruitManager.Instance.fruitsAcquired -= valueCoin;
         completion.fillAmount = 0;
+        completion.color = inactiveColor;
+        coinSprite.color = inactiveColor;
 
-        CoinInfos.Instance.UpdateDisplayCoin();
+        FruitInfos.Instance.UpdateDisplayFruit();
         MiniGameTps.Instance.GetoutMiniGame();
     }
 }

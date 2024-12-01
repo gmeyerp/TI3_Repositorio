@@ -9,11 +9,16 @@ public class VRInteractable : MonoBehaviour
     public RectTransform completeCircle;
     public RectTransform timerCircle;
     public bool isSeen;
-    [SerializeField] float interactTime = 2f;
+    [SerializeField] public float interactTime = 2f;
     public float timer;
-    [SerializeField] UnityEvent onComplete;
+    [SerializeField] public UnityEvent onComplete;
 
     // Update is called once per frame
+    void Start()
+    {
+        completeCircle = GameObject.Find("Clock").GetComponent<RectTransform>();
+        timerCircle = GameObject.Find("ClockHand").GetComponent<RectTransform>();
+    }
     void Update()
     {
         if (isSeen)
