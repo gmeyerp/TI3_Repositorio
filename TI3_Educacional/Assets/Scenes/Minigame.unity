@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1029,6 +1029,7 @@ MonoBehaviour:
   feiraTutorial: {fileID: 0}
   fruitSprites: {fileID: 0}
   miniGamePosition: {x: 0, y: 0, z: 0}
+  isStarted: 0
   controller: {fileID: 0}
 --- !u!1 &1370993220
 GameObject:

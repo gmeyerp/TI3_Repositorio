@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 6497076379573233763, guid: 09f1dbda62b9f7245a824634cbe7a0d9, type: 3}
   sprite: {fileID: 21300000, guid: fa7ef26763e57fa4db177e4cdcda1272, type: 3}
-  announceClip: {fileID: 8300000, guid: 998627d12e3662d47b3230d7e072c5e3, type: 3}
+  announceClip: {fileID: 8300000, guid: 926eb3bf437e17f48a5a1b86e05d0b5e, type: 3}
   spritePrefab: {fileID: 1283838247237462716, guid: 3e61c88c0a88e0d4f8aa787bf063ba04, type: 3}

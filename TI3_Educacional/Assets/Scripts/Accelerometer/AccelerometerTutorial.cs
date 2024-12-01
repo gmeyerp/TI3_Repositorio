@@ -9,7 +9,7 @@ public class AccelerometerTutorial : MonoBehaviour
     [SerializeField] TutorialSO secondTutorial;
     [SerializeField] TextMeshProUGUI txt;
     float timer = 0;
-    bool isTutorial = true;
+    public bool isTutorial = true;
     bool isFirstDone;
 
     private void Start()

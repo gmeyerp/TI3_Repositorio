@@ -2413,6 +2413,7 @@ MonoBehaviour:
   bestScore: 5
   spawner: {fileID: 1002955874}
   controller: {fileID: 0}
+  isStarted: 0
 --- !u!4 &1226836499
 Transform:
   m_ObjectHideFlags: 0
@@ -2913,8 +2914,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0c7032b4d5689944bfa00a417149427, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tutorials: {fileID: 11400000, guid: 61aa9a313d50a8d4eb6604f7cee95789, type: 2}
-  text: {fileID: 1176749338}
+  firstTutorial: {fileID: 11400000, guid: 61aa9a313d50a8d4eb6604f7cee95789, type: 2}
+  secondTutorial: {fileID: 11400000, guid: a7fcf9d9eaf45324d86ed2469d1ec9fd, type: 2}
+  txt: {fileID: 1176749338}
 --- !u!1001 &2146565899
 PrefabInstance:
   m_ObjectHideFlags: 0
