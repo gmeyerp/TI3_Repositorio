@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class FeiraTutorialStart : MonoBehaviour
 {
+    public static FeiraTutorialStart instance;
     [SerializeField] GameObject player;
     [SerializeField] float correctAngle;
     [SerializeField] Animator tutorialSpriteAnim;
@@ -15,10 +16,18 @@ public class FeiraTutorialStart : MonoBehaviour
     [SerializeField] TutorialSO coinTutorial;
     [SerializeField] TutorialSO collectTutorial;
     [SerializeField] TutorialSO desselectTutorial;
+    float timer;
 
 
     public bool isFirstCoinDone;
 
+    private void Awake()
+    {
+        if (instance == null)
+            instance = this;
+        else
+            Destroy(gameObject);
+    }
     public void DoTutorial(bool isTutorial)
     {
         if (isTutorial == false)
@@ -27,27 +36,48 @@ public class FeiraTutorialStart : MonoBehaviour
         }
         else
         {
-            moveTutorial.ShowText(txt);
+            CreateTutorialText(moveTutorial.duration, moveTutorial.text);
         }
     }
     // Update is called once per frame
     void Update()
     {
-        if (FeiraLevelManager.instance.isStartDone)
+        timer -= Time.deltaTime;
+
+        if (txt != null)
         {
-            return;
-        }
-        else
-        {
-            CheckCorrectAngle();
+            if (timer <= 0)
+            {
+                txt.gameObject.SetActive(false);
+            }            
         }
 
-        if (player.transform.position.z >= transform.position.z)
+        
+        //if (FeiraLevelManager.instance.isStartDone)
+        //{
+        //    return;
+        //}
+        //else
+        //{
+        //    CheckCorrectAngle();
+        //}
+        //
+        //if (player.transform.position.z >= transform.position.z)
+        //{
+        //    FeiraLevelManager.instance.isStartDone = true;
+        //    fruitTutorial.ShowText(txt);
+        //    tutorialSpriteAnim.Play("Default");
+        //}              
+    }
+
+    public void CreateTutorialText(float duration, string text)
+    {
+        if (txt != null)
         {
-            FeiraLevelManager.instance.isStartDone = true;
-            fruitTutorial.ShowText(txt);
-            tutorialSpriteAnim.Play("Default");
-        }              
+            txt.gameObject.SetActive(true);
+            timer = duration;
+            txt.text = text;
+        }
     }
 
     private void CheckCorrectAngle()
@@ -67,32 +97,26 @@ public class FeiraTutorialStart : MonoBehaviour
         }
     }
 
-    public void StartCoinTutorial()
+    public void CollectFruitTutorial()
     {
-        Debug.Log("Show text acontecendo");
-        coinTutorial.ShowText(txt);
-        StartCoroutine(coinTutorial.NextTutorial(txt));
+        CreateTutorialText(coinTutorial.duration, coinTutorial.text);
     }
 
     public void DesselectCoinTutorial()
     {
-        desselectTutorial.ShowText(txt);
-        desselectTutorial.HideText(txt);
+        CreateTutorialText(desselectTutorial.duration, desselectTutorial.text);
     }
 
     public void FruitTutorial()
     {
-        fruitTutorial.duration = 5f;
         if (!FeiraLevelManager.instance.HasWin())
         {
-            fruitTutorial.ShowText(txt);
-            fruitTutorial.HideText(txt);
+            CreateTutorialText(fruitTutorial.duration, fruitTutorial.text);
         }
     }
 
     public void CustomerTrigger()
     {
-        customerTutorial.ShowText(txt);
-        customerTutorial.HideText(txt);
+        CreateTutorialText(customerTutorial.duration, customerTutorial.text);
     }
 }

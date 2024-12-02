@@ -14,6 +14,7 @@ public class AccelerometerLevelManager : MonoBehaviour
     [SerializeField] int bestScore = 5;
     [SerializeField] TargetSpawner spawner;
     [SerializeField] VrModeController controller;
+    public bool isStarted;
 
     float timer;
     // Start is called before the first frame update
@@ -26,19 +27,22 @@ public class AccelerometerLevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {        
-        if (timer > 0)
+        if (isStarted)
         {
-            timer -= Time.deltaTime;
-            UpdateTimer();
-        }
-        else
-        {
-            if (controller != null)
+            if (timer > 0)
             {
-                controller.ExitVR();
+                timer -= Time.deltaTime;
+                UpdateTimer();
             }
-            EndGame();
-        }
+            else
+            {
+                if (controller != null)
+                {
+                    controller.ExitVR();
+                }
+                EndGame();
+            }
+        }        
     }
 
     void UpdateTimer()

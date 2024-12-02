@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efa6d7a4cd539d3408211a3ef03c4835, type: 3}
   m_Name: CustomerTutorial
   m_EditorClassIdentifier: 
-  duration: 6
+  duration: 10
   text: Cuidado para nao esbarrar nos outros visitantes
   image: {fileID: 0}
   nextTutorial: {fileID: 0}

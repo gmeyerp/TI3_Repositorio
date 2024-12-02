@@ -350,7 +350,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   completeCircle: {fileID: 0}
   timerCircle: {fileID: 0}
+  isSeen: 0
   interactTime: 2
+  timer: 0
   onComplete:
     m_PersistentCalls:
       m_Calls:

@@ -60,6 +60,10 @@ public class FeiraLevelManager : MonoBehaviour
     private void Start()
     {
         numberOfFruits = System.Convert.ToInt32(ProfileManager.GetCurrent(ProfileInfo.Info.intFruitAmount));
+        if(numberOfFruits == 0)
+        {
+            numberOfFruits = 3;
+        }
         collectedFruit = new bool[numberOfFruits];
         PickFruits();
         GiveChosenFruits();

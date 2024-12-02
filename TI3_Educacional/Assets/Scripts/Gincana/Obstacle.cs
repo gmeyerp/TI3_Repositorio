@@ -5,6 +5,7 @@ using UnityEngine;
 public class Obstacle : MonoBehaviour
 {
     [SerializeField] bool isDodge;
+    [SerializeField] bool isWater;
     public void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -17,6 +18,10 @@ public class Obstacle : MonoBehaviour
             else
             {
                 GincanaLevelManager.instance.HitPlayer(ObstacleType.Dodge, gameObject.name);
+            }
+            if (isWater)
+            {
+                GincanaTutorial.instance.FallTutorial();
             }
         }        
     }

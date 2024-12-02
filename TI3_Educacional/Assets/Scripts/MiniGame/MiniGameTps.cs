@@ -33,7 +33,7 @@ public class MiniGameTps : MonoBehaviour
     {
         // Se fruitsAcquired for igual a fruitsToPurchase ent�o teleporta o player para a posi��o antiga.
         Debug.Log("Numero de moedas igual a quantidade necess�ria");
-        if(MiniGameFruitManager.Instance.fruitsAcquired == MiniGameFruitManager.Instance.fruitsToPurchase)
+        if(MiniGameFruitManager.Instance.fruitsAcquired >= MiniGameFruitManager.Instance.fruitsToPurchase)
         {
             Debug.Log("Teleportando de volta a feira");
             Debug.Log($"x = {lastPosition.x} | z = {lastPosition.z}");
@@ -52,6 +52,7 @@ public class MiniGameTps : MonoBehaviour
 
     public void TeleportToLastPosition()
     {
+        MiniGameFruitManager.Instance.isStarted = false;
         MiniGameFruitManager.Instance.playerController.enabled = true;
         MiniGameFruitManager.Instance.controller.enabled = false;
 
@@ -69,6 +70,11 @@ public class MiniGameTps : MonoBehaviour
             AnalyticsTest.instance.AddAnalytics(gameObject.name, "Duração Moedas", (Time.time - coinTimer).ToString());
         }
 
+        if (FeiraTutorialStart.instance != null)
+        {
+            FeiraTutorialStart.instance.FruitTutorial();
+        }
+
         MiniGameFruitManager.Instance.trigger.gameObject.SetActive(false);
     }
 
@@ -80,11 +86,11 @@ public class MiniGameTps : MonoBehaviour
 
     public void TeleportToMiniGame()
     {
-        if (MiniGameFruitManager.Instance.feiraTutorial != null)
+        if (FeiraTutorialStart.instance != null)
         {
-            MiniGameFruitManager.Instance.feiraTutorial.StartCoinTutorial();
+            FeiraTutorialStart.instance.CollectFruitTutorial();
         }
-
+        MiniGameFruitManager.Instance.playerController.enabled = false;
         coinTimer = Time.time;
         MiniGameFruitManager.Instance.DestroyfruitActive();
         MiniGameFruitManager.Instance.fruitSprites.SetActive(false);
@@ -93,6 +99,7 @@ public class MiniGameTps : MonoBehaviour
 
         player.transform.position = miniGamePosition; // Teleporta o jogador para o minigame
         MiniGameFruitManager.Instance.controller.enabled = true;
+        MiniGameFruitManager.Instance.isStarted = true;
 
         PlayerRayCast.Instance.maxDistance = 100.0f;
         Debug.Log("Indo para o minigame");
