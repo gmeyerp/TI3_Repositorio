@@ -59,11 +59,10 @@ public class FeiraLevelManager : MonoBehaviour
 
     private void Start()
     {
-        numberOfFruits = System.Convert.ToInt32(ProfileManager.GetCurrent(ProfileInfo.Info.intFruitAmount));
-        if(numberOfFruits == 0)
-        {
-            numberOfFruits = 3;
-        }
+        int newNumberOfFruits = System.Convert.ToInt32(ProfileManager.GetCurrent(ProfileInfo.Info.intFruitAmount));
+        if (newNumberOfFruits > 0 && newNumberOfFruits <= chosenFruitsImages.Length)
+        { numberOfFruits = newNumberOfFruits; }
+
         collectedFruit = new bool[numberOfFruits];
         PickFruits();
         GiveChosenFruits();
@@ -90,13 +89,19 @@ public class FeiraLevelManager : MonoBehaviour
 
     public void PickFruits()
     {
-        for (int i = 0; i < numberOfFruits; i++)
+        int i;
+        for (i = 0; i < numberOfFruits; i++)
         {
             int fruit = Random.Range(0, fruits.Count);
             chosenFruits.Add(fruits[fruit]);
             chosenFruitsImages[i].sprite = fruits[fruit].sprite;
+            chosenFruitsImages[i].gameObject.SetActive(true);
             fruits.RemoveAt(fruit);
-        }       
+        }
+        for (; i < chosenFruitsImages.Length; i++)
+        {
+            chosenFruitsImages[i].gameObject.SetActive(false);
+        }
     }
 
     public void GiveChosenFruits()
