@@ -26,9 +26,9 @@ public class ProfileManager : MonoBehaviour
         } },
 
         { InfoGroup.general, new() {
-            Info.floatGeneralVolume,
-            Info.floatBgmVolume,
-            Info.floatSfxVolume,
+            Info.intGeneralVolume,
+            Info.intVoiceVolume,
+            Info.intSfxVolume,
             Info.floatVrSensibility,
         } },
 

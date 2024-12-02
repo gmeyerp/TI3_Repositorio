@@ -10,7 +10,8 @@ public class Gerenciador_Audio : MonoBehaviour
     [SerializeField] private AudioClip musica;
     [SerializeField] private bool ApenasUmaVez;
 
-    [SerializeField] private AudioSource gerenciadorMusicas;
+    [SerializeField] private AudioSource gerenciadorMusica;
+    [SerializeField] private AudioSource gerenciadorVozes;
     [SerializeField] private AudioSource gerenciadorSFX;
     [SerializeField] private AudioMixer audioMixer;
 
@@ -51,6 +52,8 @@ public class Gerenciador_Audio : MonoBehaviour
     => instance._TocarPredefinida();
     private void _TocarPredefinida()
     {
+        if (musica == null) return;
+
         if (ApenasUmaVez) TocarMusicaUmaVez(musica);
         else TocarMusicaEmLoop(musica);
     }
@@ -59,33 +62,43 @@ public class Gerenciador_Audio : MonoBehaviour
     => instance._TocarMusicaUmaVez(musica);
     private void _TocarMusicaUmaVez(AudioClip musica)
     {
-        gerenciadorMusicas.loop = false;
-        gerenciadorMusicas.clip = musica;
-        gerenciadorMusicas.Play();
+        gerenciadorMusica.loop = false;
+        gerenciadorMusica.clip = musica;
+        gerenciadorMusica.Play();
     }
 
     static public void TocarMusicaEmLoop(AudioClip musica)
     => instance._TocarMusicaDeFundo(musica);
     private void _TocarMusicaDeFundo(AudioClip musica)
     {
-        if (gerenciadorMusicas.clip == musica && gerenciadorMusicas.isPlaying) return;
+        if (gerenciadorMusica.clip == musica && gerenciadorMusica.isPlaying) return;
 
-        gerenciadorMusicas.loop = true;
-        gerenciadorMusicas.clip = musica;
-        gerenciadorMusicas.Play();
+        gerenciadorMusica.loop = true;
+        gerenciadorMusica.clip = musica;
+        gerenciadorMusica.Play();
     }
 
     static public void PararMusica()
     => instance._PararMusica();
     private void _PararMusica()
-    { gerenciadorMusicas.Stop(); }
+    { gerenciadorMusica.Stop(); }
 
     static private float ConverteVolume(float porcentagem)
     {
         float valorDecimal = porcentagem / 100;
         // o humano escuta em uma escala logarítmica
         // a conta abaixo converte o valor linear para a escala humana
-        return Mathf.Log10(valorDecimal) * 20;
+        return valorDecimal == 0 ? -80f : Mathf.Log10(valorDecimal) * 20;
+    }
+
+    static private int volumeGeral = 100;
+    static public int GetVolumeGeral() => volumeGeral;
+    static public void SetVolumeGeral(float porcentagem)
+    => instance._SetVolumeGeral(porcentagem);
+    private void _SetVolumeGeral(float porcentagem)
+    {
+        float volume = ConverteVolume(porcentagem);
+        audioMixer.SetFloat("VolumeGeral", volume);
     }
 
     static private int volumeMusica = 100;
@@ -96,6 +109,16 @@ public class Gerenciador_Audio : MonoBehaviour
     {
         float volume = ConverteVolume(porcentagem);
         audioMixer.SetFloat("VolumeMusica", volume);
+    }
+
+    static private int volumeVozes = 100;
+    static public int GetVolumeVozes() => volumeVozes;
+    static public void SetVolumeVozes(float porcentagem)
+    => instance._SetVolumeVozes(porcentagem);
+    private void _SetVolumeVozes(float porcentagem)
+    {
+        float volume = ConverteVolume(porcentagem);
+        audioMixer.SetFloat("VolumeVozes", volume);
     }
 
     static private int volumeSFX = 100;

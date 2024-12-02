@@ -73,6 +73,8 @@ public class FeiraLevelManager : MonoBehaviour
         customersDifficulty = (FeiraCustomers)System.Convert.ToInt32(ProfileManager.GetCurrent(ProfileInfo.Info.intVisitorAmount));
         StartCustomers(customersDifficulty);
 
+        NPCSpeed = System.Convert.ToInt32(ProfileManager.GetCurrent(ProfileInfo.Info.floatVisitorSpeed));
+
         feiraTutorial.DoTutorial(isTutorial);
         if (AnalyticsTest.instance != null)
         {

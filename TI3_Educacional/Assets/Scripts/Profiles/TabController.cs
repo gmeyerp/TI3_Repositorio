@@ -24,6 +24,7 @@ public class TabController : MonoBehaviour
             tab[i].color = infos[i].color;
         }
         gameObject.SetActive(false);
+        SwitchTab(0);
     }
 
     public void SwitchTab(int number)
@@ -62,11 +63,13 @@ public class TabController : MonoBehaviour
 
     public void ConfigOn()
     {
+        Gerenciador_Audio.TocarSFX(Gerenciador_Audio.SFX.buttonClick);
         gameObject.SetActive(true);
     }
 
     public void ConfigOff()
     {
+        Gerenciador_Audio.TocarSFX(Gerenciador_Audio.SFX.buttonClick);
         gameObject.SetActive(false);
     }
 }
