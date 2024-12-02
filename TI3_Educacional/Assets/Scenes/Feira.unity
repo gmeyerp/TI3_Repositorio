@@ -9909,6 +9909,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8ab3662e4e088704fba60ced2e2edd89, type: 2}
   - {fileID: 11400000, guid: 123e5ae3cb0d5714caa734fd963bf870, type: 2}
   - {fileID: 11400000, guid: 38bef6b6ff18aaf47a89d8ea886e2b80, type: 2}
+  - {fileID: 11400000, guid: 2a723500cfc63bb46bc79127661f05fb, type: 2}
+  - {fileID: 11400000, guid: c8e9a67409068224b959da14df41075c, type: 2}
   stands:
   - {fileID: 672920395}
   - {fileID: 26216499075755081}

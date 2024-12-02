@@ -40,6 +40,8 @@ public class PlayerController : MonoBehaviour
     private float timeSinceLastStepUpdate;
     [SerializeField] private float stepResetCooldown = .5f;
     private Vector3 movement;
+    public float jumpSafetyTimer = 1.5f;
+    float jumpTimer;
 
     [Header("Events")]
     [SerializeField] private UnityEvent onStep;
@@ -54,6 +56,8 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        jumpTimer -= Time.deltaTime;
+        
         //if ((!isGincana && FeiraLevelManager.instance != null && FeiraLevelManager.instance.isPaused) || (isGincana && GincanaLevelManager.instance != null && GincanaLevelManager.instance.isPaused))
         //{
         //    return;
@@ -129,7 +133,7 @@ public class PlayerController : MonoBehaviour
 
                 // Verificando quando o celular sobe (preparando o passo)
                 //else 
-                if (stepState != StepState.Incoming && verticalAcceleration > stepSensorThreshhold)
+                else if (stepState != StepState.Incoming && verticalAcceleration > stepSensorThreshhold)
                 {
                     stepState = StepState.Incoming;
                     timeSinceLastStepUpdate = 0;
@@ -219,7 +223,8 @@ public class PlayerController : MonoBehaviour
 
     public void Jump()
     {
-        rb.AddForce(Vector3.up * jumpPower, ForceMode.Acceleration);
+        jumpTimer = jumpSafetyTimer;
+        rb.AddForce(Vector3.up * jumpPower, ForceMode.VelocityChange);
         Debug.Log("Jump");
     }
 
@@ -237,8 +242,13 @@ public class PlayerController : MonoBehaviour
     }
 
     public bool IsGroundCheck()
-    {
+    {        
         return Physics.Raycast(transform.position, Vector3.down, transform.position.y + 0.1f, isGround);
+    }
+
+    public bool IsJumpSafe()
+    {
+        return (jumpTimer >= 0);
     }
 
     private void OnDestroy()

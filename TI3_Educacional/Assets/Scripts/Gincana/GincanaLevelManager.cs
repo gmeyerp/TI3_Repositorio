@@ -62,7 +62,7 @@ public class GincanaLevelManager : MonoBehaviour
     {
         if (type == ObstacleType.Jump)
         {
-            if (playerController.IsGroundCheck())
+            if (!playerController.IsJumpSafe())
             {
                 Gerenciador_Audio.TocarSFX(hitSFX);
                 hitCount++;
