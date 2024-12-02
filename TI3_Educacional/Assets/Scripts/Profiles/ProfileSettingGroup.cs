@@ -6,6 +6,15 @@ public class ProfileSettingGroup : MonoBehaviour
 {
     [SerializeField] private ProfileManager.InfoGroup group;
 
-    public void Save() => ProfileManager.SaveGroup(group);
-    public void Undo() => ProfileManager.UndoGroup(group);
+    public void Save()
+    {
+        Gerenciador_Audio.TocarSFX(Gerenciador_Audio.SFX.buttonClick);
+        ProfileManager.SaveGroup(group);
+    }
+
+    public void Undo()
+    {
+        Gerenciador_Audio.TocarSFX(Gerenciador_Audio.SFX.buttonClick);
+        ProfileManager.UndoGroup(group);
+    }
 }

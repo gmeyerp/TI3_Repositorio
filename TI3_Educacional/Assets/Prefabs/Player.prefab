@@ -369,12 +369,14 @@ MonoBehaviour:
   smallCollider: {fileID: 0}
   dodgeInclination: 60
   isDodging: 0
+  debugText: {fileID: 0}
   speed: 1
   jumpPower: 10
   stepSensorThreshhold: 0.2
   jumpSensorThreshhold: 0.7
   dodgeSensorThreshhold: 0.5
   stepResetCooldown: 1
+  jumpSafetyTimer: 1.5
   onStep:
     m_PersistentCalls:
       m_Calls: []
@@ -1622,7 +1624,8 @@ MonoBehaviour:
   - {fileID: 1797617334371557024}
   - {fileID: 8794335657491160995}
   delay: 2
-  duration: 1.5
+  durationAppear: 1.5
+  durationFade: 30
 --- !u!1 &4748372551438311123
 GameObject:
   m_ObjectHideFlags: 0

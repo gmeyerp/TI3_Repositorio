@@ -16,9 +16,9 @@ public class ProfileInfo
         floatHeight,
 
         // Geral
-        floatGeneralVolume,
-        floatBgmVolume,
-        floatSfxVolume,
+        intGeneralVolume,
+        intVoiceVolume,
+        intSfxVolume,
         floatVrSensibility,
 
         // Feira
@@ -48,9 +48,9 @@ public class ProfileInfo
         { Info.floatHeight, 1.00f },
 
         // Geral
-        { Info.floatGeneralVolume, 0.5f },
-        { Info.floatBgmVolume, 1f },
-        { Info.floatSfxVolume, 1f },
+        { Info.intGeneralVolume, 50 },
+        { Info.intVoiceVolume, 100 },
+        { Info.intSfxVolume, 100 },
         { Info.floatVrSensibility, 1f },
 
         // Feira
