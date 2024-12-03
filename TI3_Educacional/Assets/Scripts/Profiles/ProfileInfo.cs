@@ -73,13 +73,10 @@ public class ProfileInfo
 
     public ProfileInfo(string patientName)
     {
-        // Garantindo que o nome é alterado quando o paciente não existir ainda
-        info[Info.stringPatientName] = patientName;
-
         Load(patientName);
     }
 
-    private string GetDestination() => $"{Application.dataPath}/Perfis/{info[Info.stringPatientName]}.json";
+    private string GetDestination() => $"{Application.persistentDataPath}/Perfis/{info[Info.stringPatientName]}.json";
 
     public object Get(Info info)
     {
@@ -102,14 +99,18 @@ public class ProfileInfo
 
     public void Load(string patientName)
     {
+        info[Info.stringPatientName] = patientName;
+
         string destination = GetDestination();
         if (!File.Exists(destination))
         {
-            Debug.LogWarning("Não foi possível carregar as configurações do perfil.");
-            return;
+            Save();
+            Debug.Log("Novo perfil criado.");
         }
-
-        string content = File.ReadAllText(destination);
-        info = JsonConvert.DeserializeObject<Dictionary<Info, object>>(content);
+        else
+        {
+            string content = File.ReadAllText(destination);
+            info = JsonConvert.DeserializeObject<Dictionary<Info, object>>(content);
+        }
     }
 }
