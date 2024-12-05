@@ -1,7 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.Mail;
+using System.Net;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public enum FeiraCustomers { Nenhum, Poucos, Medio, Muitos}
@@ -9,6 +13,8 @@ public class FeiraLevelManager : MonoBehaviour
 {
     public static FeiraLevelManager instance;
     public bool isPaused;
+    [SerializeField] GameObject reportingPanel;
+    [SerializeField] PlayerController playerController;
     [Header("Fruit Randomizer")]
     [SerializeField] List<Stand> standsSelects = new List<Stand>();
     [SerializeField] Image[] chosenFruitsImages;
@@ -19,6 +25,8 @@ public class FeiraLevelManager : MonoBehaviour
     [SerializeField] List<SOFruit> fruits;
     [SerializeField] List<Stand> stands = new List<Stand>();
     [SerializeField] FruitSpritesTween fruitSpritesTween;
+    public float lastTimer = 0;
+    public float[] fruitTimers = new float[3];
 
     [Header("Customer Options")]
     public float NPCSpeed = 3f;
@@ -92,7 +100,7 @@ public class FeiraLevelManager : MonoBehaviour
         int i;
         for (i = 0; i < numberOfFruits; i++)
         {
-            int fruit = Random.Range(0, fruits.Count);
+            int fruit = UnityEngine.Random.Range(0, fruits.Count);
             chosenFruits.Add(fruits[fruit]);
             chosenFruitsImages[i].sprite = fruits[fruit].sprite;
             chosenFruitsImages[i].gameObject.SetActive(true);
@@ -108,7 +116,7 @@ public class FeiraLevelManager : MonoBehaviour
     {
         for (int i = 0; i < numberOfFruits; i++)
         {         
-            int s = Random.Range(0, stands.Count);
+            int s = UnityEngine.Random.Range(0, stands.Count);
 
             stands[s].PopulateStand(chosenFruits[i], i);
             standsSelects.Add(stands[s]);
@@ -120,7 +128,7 @@ public class FeiraLevelManager : MonoBehaviour
     {
         foreach (Stand s in stands)
         {
-            int fruit = Random.Range(0, fruits.Count);
+            int fruit = UnityEngine.Random.Range(0, fruits.Count);
             if (!s.hasFruit)
             {
                 s.PopulateStand(fruits[fruit]);
@@ -138,7 +146,7 @@ public class FeiraLevelManager : MonoBehaviour
         isInvulnerable = true;
         StartCoroutine(SetInvincible());
 
-        Gerenciador_Audio.TocarSFX(playerHitSFX[Random.Range(0, playerHitSFX.Length)]);
+        Gerenciador_Audio.TocarSFX(playerHitSFX[UnityEngine.Random.Range(0, playerHitSFX.Length)]);
     }
 
     public IEnumerator SetInvincible()
@@ -293,5 +301,48 @@ public class FeiraLevelManager : MonoBehaviour
                     break;
                 }
         }
+    }
+    public void SendReport()
+    {
+        reportingPanel.SetActive(true);
+        string text = "Paciente: " + System.Convert.ToString(ProfileManager.GetCurrent(ProfileInfo.Info.stringPatientName)) +
+            "\nData: " + DateTime.Now.ToString("d/M/y hh:mm") +
+            "\nFase: " + SceneManager.GetActiveScene().name +
+            "\nNúmero de batidas: " + hitTimes.ToString() +
+            "\nFrutas coletadas: " + numberOfFruits.ToString() +
+            "\nTempo gasto na fruta 1: " + fruitTimers[0].ToString("0.0") + 
+            "\nTempo gasto na fruta 2: " + fruitTimers[1].ToString("0.0") + 
+            "\nTempo gasto na fruta 3: " + fruitTimers[2].ToString("0.0") + 
+            "\nTempo total: " + timer.ToString() +
+            "\nPassos dados: " + playerController.steps.ToString();
+
+        StartCoroutine(CSendReport(text));
+    }
+
+    public IEnumerator CSendReport(string text)
+    {
+        reportingPanel.SetActive(true);
+        yield return new WaitForSeconds(0.1f);        
+        try
+        {
+            var client = new SmtpClient("smtp.gmail.com", 587)
+            {
+                Credentials = new NetworkCredential("fisiovrjogo@gmail.com", "yavokpljshvwqixe"),
+                EnableSsl = true
+            };
+            client.Send("fisiovrjogo@gmail.com", "fisiovrjogo@gmail.com", "Análise do jogo", text); //Colocar o email
+            Debug.Log("Email enviado");
+        }
+        catch { }
+        AnalyticsTest.instance.Save();
+
+        reportingPanel.SetActive(false);
+    }
+
+    public void SetTimer(int fruitIndex)
+    {
+        float thisTime = Time.time - lastTimer;
+        lastTimer = Time.time;
+        fruitTimers[fruitIndex] = thisTime;
     }
 }

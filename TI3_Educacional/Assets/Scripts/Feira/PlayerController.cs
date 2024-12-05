@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Collider smallCollider;
     [SerializeField] float dodgeInclination = 60f;
     public bool isDodging;
-    int steps = 0;
+    public int steps = 0;
     [SerializeField] TextMeshProUGUI debugText;
 
     [Header("Values")]
