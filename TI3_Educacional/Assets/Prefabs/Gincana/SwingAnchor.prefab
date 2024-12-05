@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDodge: 0
+  isWater: 0
 --- !u!82 &3121650691230420870
 AudioSource:
   m_ObjectHideFlags: 0
@@ -543,15 +544,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 22cae61884a6df84f843e4ece92b299a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.7199993
+      value: 0.18
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 22cae61884a6df84f843e4ece92b299a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 22cae61884a6df84f843e4ece92b299a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.3199997
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 22cae61884a6df84f843e4ece92b299a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -588,7 +589,7 @@ PrefabInstance:
     - target: {fileID: 7155847948267460005, guid: 22cae61884a6df84f843e4ece92b299a, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: e6609849577ff5b489e2ddb92389d64a, type: 2}
+      objectReference: {fileID: 2100000, guid: db5eeddd8b6c5a849a6ca9184efb7b77, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -10,7 +10,8 @@ public class FinishTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            vrController.ExitVR();
+            GincanaLevelManager.instance.Victory();
+            gameObject.SetActive(false);
         }
     }
 }

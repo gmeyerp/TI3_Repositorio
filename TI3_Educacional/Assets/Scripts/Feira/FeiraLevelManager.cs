@@ -44,7 +44,7 @@ public class FeiraLevelManager : MonoBehaviour
     [SerializeField] GameObject victoryCanvas;
     float bestTime = 500;
     public bool isInvulnerable { get; private set; }
-    [SerializeField] AudioClip playerHitSFX;
+    [SerializeField] AudioClip[] playerHitSFX;
     // Start is called before the first frame update
     void Awake()
     {
@@ -137,7 +137,8 @@ public class FeiraLevelManager : MonoBehaviour
         hitTimes++;
         isInvulnerable = true;
         StartCoroutine(SetInvincible());
-        Gerenciador_Audio.TocarSFX(playerHitSFX);
+
+        Gerenciador_Audio.TocarSFX(playerHitSFX[Random.Range(0, playerHitSFX.Length)]);
     }
 
     public IEnumerator SetInvincible()
@@ -197,14 +198,15 @@ public class FeiraLevelManager : MonoBehaviour
 
     public void StartCustomers(FeiraCustomers customerDifficulty)
     {
+        if (AnalyticsTest.instance != null)
+        {
+            AnalyticsTest.instance.AddAnalytics(gameObject.name, "Feira Dificuldade", customerDifficulty.ToString());
+        }
+
         foreach (GameObject c in allCustomers)
         {
             if (c.activeSelf)
-            c.SetActive(false);
-            if (AnalyticsTest.instance != null)
-            {
-                AnalyticsTest.instance.AddAnalytics(gameObject.name, "Feira Dificuldade", customerDifficulty.ToString());
-            }
+            c.SetActive(false);            
         }
         switch (customerDifficulty)
         {

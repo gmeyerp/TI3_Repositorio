@@ -9,10 +9,15 @@ public class Stand : MonoBehaviour
     [SerializeField] GameObject interactSpot;
     [SerializeField] AudioSource audioSource;
     [SerializeField] Animator animator;
+    [SerializeField] float heightAdjust = 0;
     int chosenFruitIndex = -1;
     public bool isChosen;
     public bool hasFruit = false;
 
+    private void Start()
+    {
+        transform.Translate(Vector3.up * heightAdjust);
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer == 7 && isChosen) //PlayerLayer

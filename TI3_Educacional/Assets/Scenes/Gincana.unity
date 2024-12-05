@@ -2598,7 +2598,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
-  m_Constraints: 116
+  m_Constraints: 112
   m_CollisionDetection: 1
 --- !u!136 &606843055
 CapsuleCollider:
@@ -3159,6 +3159,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2919261076406440524, guid: ab015b86e09205345a8d7ba36a7370ee, type: 3}
   m_PrefabInstance: {fileID: 864323725}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &688850144 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3914103247167824330, guid: 4445ebd36bc8dfd4a8b1ef927ad7ba33, type: 3}
+  m_PrefabInstance: {fileID: 1063208833}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &703978770
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4062,6 +4073,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 576434417827406443, guid: 4445ebd36bc8dfd4a8b1ef927ad7ba33, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1645818131164279413, guid: 4445ebd36bc8dfd4a8b1ef927ad7ba33, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2258914003248799703, guid: 4445ebd36bc8dfd4a8b1ef927ad7ba33, type: 3}
@@ -4074,7 +4089,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3231905030354234706, guid: 4445ebd36bc8dfd4a8b1ef927ad7ba33, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3432313783149087968, guid: 4445ebd36bc8dfd4a8b1ef927ad7ba33, type: 3}
       propertyPath: rb
@@ -4126,7 +4141,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7279295499238205009, guid: 4445ebd36bc8dfd4a8b1ef927ad7ba33, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7368498225500870895, guid: 4445ebd36bc8dfd4a8b1ef927ad7ba33, type: 3}
       propertyPath: m_IsActive
@@ -6256,6 +6271,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1472573440}
   m_CullTransparentMesh: 1
+--- !u!114 &1473936755 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6564642902056161730, guid: 4445ebd36bc8dfd4a8b1ef927ad7ba33, type: 3}
+  m_PrefabInstance: {fileID: 1063208833}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1475171516
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6986,6 +7012,9 @@ MonoBehaviour:
   timer: 0
   isPaused: 0
   hitSFX: {fileID: 8300000, guid: 0942cb3a5c521c8439a47dbc3e76305d, type: 3}
+  victoryCanvas: {fileID: 1776781109}
+  timerText: {fileID: 688850144}
+  hitText: {fileID: 1473936755}
 --- !u!4 &1632638312
 Transform:
   m_ObjectHideFlags: 0
@@ -7474,6 +7503,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab015b86e09205345a8d7ba36a7370ee, type: 3}
+--- !u!1 &1776781109 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1645818131164279413, guid: 4445ebd36bc8dfd4a8b1ef927ad7ba33, type: 3}
+  m_PrefabInstance: {fileID: 1063208833}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1789144143
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7561,9 +7595,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveTutorial: {fileID: 11400000, guid: d442374773bd5744ca7f62049e3b5865, type: 2}
-  fallTutorial: {fileID: 0}
-  dodgeTutorial: {fileID: 0}
-  jumpTutorial: {fileID: 0}
+  fallTutorial: {fileID: 11400000, guid: f2531ea0b9511ad46beff118c0ce59a9, type: 2}
+  dodgeTutorial: {fileID: 11400000, guid: 2af09958930922148a74d4f253d2d197, type: 2}
+  jumpTutorial: {fileID: 11400000, guid: 88076c64ca2fa4b46bc1ff9090bcc6f5, type: 2}
   txt: {fileID: 1063208834}
   isTutorial: 1
 --- !u!4 &1797119913
@@ -8228,7 +8262,7 @@ GameObject:
   m_Layer: 0
   m_Name: FinishTrigger
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1

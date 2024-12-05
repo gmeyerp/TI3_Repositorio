@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class AccelerometerLevelManager : MonoBehaviour
 {
+    public static AccelerometerLevelManager instance;
     [SerializeField] float levelTimer = 60f;
     [SerializeField] GameObject endCanvas;
     [SerializeField] GameObject gameplayCanvas;
@@ -16,6 +17,13 @@ public class AccelerometerLevelManager : MonoBehaviour
     [SerializeField] VrModeController controller;
     public bool isStarted;
 
+    private void Awake()
+    {
+        if (instance == null)
+            instance = this;
+        else
+            Destroy(gameObject);
+    }
     float timer;
     // Start is called before the first frame update
     void Start()
