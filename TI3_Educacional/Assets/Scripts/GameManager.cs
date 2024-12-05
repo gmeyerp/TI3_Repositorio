@@ -76,10 +76,10 @@ public class GameManager : MonoBehaviour
 
     public void LevelSelection()
     {
-        if (AnalyticsTest.instance != null)
-        {
-            AnalyticsTest.instance.Save();
-        }
+        //if (AnalyticsTest.instance != null)
+        //{
+        //    AnalyticsTest.instance.Save();
+        //}
         ButtonClicked();
         StartCoroutine(ChangeScene("Level Info", ScreenOrientation.Portrait));
     }
