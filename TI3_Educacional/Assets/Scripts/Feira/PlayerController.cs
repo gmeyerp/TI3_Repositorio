@@ -106,7 +106,7 @@ public class PlayerController : MonoBehaviour
                     isDodging = false;
                 }
                 // Verificando quando o celular sobe bruscamente
-                if (isGincana && verticalAcceleration > jumpSensorThreshhold && IsGroundCheck())
+                if (isGincana && verticalAcceleration > jumpSensorThreshhold && IsJumpSafe())
                 {
                     if (debugText != null && debugText.gameObject.activeSelf == true)
                     {

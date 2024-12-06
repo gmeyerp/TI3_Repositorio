@@ -4118,7 +4118,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3432313783149087968, guid: 4445ebd36bc8dfd4a8b1ef927ad7ba33, type: 3}
       propertyPath: jumpPower
-      value: 20
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3432313783149087968, guid: 4445ebd36bc8dfd4a8b1ef927ad7ba33, type: 3}
       propertyPath: mainCollider

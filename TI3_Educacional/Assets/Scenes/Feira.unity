@@ -1230,6 +1230,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 7851290646611583327, guid: ceb32528f1818824c84289ccc0075fff, type: 3}
+      propertyPath: vrModeController
+      value: 
+      objectReference: {fileID: 1799306722}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
