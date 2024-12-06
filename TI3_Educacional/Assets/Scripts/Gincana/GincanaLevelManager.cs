@@ -1,11 +1,7 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Net.Mail;
-using System.Net;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public enum ObstacleType { Jump, Dodge, Anchor, Cannon }    
 public class GincanaLevelManager : MonoBehaviour
@@ -18,18 +14,14 @@ public class GincanaLevelManager : MonoBehaviour
     public int hitCount = 0;
     public float timer = 0;
     public bool isPaused;
-    public bool isFinished;
     [SerializeField] AudioClip hitSFX;
 
     [SerializeField] GameObject victoryCanvas;
     [SerializeField] TextMeshProUGUI timerText;
     [SerializeField] TextMeshProUGUI hitText;
-
-    [SerializeField] GameObject reportingPanel;
     // Start is called before the first frame update
     void Awake()
     {
-        Screen.orientation = ScreenOrientation.LandscapeLeft;
         if (instance == null)
         {
             instance = this;
@@ -56,8 +48,7 @@ public class GincanaLevelManager : MonoBehaviour
 
     private void Update()
     {
-        if (!isFinished)
-            timer += Time.deltaTime;
+        timer += Time.deltaTime;
     }
 
     public void HitPlayer(string name)
@@ -124,7 +115,6 @@ public class GincanaLevelManager : MonoBehaviour
 
     public void Victory()
     {
-        isFinished = true;
         victoryCanvas.SetActive(true);
         playerController.enabled = false;
         if (AnalyticsTest.instance != null)
@@ -134,38 +124,5 @@ public class GincanaLevelManager : MonoBehaviour
         }
         timerText.text = "Tempo: " + timer.ToString("0.0");
         hitText.text = "Batidas: " + hitCount.ToString();
-    }
-
-    public void SendReport()
-    {
-        reportingPanel.SetActive(true);
-        string text = "Paciente: " + System.Convert.ToString(ProfileManager.GetCurrent(ProfileInfo.Info.stringPatientName)) +
-            "\nData: " + DateTime.Now.ToString("d/M/y hh:mm") +
-            "\nFase: " + SceneManager.GetActiveScene().name +
-            "\nNúmero de batidas: " + hitCount.ToString() +
-            "\nTempo gasto: " + timer.ToString() +
-            "\nPassos dados: " + playerController.steps.ToString();
-
-        StartCoroutine(CSendReport(text));
-    }
-
-    public IEnumerator CSendReport(string text)
-    {
-        reportingPanel.SetActive(true);
-        yield return new WaitForSeconds(0.1f);
-        try
-        {
-            var client = new SmtpClient("smtp.gmail.com", 587)
-            {
-                Credentials = new NetworkCredential("fisiovrjogo@gmail.com", "yavokpljshvwqixe"),
-                EnableSsl = true
-            };
-            client.Send("fisiovrjogo@gmail.com", "fisiovrjogo@gmail.com", "Análise do jogo", text); //Colocar o email
-            Debug.Log("Email enviado");
-        }
-        catch { }
-        AnalyticsTest.instance.Save();
-
-        reportingPanel.SetActive(false);
     }
 }

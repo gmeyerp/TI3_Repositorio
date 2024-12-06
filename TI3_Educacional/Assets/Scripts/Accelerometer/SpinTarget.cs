@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
 public class SpinTarget : MonoBehaviour
 {
@@ -10,7 +9,6 @@ public class SpinTarget : MonoBehaviour
     [SerializeField] Color startingColor;
     [SerializeField] Color endingColor;
     [SerializeField] Material material;
-    public bool isCollected;
     float counter = 0;
     // Start is called before the first frame update
     void Start()
@@ -29,10 +27,6 @@ public class SpinTarget : MonoBehaviour
     }
     public void DestroyTarget() //colocar outras funcionalidades no momento da destruição como vfx e sfx
     {
-        if (!isCollected)
-        {
-            GameTracker.instance.AddMiss();
-        }
         Destroy(gameObject);
     }
 
