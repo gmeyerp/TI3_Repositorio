@@ -50,6 +50,9 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        stepSensorThreshhold *= System.Convert.ToSingle(ProfileManager.GetCurrent(ProfileInfo.Info.floatJumpTime));
+        jumpSafetyTimer *= System.Convert.ToSingle(ProfileManager.GetCurrent(ProfileInfo.Info.floatJumpTime));
+
         stepState = StepState.Waiting;
         timeSinceLastStepUpdate = 0;
     }

@@ -9893,6 +9893,7 @@ MonoBehaviour:
   cooldown: 4
   audioSource: {fileID: 1267014606114227397}
   explosionVFX: {fileID: 3461606992958670423}
+  speedConfig: 22
 --- !u!1 &8546793018831175483
 GameObject:
   m_ObjectHideFlags: 0

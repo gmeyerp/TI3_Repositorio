@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 9099268447734120878}
   - component: {fileID: 1458948092374509692}
   - component: {fileID: 2410956783359480922}
+  - component: {fileID: 3617894219520257168}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
@@ -101,6 +102,19 @@ HingeJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &3617894219520257168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6879132931516356684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 451845fd39ce206429eb992027b5eeb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
 --- !u!1 &7003346921301587259
 GameObject:
   m_ObjectHideFlags: 0
