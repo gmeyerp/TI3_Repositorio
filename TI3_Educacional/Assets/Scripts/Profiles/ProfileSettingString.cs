@@ -11,14 +11,14 @@ public class ProfileSettingString : MonoBehaviour
 
     [SerializeField] private ProfileInfo.Info info;
 
-    private TMP_InputField input;
+    [SerializeField] TMP_InputField input;
     private void Awake()
     {
-        input = GetComponent<TMP_InputField>();
-    }
 
+    }
     private void Start()
     {
+        input = GetComponent<TMP_InputField>();
         ProfileManager.AddListener(info, (value) =>
         {
             input.text = value.ToString();
