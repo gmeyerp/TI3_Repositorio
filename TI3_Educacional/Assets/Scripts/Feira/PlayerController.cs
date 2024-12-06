@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Collider smallCollider;
     [SerializeField] float dodgeInclination = 60f;
     public bool isDodging;
-    int steps = 0;
+    public int steps = 0;
     [SerializeField] TextMeshProUGUI debugText;
 
     [Header("Values")]
@@ -106,7 +106,7 @@ public class PlayerController : MonoBehaviour
                     isDodging = false;
                 }
                 // Verificando quando o celular sobe bruscamente
-                if (isGincana && verticalAcceleration > jumpSensorThreshhold && IsJumpSafe())
+                if (isGincana && verticalAcceleration > jumpSensorThreshhold && !IsJumpSafe())
                 {
                     if (debugText != null && debugText.gameObject.activeSelf == true)
                     {
@@ -243,7 +243,7 @@ public class PlayerController : MonoBehaviour
 
     public bool IsGroundCheck()
     {        
-        return Physics.Raycast(transform.position, Vector3.down, transform.position.y + 0.1f, isGround);
+        return Physics.Raycast(transform.position, Vector3.down, 0.1f, isGround);
     }
 
     public bool IsJumpSafe()

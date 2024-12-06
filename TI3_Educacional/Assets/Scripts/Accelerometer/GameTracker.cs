@@ -8,6 +8,7 @@ public class GameTracker : MonoBehaviour
     public static GameTracker instance;
     [SerializeField] TextMeshProUGUI scoreText;
     int score;
+    int misses;
     // Start is called before the first frame update
     void Awake()
     {
@@ -29,5 +30,15 @@ public class GameTracker : MonoBehaviour
     public int GetScore()
     {
         return score;
+    }
+
+    public int GetMisses()
+    {
+        return misses;
+    }
+
+    public void AddMiss()
+    {
+        misses++;
     }
 }

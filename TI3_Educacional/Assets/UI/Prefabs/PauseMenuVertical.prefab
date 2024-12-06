@@ -176,7 +176,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 0
-  m_Spacing: 100
+  m_Spacing: 50
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 1
@@ -613,7 +613,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Gincana Naval
+  m_text: Feira de Frutas
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f463b9f731861e44eb0c05654566ece0, type: 2}
   m_sharedMaterial: {fileID: -8128879774080379552, guid: f463b9f731861e44eb0c05654566ece0, type: 2}
@@ -640,7 +640,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 355.55
+  m_fontSize: 336.95
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -794,11 +794,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 611914255294174333, guid: 84214b61c31ffae40bd60fc55eb214fb, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1121.7441
+      value: 1121.744
       objectReference: {fileID: 0}
     - target: {fileID: 611914255294174333, guid: 84214b61c31ffae40bd60fc55eb214fb, type: 3}
       propertyPath: m_SizeDelta.y
-      value: -972.1791
+      value: -1458.099
       objectReference: {fileID: 0}
     - target: {fileID: 611914255294174333, guid: 84214b61c31ffae40bd60fc55eb214fb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -910,7 +910,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5606780047655256071, guid: 84214b61c31ffae40bd60fc55eb214fb, type: 3}
       propertyPath: m_fontSize
-      value: 138.35
+      value: 134
       objectReference: {fileID: 0}
     - target: {fileID: 5781690532172136838, guid: 84214b61c31ffae40bd60fc55eb214fb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -930,7 +930,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5781690532172136838, guid: 84214b61c31ffae40bd60fc55eb214fb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: UnpauseVR
+      value: ButtonClicked
       objectReference: {fileID: 0}
     - target: {fileID: 5781690532172136838, guid: 84214b61c31ffae40bd60fc55eb214fb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -968,11 +968,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 611914255294174333, guid: 84214b61c31ffae40bd60fc55eb214fb, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1187.1792
+      value: 1187.179
       objectReference: {fileID: 0}
     - target: {fileID: 611914255294174333, guid: 84214b61c31ffae40bd60fc55eb214fb, type: 3}
       propertyPath: m_SizeDelta.y
-      value: -972.1781
+      value: -1458.098
       objectReference: {fileID: 0}
     - target: {fileID: 611914255294174333, guid: 84214b61c31ffae40bd60fc55eb214fb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1088,7 +1088,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5606780047655256071, guid: 84214b61c31ffae40bd60fc55eb214fb, type: 3}
       propertyPath: m_fontSize
-      value: 173.25
+      value: 168.05
       objectReference: {fileID: 0}
     - target: {fileID: 8157630650621421347, guid: 84214b61c31ffae40bd60fc55eb214fb, type: 3}
       propertyPath: m_Name
@@ -1114,11 +1114,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 611914255294174333, guid: 84214b61c31ffae40bd60fc55eb214fb, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1121.7441
+      value: 1121.744
       objectReference: {fileID: 0}
     - target: {fileID: 611914255294174333, guid: 84214b61c31ffae40bd60fc55eb214fb, type: 3}
       propertyPath: m_SizeDelta.y
-      value: -972.1791
+      value: -1452.514
       objectReference: {fileID: 0}
     - target: {fileID: 611914255294174333, guid: 84214b61c31ffae40bd60fc55eb214fb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1230,11 +1230,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5606780047655256071, guid: 84214b61c31ffae40bd60fc55eb214fb, type: 3}
       propertyPath: m_fontSize
-      value: 146.25
+      value: 141.6
       objectReference: {fileID: 0}
     - target: {fileID: 5781690532172136838, guid: 84214b61c31ffae40bd60fc55eb214fb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5781690532172136838, guid: 84214b61c31ffae40bd60fc55eb214fb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
@@ -1250,11 +1250,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5781690532172136838, guid: 84214b61c31ffae40bd60fc55eb214fb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: UnpauseVR
+      value: SendReport
       objectReference: {fileID: 0}
     - target: {fileID: 5781690532172136838, guid: 84214b61c31ffae40bd60fc55eb214fb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 5781690532172136838, guid: 84214b61c31ffae40bd60fc55eb214fb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: FeiraLevelManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 5781690532172136838, guid: 84214b61c31ffae40bd60fc55eb214fb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
@@ -1292,7 +1296,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 611914255294174333, guid: 84214b61c31ffae40bd60fc55eb214fb, type: 3}
       propertyPath: m_SizeDelta.y
-      value: -972.1781
+      value: -1441.343
       objectReference: {fileID: 0}
     - target: {fileID: 611914255294174333, guid: 84214b61c31ffae40bd60fc55eb214fb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1408,7 +1412,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5606780047655256071, guid: 84214b61c31ffae40bd60fc55eb214fb, type: 3}
       propertyPath: m_fontSize
-      value: 179.05
+      value: 173.4
       objectReference: {fileID: 0}
     - target: {fileID: 5781690532172136838, guid: 84214b61c31ffae40bd60fc55eb214fb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName

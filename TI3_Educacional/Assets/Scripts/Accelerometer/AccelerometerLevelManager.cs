@@ -1,11 +1,16 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.Mail;
+using System.Net;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AccelerometerLevelManager : MonoBehaviour
 {
     public static AccelerometerLevelManager instance;
+    [SerializeField] GameObject reportingPanel;
     [SerializeField] float levelTimer = 60f;
     [SerializeField] GameObject endCanvas;
     [SerializeField] GameObject gameplayCanvas;
@@ -16,6 +21,7 @@ public class AccelerometerLevelManager : MonoBehaviour
     [SerializeField] TargetSpawner spawner;
     [SerializeField] VrModeController controller;
     public bool isStarted;
+    public bool isFinished;
 
     private void Awake()
     {
@@ -42,12 +48,13 @@ public class AccelerometerLevelManager : MonoBehaviour
                 timer -= Time.deltaTime;
                 UpdateTimer();
             }
-            else
+            else if (!isFinished)
             {
-                if (controller != null)
-                {
-                    controller.ExitVR();
-                }
+                isFinished = true;
+                //if (controller != null)
+                //{
+                //    controller.ExitVR();
+                //}
                 EndGame();
             }
         }        
@@ -64,11 +71,46 @@ public class AccelerometerLevelManager : MonoBehaviour
         gameplayCanvas.SetActive(false);
         endCanvas.SetActive(true);
         scoreText.text = GameTracker.instance.GetScore().ToString() + " pontos";
-        if (GameTracker.instance.GetScore() > bestScore)
+        //if (GameTracker.instance.GetScore() > bestScore)
+        //{
+        //    newRecordText.gameObject.SetActive(true);
+        //    bestScore = GameTracker.instance.GetScore();
+        //}
+    }
+
+    public void SendReport()
+    {
+        reportingPanel.SetActive(true);
+        string text = "Paciente: " + System.Convert.ToString(ProfileManager.GetCurrent(ProfileInfo.Info.stringPatientName)) +
+            "\nData: " + DateTime.Now.ToString("d/M/y hh:mm") +
+            "\nFase: " + SceneManager.GetActiveScene().name +
+            "\nDuração: " + levelTimer.ToString() +
+            "\nPontos Coletados: " + GameTracker.instance.GetScore().ToString() +
+            "\nPontos Perdidos: " + GameTracker.instance.GetMisses().ToString() +
+            "\nMedia de Pontos: " + ((float)GameTracker.instance.GetScore() / ((float)GameTracker.instance.GetScore() + (float)GameTracker.instance.GetMisses())).ToString() +
+            "\nPontos por minuto: " + ((float)GameTracker.instance.GetScore() / (levelTimer / 60f)).ToString();
+
+        StartCoroutine(CSendReport(text));
+    }
+
+    public IEnumerator CSendReport(string text)
+    {
+        reportingPanel.SetActive(true);
+        yield return new WaitForSeconds(0.1f);
+        try
         {
-            newRecordText.gameObject.SetActive(true);
-            bestScore = GameTracker.instance.GetScore();
+            var client = new SmtpClient("smtp.gmail.com", 587)
+            {
+                Credentials = new NetworkCredential("fisiovrjogo@gmail.com", "yavokpljshvwqixe"),
+                EnableSsl = true
+            };
+            client.Send("fisiovrjogo@gmail.com", "fisiovrjogo@gmail.com", "Análise do jogo", text); //Colocar o email
+            Debug.Log("Email enviado");
         }
+        catch { }
+        AnalyticsTest.instance.Save();
+
+        reportingPanel.SetActive(false);
     }
 
 }
