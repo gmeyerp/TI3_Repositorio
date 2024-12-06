@@ -17,7 +17,7 @@ public class ProfileManager : MonoBehaviour
         challenge
     }
 
-    private readonly Dictionary<InfoGroup, HashSet<Info>> infoGroups = new()
+    static private readonly Dictionary<InfoGroup, HashSet<Info>> infoGroups = new()
     {
         { InfoGroup.patient, new() {
             Info.stringPatientName,
@@ -63,8 +63,8 @@ public class ProfileManager : MonoBehaviour
         } },
     };
 
-    private ProfileInfo currentProfile;
-    private ProfileInfo savedProfile;
+    static private ProfileInfo currentProfile;
+    static private ProfileInfo savedProfile;
 
     private readonly Dictionary<Info, UnityAction<object>> listeners = new();
 
@@ -72,11 +72,11 @@ public class ProfileManager : MonoBehaviour
     {
         if (instance == null)
         {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-
             savedProfile = new ProfileInfo("Paciente Anônimo");
             currentProfile = new ProfileInfo("Paciente Anônimo");
+
+            instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         else { Destroy(gameObject); }
     }
@@ -137,4 +137,6 @@ public class ProfileManager : MonoBehaviour
         foreach (KeyValuePair<InfoGroup, HashSet<Info>> infoGroup in infoGroups)
         { UndoGroup(infoGroup.Key); }
     }
+
+    static public bool IsManaging => instance != null;
 }

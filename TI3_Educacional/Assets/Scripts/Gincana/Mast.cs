@@ -8,7 +8,10 @@ public class Mast : MonoBehaviour
     [SerializeField] float speed = 1f;
     void Start()
     {
-        speed *= System.Convert.ToSingle(ProfileManager.GetCurrent(ProfileInfo.Info.floatMastSpeed));
+        if (ProfileManager.IsManaging)
+        {
+            speed *= System.Convert.ToSingle(ProfileManager.GetCurrent(ProfileInfo.Info.floatMastSpeed));
+        }
 
         HingeJoint joint = GetComponent<HingeJoint>();
         JointMotor motor = joint.motor;

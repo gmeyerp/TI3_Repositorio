@@ -15,9 +15,12 @@ public class Cannon : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        float speedConfig = System.Convert.ToSingle(ProfileManager.GetCurrent(this.speedConfig));
-        speed *= speedConfig;
-        cooldown /= speedConfig;
+        if (ProfileManager.IsManaging)
+        {
+            float speedConfig = System.Convert.ToSingle(ProfileManager.GetCurrent(this.speedConfig));
+            speed *= speedConfig;
+            cooldown /= speedConfig;
+        }
 
         InvokeRepeating(nameof(Shoot), 0, cooldown);
     }

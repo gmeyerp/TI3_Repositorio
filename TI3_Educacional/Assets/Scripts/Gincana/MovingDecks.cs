@@ -17,7 +17,10 @@ public class MovingDecks : MonoBehaviour
         finalPosition = moveToPosition.position;
         currentTarget = finalPosition;
 
-        speed *= System.Convert.ToSingle(ProfileManager.GetCurrent(ProfileInfo.Info.floatBoatSpeed));
+        if (ProfileManager.IsManaging)
+        {
+            speed *= System.Convert.ToSingle(ProfileManager.GetCurrent(ProfileInfo.Info.floatBoatSpeed));
+        }
     }
 
     // Update is called once per frame
