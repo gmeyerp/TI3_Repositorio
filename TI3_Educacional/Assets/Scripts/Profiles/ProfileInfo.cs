@@ -25,7 +25,7 @@ public class ProfileInfo
         intFruitAmount,
         intVisitorAmount,
         floatVisitorSpeed,
-        floatCoinSize,
+        floatFruitSize,
         boolFruitMemorize,
         boolTutorialFeira,
 
@@ -37,6 +37,14 @@ public class ProfileInfo
         boolCanRight,
         boolCanLeft,
         boolTutorialBar,
+
+        // Gincana
+        floatAnchorSpeed,
+        floatCannonSpeed,
+        floatBoatSpeed,
+        floatMastSpeed,
+        floatBarrelSpeed,
+        floatJumpTime,
     }
 
     private Dictionary<Info, object> info = new()
@@ -57,7 +65,7 @@ public class ProfileInfo
         { Info.intFruitAmount, 3 },
         { Info.intVisitorAmount, 2 },
         { Info.floatVisitorSpeed, 4f },
-        { Info.floatCoinSize, 2f },
+        { Info.floatFruitSize, 2f },
         { Info.boolFruitMemorize, false },
         { Info.boolTutorialFeira, true },
 

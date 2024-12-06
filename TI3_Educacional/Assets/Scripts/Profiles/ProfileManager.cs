@@ -14,6 +14,7 @@ public class ProfileManager : MonoBehaviour
         general,
         fair,
         bar,
+        challenge
     }
 
     private readonly Dictionary<InfoGroup, HashSet<Info>> infoGroups = new()
@@ -29,14 +30,14 @@ public class ProfileManager : MonoBehaviour
             Info.intGeneralVolume,
             Info.intVoiceVolume,
             Info.intSfxVolume,
-            Info.floatVrSensibility,
         } },
 
         { InfoGroup.fair, new() {
+            Info.floatVrSensibility,
             Info.intFruitAmount,
             Info.intVisitorAmount,
             Info.floatVisitorSpeed,
-            Info.floatCoinSize,
+            Info.floatFruitSize,
             Info.boolFruitMemorize,
             Info.boolTutorialFeira,
         } },
@@ -49,6 +50,16 @@ public class ProfileManager : MonoBehaviour
             Info.boolCanRight,
             Info.boolCanLeft,
             Info.boolTutorialBar,
+        } },
+
+        { InfoGroup.challenge, new() {
+            Info.floatVrSensibility,
+            Info.floatAnchorSpeed,
+            Info.floatCannonSpeed,
+            Info.floatBoatSpeed,
+            Info.floatMastSpeed,
+            Info.floatBarrelSpeed,
+            Info.floatJumpTime,
         } },
     };
 
