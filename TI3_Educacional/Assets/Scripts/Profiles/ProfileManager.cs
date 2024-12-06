@@ -21,7 +21,7 @@ public class ProfileManager : MonoBehaviour
     {
         { InfoGroup.patient, new() {
             Info.stringPatientName,
-            Info.intAge,
+            Info.stringEmail,
             Info.intDautonismo,
             Info.floatHeight,
         } },
@@ -72,8 +72,8 @@ public class ProfileManager : MonoBehaviour
     {
         if (instance == null)
         {
-            savedProfile = new ProfileInfo("Paciente Anônimo");
-            currentProfile = new ProfileInfo("Paciente Anônimo");
+            savedProfile = new ProfileInfo("Paciente Anï¿½nimo");
+            currentProfile = new ProfileInfo("Paciente Anï¿½nimo");
 
             instance = this;
             DontDestroyOnLoad(gameObject);

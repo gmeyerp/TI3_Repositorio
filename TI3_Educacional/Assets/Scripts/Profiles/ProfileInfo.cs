@@ -11,9 +11,11 @@ public class ProfileInfo
     {
         // Paciente
         stringPatientName,
-        intAge,
         intDautonismo,
         floatHeight,
+
+        // Terapeuta
+        stringEmail,
 
         // Geral
         intGeneralVolume,
@@ -51,9 +53,11 @@ public class ProfileInfo
     {
         // Paciente
         { Info.stringPatientName, "name" },
-        { Info.intAge, 99 },
         { Info.intDautonismo, 0 },
         { Info.floatHeight, 1.00f },
+
+        // Terapeuta
+        { Info.stringEmail, null },
 
         // Geral
         { Info.intGeneralVolume, 50 },

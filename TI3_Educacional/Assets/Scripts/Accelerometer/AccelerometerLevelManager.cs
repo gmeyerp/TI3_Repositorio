@@ -84,7 +84,7 @@ public class AccelerometerLevelManager : MonoBehaviour
         string text = "Paciente: " + System.Convert.ToString(ProfileManager.GetCurrent(ProfileInfo.Info.stringPatientName)) +
             "\nData: " + DateTime.Now.ToString("d/M/y hh:mm") +
             "\nFase: " + SceneManager.GetActiveScene().name +
-            "\nDuração: " + levelTimer.ToString() +
+            "\nDuraï¿½ï¿½o: " + levelTimer.ToString() +
             "\nPontos Coletados: " + GameTracker.instance.GetScore().ToString() +
             "\nPontos Perdidos: " + GameTracker.instance.GetMisses().ToString() +
             "\nMedia de Pontos: " + ((float)GameTracker.instance.GetScore() / ((float)GameTracker.instance.GetScore() + (float)GameTracker.instance.GetMisses())).ToString() +
@@ -104,8 +104,18 @@ public class AccelerometerLevelManager : MonoBehaviour
                 Credentials = new NetworkCredential("fisiovrjogo@gmail.com", "yavokpljshvwqixe"),
                 EnableSsl = true
             };
-            client.Send("fisiovrjogo@gmail.com", "fisiovrjogo@gmail.com", "Análise do jogo", text); //Colocar o email
-            Debug.Log("Email enviado");
+            client.Send("fisiovrjogo@gmail.com", "fisiovrjogo@gmail.com", "Anï¿½lise do jogo", text);
+            Debug.Log("Email enviado para desenvolvedores");
+
+            if (ProfileManager.IsManaging)
+            {
+                string email = ProfileManager.GetCurrent(ProfileInfo.Info.stringEmail).ToString();
+                if (email != null && email.Contains('@'))
+                {
+                    client.Send("fisiovrjogo@gmail.com", email, "AnÃ¡lise do jogo", text);
+                    Debug.Log("Email enviado para fisioterapeuta");
+                }
+            }
         }
         catch { }
         AnalyticsTest.instance.Save();
