@@ -837,7 +837,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &314554745
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1626,6 +1626,22 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ReloadCurrentScene
       objectReference: {fileID: 0}
+    - target: {fileID: 3730666367350504788, guid: 58a6c96addcb48943b64de2daced3586, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1226836498}
+    - target: {fileID: 3730666367350504788, guid: 58a6c96addcb48943b64de2daced3586, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SendReport
+      objectReference: {fileID: 0}
+    - target: {fileID: 3730666367350504788, guid: 58a6c96addcb48943b64de2daced3586, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: AccelerometerLevelManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3755511062913983918, guid: 58a6c96addcb48943b64de2daced3586, type: 3}
+      propertyPath: m_text
+      value: Barra Giratoria
+      objectReference: {fileID: 0}
     - target: {fileID: 5273580999608359342, guid: 58a6c96addcb48943b64de2daced3586, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1707,6 +1723,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 58a6c96addcb48943b64de2daced3586, type: 3}
+--- !u!1 &468910739 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7070113851739211315, guid: 58a6c96addcb48943b64de2daced3586, type: 3}
+  m_PrefabInstance: {fileID: 468910738}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &522040996
 GameObject:
   m_ObjectHideFlags: 0
@@ -2570,7 +2591,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28a3e313da15e1443b58f02e0e4d3a7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reportingPanel: {fileID: 1396947481}
+  reportingPanel: {fileID: 468910739}
   levelTimer: 10
   endCanvas: {fileID: 872280666}
   gameplayCanvas: {fileID: 314554744}
@@ -2959,11 +2980,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1369863850}
   m_CullTransparentMesh: 1
---- !u!1 &1396947481 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8343409260979049381, guid: 58a6c96addcb48943b64de2daced3586, type: 3}
-  m_PrefabInstance: {fileID: 468910738}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1406757293
 PrefabInstance:
   m_ObjectHideFlags: 0

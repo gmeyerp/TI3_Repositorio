@@ -641,11 +641,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 62914fe5632b21a4186cd65d5ea1c068, type: 3}
   m_PrefabInstance: {fileID: 123820864}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &135197423 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8343409260979049381, guid: 58a6c96addcb48943b64de2daced3586, type: 3}
-  m_PrefabInstance: {fileID: 1301794012819317136}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &140673577
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4118,7 +4113,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3432313783149087968, guid: 4445ebd36bc8dfd4a8b1ef927ad7ba33, type: 3}
       propertyPath: jumpPower
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3432313783149087968, guid: 4445ebd36bc8dfd4a8b1ef927ad7ba33, type: 3}
       propertyPath: mainCollider
@@ -7021,7 +7016,7 @@ MonoBehaviour:
   victoryCanvas: {fileID: 1776781109}
   timerText: {fileID: 688850144}
   hitText: {fileID: 1473936755}
-  reportingPanel: {fileID: 135197423}
+  reportingPanel: {fileID: 1301794012819317137}
 --- !u!4 &1632638312
 Transform:
   m_ObjectHideFlags: 0
@@ -8671,6 +8666,22 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1516942638}
+    - target: {fileID: 3730666367350504788, guid: 58a6c96addcb48943b64de2daced3586, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1632638311}
+    - target: {fileID: 3730666367350504788, guid: 58a6c96addcb48943b64de2daced3586, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SendReport
+      objectReference: {fileID: 0}
+    - target: {fileID: 3730666367350504788, guid: 58a6c96addcb48943b64de2daced3586, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GincanaLevelManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3755511062913983918, guid: 58a6c96addcb48943b64de2daced3586, type: 3}
+      propertyPath: m_text
+      value: Gincana Naval
+      objectReference: {fileID: 0}
     - target: {fileID: 5273580999608359342, guid: 58a6c96addcb48943b64de2daced3586, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -8700,6 +8711,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 58a6c96addcb48943b64de2daced3586, type: 3}
+--- !u!1 &1301794012819317137 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7070113851739211315, guid: 58a6c96addcb48943b64de2daced3586, type: 3}
+  m_PrefabInstance: {fileID: 1301794012819317136}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4163303109747421264
 PrefabInstance:
   m_ObjectHideFlags: 0

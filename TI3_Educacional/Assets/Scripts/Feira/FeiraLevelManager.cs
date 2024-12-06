@@ -310,10 +310,10 @@ public class FeiraLevelManager : MonoBehaviour
             "\nFase: " + SceneManager.GetActiveScene().name +
             "\nNúmero de batidas: " + hitTimes.ToString() +
             "\nFrutas coletadas: " + numberOfFruits.ToString() +
-            "\nTempo gasto na fruta 1: " + fruitTimers[0].ToString("0.0") + 
-            "\nTempo gasto na fruta 2: " + fruitTimers[1].ToString("0.0") + 
-            "\nTempo gasto na fruta 3: " + fruitTimers[2].ToString("0.0") + 
-            "\nTempo total: " + timer.ToString() +
+            //"\nTempo gasto na fruta 1: " + fruitTimers[0].ToString("0.0") + //Essa parte estava dando algum problema
+            //"\nTempo gasto na fruta 2: " + fruitTimers[1].ToString("0.0") + 
+            //"\nTempo gasto na fruta 3: " + fruitTimers[2].ToString("0.0") + 
+            "\nTempo total: " + timer.ToString("0.0") +
             "\nPassos dados: " + playerController.steps.ToString();
 
         StartCoroutine(CSendReport(text));

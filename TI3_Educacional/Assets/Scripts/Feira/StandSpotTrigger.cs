@@ -25,7 +25,7 @@ public class StandSpotTrigger : MonoBehaviour
 
     public void StandComplete()
     {
-        FeiraLevelManager.instance.SetTimer(stand.GetChosenFruit());            
+        //FeiraLevelManager.instance.SetTimer(stand.GetChosenFruit());            
         FeiraLevelManager.instance.CollectedFruit(stand.GetChosenFruit());
     }
 
