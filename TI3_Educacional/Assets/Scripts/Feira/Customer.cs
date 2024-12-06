@@ -113,17 +113,15 @@ public class Customer : MonoBehaviour
 
             animator.SetBool("isHit", true);
             isWaiting = true;
-
-            FeiraLevelManager.instance.PlayerHit();
             if (!FeiraLevelManager.instance.isInvulnerable)
             {
-                int sfx = Random.Range(0, collisionSFX.Length);
-                audioSource.PlayOneShot(collisionSFX[sfx]);
                 if (AnalyticsTest.instance != null)
                 {
                     AnalyticsTest.instance.AddAnalytics(gameObject.name, "Jogador Atingido", "true");
                 }
-            }            
+            }
+            FeiraLevelManager.instance.PlayerHit();
+                     
         }
     }
 

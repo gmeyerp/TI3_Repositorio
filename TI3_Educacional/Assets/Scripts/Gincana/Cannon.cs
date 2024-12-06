@@ -10,9 +10,18 @@ public class Cannon : MonoBehaviour
     [SerializeField] float cooldown = 2f;
     [SerializeField] AudioSource audioSource;
     [SerializeField] ParticleSystem explosionVFX;
+    [SerializeField] ProfileInfo.Info speedConfig;
+
     // Start is called before the first frame update
     void Start()
     {
+        if (ProfileManager.IsManaging)
+        {
+            float speedConfig = System.Convert.ToSingle(ProfileManager.GetCurrent(this.speedConfig));
+            speed *= speedConfig;
+            cooldown /= speedConfig;
+        }
+
         InvokeRepeating(nameof(Shoot), 0, cooldown);
     }
 

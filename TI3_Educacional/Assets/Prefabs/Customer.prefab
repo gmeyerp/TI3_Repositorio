@@ -84,12 +84,15 @@ MonoBehaviour:
     m_Bits: 128
   onPathAudioFrequency: 2
   playerOnPathSFX:
-  - {fileID: 8300000, guid: 3af509677da54f6488f852d22e550e18, type: 3}
-  - {fileID: 8300000, guid: 259e7dcaadd704a4b88e4f49ec3ac929, type: 3}
-  - {fileID: 8300000, guid: a55ac3af6f0d43045abe2fa835e80b63, type: 3}
+  - {fileID: 8300000, guid: 109871036a67a0647a5154a29552d754, type: 3}
+  - {fileID: 8300000, guid: 253c547f04ad6eb4da949ae35e34c3da, type: 3}
+  - {fileID: 8300000, guid: d3b2ed7fbfa8ab142b3c5a2429249a6b, type: 3}
+  - {fileID: 8300000, guid: 830cac41a350dfa4da83907b66d7c9e6, type: 3}
   collisionSFX:
-  - {fileID: 8300000, guid: aee3defb925e5f8438f8e878b05a1081, type: 3}
-  - {fileID: 8300000, guid: 1b65215dc3ccb594fb254485f5c5c869, type: 3}
+  - {fileID: 8300000, guid: 5ab341b501246cc4cb79d877ebc06b97, type: 3}
+  - {fileID: 8300000, guid: 83965f3e203078e4e83240700d5fba4d, type: 3}
+  - {fileID: 8300000, guid: ea088a5c82da05447b31f54e1f5d5752, type: 3}
+  - {fileID: 8300000, guid: cb5fc43981cc3d24ea4679bad3b51fda, type: 3}
   audioSource: {fileID: 6876304221160119397}
   model: {fileID: 3203376392605479421}
   animator: {fileID: 8205366807768510781}

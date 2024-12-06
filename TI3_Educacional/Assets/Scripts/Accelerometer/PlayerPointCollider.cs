@@ -22,9 +22,10 @@ public class PlayerPointCollider : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Target") == true)
         {
-           
+            AccelerometerLevelManager.instance.isStarted = true;
             SpinTarget target = other.gameObject.GetComponent<SpinTarget>();
             GameTracker.instance.IncreaseScore(target.GetScore());
+            target.isCollected = true;
             target.DestroyTarget();
         }
     }

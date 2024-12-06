@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Collider smallCollider;
     [SerializeField] float dodgeInclination = 60f;
     public bool isDodging;
-    int steps = 0;
+    public int steps = 0;
     [SerializeField] TextMeshProUGUI debugText;
 
     [Header("Values")]
@@ -50,6 +50,12 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        if (ProfileManager.IsManaging)
+        {
+            stepSensorThreshhold *= System.Convert.ToSingle(ProfileManager.GetCurrent(ProfileInfo.Info.floatJumpTime));
+            jumpSafetyTimer *= System.Convert.ToSingle(ProfileManager.GetCurrent(ProfileInfo.Info.floatJumpTime));
+        }
+
         stepState = StepState.Waiting;
         timeSinceLastStepUpdate = 0;
     }
@@ -57,7 +63,7 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         jumpTimer -= Time.deltaTime;
-        
+
         //if ((!isGincana && FeiraLevelManager.instance != null && FeiraLevelManager.instance.isPaused) || (isGincana && GincanaLevelManager.instance != null && GincanaLevelManager.instance.isPaused))
         //{
         //    return;
@@ -84,13 +90,13 @@ public class PlayerController : MonoBehaviour
 
             // Multiplicando pelo movimento pra ter um valor mais preciso
             float verticalAcceleration = verticalWeight * acceleration.magnitude;
-            
+
             Vector3 direction = accelerometer.acceleration.value;
             if (debugText != null && debugText.gameObject.activeSelf == true)
             {
                 DebugGame(direction.z);
             }
-            
+
             if (isGincana && direction.z * -90 > dodgeInclination)
             {
                 mainCollider.enabled = false;
@@ -106,18 +112,18 @@ public class PlayerController : MonoBehaviour
                     isDodging = false;
                 }
                 // Verificando quando o celular sobe bruscamente
-                if (isGincana && verticalAcceleration > jumpSensorThreshhold && IsGroundCheck())
+                if (isGincana && verticalAcceleration > jumpSensorThreshhold && !IsJumpSafe())
                 {
                     if (debugText != null && debugText.gameObject.activeSelf == true)
                     {
                         debugText.text = "Jumpeeeeeeeeeeed";
                     }
-                    
+
 
                     stepState = StepState.Done;
                     timeSinceLastStepUpdate = 0;
                     Jump();
-                
+
                     onStep.Invoke();
                 }
 
@@ -164,7 +170,7 @@ public class PlayerController : MonoBehaviour
 
                     onStop.Invoke();
                 }
-            }            
+            }
         }
     }
 
@@ -242,8 +248,8 @@ public class PlayerController : MonoBehaviour
     }
 
     public bool IsGroundCheck()
-    {        
-        return Physics.Raycast(transform.position, Vector3.down, transform.position.y + 0.1f, isGround);
+    {
+        return Physics.Raycast(transform.position, Vector3.down, 0.1f, isGround);
     }
 
     public bool IsJumpSafe()

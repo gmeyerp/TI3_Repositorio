@@ -25,7 +25,7 @@ public class ProfileInfo
         intFruitAmount,
         intVisitorAmount,
         floatVisitorSpeed,
-        floatCoinSize,
+        floatFruitSize,
         boolFruitMemorize,
         boolTutorialFeira,
 
@@ -37,6 +37,14 @@ public class ProfileInfo
         boolCanRight,
         boolCanLeft,
         boolTutorialBar,
+
+        // Gincana
+        floatAnchorSpeed,
+        floatCannonSpeed,
+        floatBoatSpeed,
+        floatMastSpeed,
+        floatBarrelSpeed,
+        floatJumpTime,
     }
 
     private Dictionary<Info, object> info = new()
@@ -57,7 +65,7 @@ public class ProfileInfo
         { Info.intFruitAmount, 3 },
         { Info.intVisitorAmount, 2 },
         { Info.floatVisitorSpeed, 4f },
-        { Info.floatCoinSize, 2f },
+        { Info.floatFruitSize, 2f },
         { Info.boolFruitMemorize, false },
         { Info.boolTutorialFeira, true },
 
@@ -69,11 +77,20 @@ public class ProfileInfo
         { Info.boolCanRight, true },
         { Info.boolCanLeft, true },
         { Info.boolTutorialBar, true },
+
+        // Gincana
+        { Info.floatAnchorSpeed, 1f },
+        { Info.floatCannonSpeed, 1f },
+        { Info.floatBoatSpeed, 1f },
+        { Info.floatMastSpeed, 1f },
+        { Info.floatBarrelSpeed, 1f },
+        { Info.floatJumpTime, 1f },
     };
 
     public ProfileInfo(string patientName)
     {
-        Load(patientName);
+        info[Info.stringPatientName] = patientName;
+        Save();
     }
 
     private string GetDestination() => $"{Application.persistentDataPath}/Perfis/{info[Info.stringPatientName]}.json";
@@ -91,7 +108,10 @@ public class ProfileInfo
     {
         FileInfo fileInfo = new FileInfo(GetDestination());
         if (!fileInfo.Directory.Exists)
-        { Directory.CreateDirectory(fileInfo.Directory.FullName); }
+        {
+            Directory.CreateDirectory(fileInfo.Directory.FullName);
+            Debug.Log("Novo perfil criado.");
+        }
 
         string content = JsonConvert.SerializeObject(info, Formatting.Indented);
         File.WriteAllText(fileInfo.FullName, content);
@@ -105,7 +125,6 @@ public class ProfileInfo
         if (!File.Exists(destination))
         {
             Save();
-            Debug.Log("Novo perfil criado.");
         }
         else
         {
