@@ -60,7 +60,7 @@ public class MiniGameFruitManager : MonoBehaviour
 
             if (player == null)
             {
-                Debug.LogError("Jogador n�o encontrado!");
+                Debug.LogError("Jogador não encontrado!");
             }
         }
         controller = player.GetComponent<CharacterController>();

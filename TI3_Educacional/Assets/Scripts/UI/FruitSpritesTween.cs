@@ -18,16 +18,19 @@ public class FruitSpritesTween : MonoBehaviour
         {
             LeanTween.scale(t.gameObject, Vector3.zero, 0);
             LeanTween.scale(t.gameObject, Vector3.one, durationAppear).setEaseOutElastic().setDelay(time);
-            
+
             time += delay;
         }
 
-        if (Convert.ToBoolean(ProfileManager.GetCurrent(ProfileInfo.Info.boolFruitMemorize)))
+        if (ProfileManager.IsManaging)
         {
-            foreach (RectTransform t in rectTransform)
+            if (Convert.ToBoolean(ProfileManager.GetCurrent(ProfileInfo.Info.boolFruitMemorize)))
             {
-                LeanTween.color(t, Color.white, 0);
-                LeanTween.color(t, new Color(1, 1, 1, 0), durationFade).setEaseOutCubic().setDelay(time);
+                foreach (RectTransform t in rectTransform)
+                {
+                    LeanTween.color(t, Color.white, 0);
+                    LeanTween.color(t, new Color(1, 1, 1, 0), durationFade).setEaseOutCubic().setDelay(time);
+                }
             }
         }
     }

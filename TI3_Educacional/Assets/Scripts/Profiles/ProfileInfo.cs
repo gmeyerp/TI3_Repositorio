@@ -33,7 +33,7 @@ public class ProfileInfo
 
         // Barra
         intMaxAngle,
-        floatGameDuration,
+        floatGameDurationMinutes,
         boolCanUp,
         boolCanDown,
         boolCanRight,
@@ -74,8 +74,8 @@ public class ProfileInfo
         { Info.boolTutorialFeira, true },
 
         // Barra
-        { Info.intMaxAngle, 70 },
-        { Info.floatGameDuration, 60f },
+        { Info.intMaxAngle, 60 },
+        { Info.floatGameDurationMinutes, 5f },
         { Info.boolCanUp, true },
         { Info.boolCanDown, true },
         { Info.boolCanRight, true },

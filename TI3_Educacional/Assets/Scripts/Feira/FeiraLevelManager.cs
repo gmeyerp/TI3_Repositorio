@@ -67,9 +67,14 @@ public class FeiraLevelManager : MonoBehaviour
 
     private void Start()
     {
-        int newNumberOfFruits = System.Convert.ToInt32(ProfileManager.GetCurrent(ProfileInfo.Info.intFruitAmount));
-        if (newNumberOfFruits > 0 && newNumberOfFruits <= chosenFruitsImages.Length)
-        { numberOfFruits = newNumberOfFruits; }
+        if (ProfileManager.IsManaging)
+        {
+            customersDifficulty = (FeiraCustomers)Convert.ToInt32(ProfileManager.GetCurrent(ProfileInfo.Info.intVisitorAmount));
+            NPCSpeed = Convert.ToInt32(ProfileManager.GetCurrent(ProfileInfo.Info.floatVisitorSpeed));
+            int newNumberOfFruits = Convert.ToInt32(ProfileManager.GetCurrent(ProfileInfo.Info.intFruitAmount));
+            if (newNumberOfFruits > 0 && newNumberOfFruits <= chosenFruitsImages.Length)
+            { numberOfFruits = newNumberOfFruits; }
+        }
 
         collectedFruit = new bool[numberOfFruits];
         PickFruits();
@@ -77,10 +82,7 @@ public class FeiraLevelManager : MonoBehaviour
         fruitSpritesTween.GiveFruitSprites();
         GiveRemainingFruits();
 
-        customersDifficulty = (FeiraCustomers)System.Convert.ToInt32(ProfileManager.GetCurrent(ProfileInfo.Info.intVisitorAmount));
         StartCustomers(customersDifficulty);
-
-        NPCSpeed = System.Convert.ToInt32(ProfileManager.GetCurrent(ProfileInfo.Info.floatVisitorSpeed));
 
         feiraTutorial.DoTutorial(isTutorial);
         if (AnalyticsTest.instance != null)
@@ -305,7 +307,7 @@ public class FeiraLevelManager : MonoBehaviour
     public void SendReport()
     {
         reportingPanel.SetActive(true);
-        string text = "Paciente: " + System.Convert.ToString(ProfileManager.GetCurrent(ProfileInfo.Info.stringPatientName)) +
+        string text = "Paciente: " + Convert.ToString(ProfileManager.GetCurrent(ProfileInfo.Info.stringPatientName)) +
             "\nData: " + DateTime.Now.ToString("d/M/y hh:mm") +
             "\nFase: " + SceneManager.GetActiveScene().name +
             "\nNúmero de batidas: " + hitTimes.ToString() +
