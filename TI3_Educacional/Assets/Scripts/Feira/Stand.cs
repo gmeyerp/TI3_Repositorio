@@ -4,38 +4,55 @@ using UnityEngine;
 
 public class Stand : MonoBehaviour
 {
+    [SerializeField] public SOFruit fruitInfo;
     [SerializeField] Transform[] fruitSpot;
     [SerializeField] GameObject interactSpot;
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] Animator animator;
+    [SerializeField] float heightAdjust = 0;
     int chosenFruitIndex = -1;
     public bool isChosen;
     public bool hasFruit = false;
-    // Start is called before the first frame update
-    void Start()
+
+    private void Start()
     {
-        
+        transform.Translate(Vector3.up * heightAdjust);
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.layer == 7 && isChosen) //PlayerLayer
+        {
+            animator.SetBool("playerClose", true);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerExit(Collider other)
     {
-        
+        if (other.gameObject.layer == 7 && isChosen && !FeiraLevelManager.instance.collectedFruit[chosenFruitIndex]) //PlayerLayer
+        {
+            animator.SetBool("playerClose", false);
+            animator.SetTrigger("playerExit");
+            audioSource.PlayOneShot(fruitInfo.announceClip);
+        }
     }
 
-    public void PopulateStand(GameObject fruit)
+    public void PopulateStand(SOFruit fruit)
     {
+        fruitInfo = fruit;
         foreach (Transform spot in fruitSpot)
         {
-            Instantiate(fruit, spot.position, fruit.transform.rotation, transform);
+            Instantiate(fruit.prefab, spot.position, spot.transform.rotation, transform);
         }
         hasFruit = true;
         interactSpot.SetActive(false);
     }
 
-    public void PopulateStand(GameObject fruit, int chosenFruitIndex)
+    public void PopulateStand(SOFruit fruit, int chosenFruitIndex)
     {
+        fruitInfo = fruit;
         foreach (Transform spot in fruitSpot)
         {
-            Instantiate(fruit, spot.position, fruit.transform.rotation, transform);
+            Instantiate(fruit.prefab, spot.position, fruit.prefab.transform.rotation, transform);
         }
         hasFruit = true;
         isChosen = true;

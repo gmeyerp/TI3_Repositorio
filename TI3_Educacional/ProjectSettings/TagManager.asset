@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Target
   - Coin
+  - CoinInfos
   layers:
   - Default
   - TransparentFX
@@ -16,7 +17,7 @@ TagManager:
   - Interactive
   - Player
   - Target
-  - 
+  - Ground
   - 
   - 
   - 
@@ -42,4 +43,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: UI
+    uniqueID: 1572899091
     locked: 0

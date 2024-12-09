@@ -33,7 +33,5 @@ public class Daltonismo : MonoBehaviour
     void TextAndColor()
     {
         textDaltonism.text = texts[indice];
-
-        // textDaltonism.color = color[indice];
     }
 }

@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a51e6973b6fe7f40840c6d2e2c9ba9b, type: 3}
+  m_Name: AppleGreen
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 6754865903623863735, guid: 69531a25632e6d7489d8a115a83aa47b, type: 3}
+  sprite: {fileID: 21300000, guid: 00a817ff58e181a4d88afca14e021ba7, type: 3}
+  announceClip: {fileID: 8300000, guid: 853aa387962aaf34baff65a64c8e023c, type: 3}
+  spritePrefab: {fileID: 1283838247237462716, guid: 7e3742ca69939aa47bdd4ace29e10183, type: 3}

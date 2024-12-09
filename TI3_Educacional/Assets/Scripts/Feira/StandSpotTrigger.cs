@@ -6,23 +6,39 @@ using UnityEngine.UIElements;
 public class StandSpotTrigger : MonoBehaviour
 {
     [SerializeField] Stand stand;
-    private Vector3 lastPosition;
+    SOFruit soFruit;
 
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-
-            MiniGameManager.instance.SetUsedTrigger(this);
-            MiniGameManager.instance.TakeLastPosition();
-            MiniGameManager.instance.NewPrice();
-            MiniGameManager.instance.TeleportToMiniGame();
+            MiniGameManager.Instance.SetUsedTrigger(this);
+            MiniGameTps.Instance.TakeLastPosition();
+            MiniGameManager.Instance.NewPrice();
+            MiniGameTps.Instance.TeleportToMiniGame();
+            MiniGameFruitManager.Instance.SetUsedTrigger(this);
+            MiniGameFruitManager.Instance.NewPrice();
+            MiniGameFruitManager.Instance.AddFruits(stand.fruitInfo);
         }
     }
 
     public void StandComplete()
     {
+        //FeiraLevelManager.instance.SetTimer(stand.GetChosenFruit());            
         FeiraLevelManager.instance.CollectedFruit(stand.GetChosenFruit());
+    }
+
+    public void NPCInteraction()
+    {
+        //MiniGameManager.Instance.SetUsedTrigger(this);
+        MiniGameTps.Instance.TakeLastPosition();
+        //MiniGameManager.Instance.NewPrice();
+        MiniGameTps.Instance.TeleportToMiniGame();
+        MiniGameFruitManager.Instance.Infos();
+        MiniGameFruitManager.Instance.SetUsedTrigger(this);
+        MiniGameFruitManager.Instance.NewPrice();
+        MiniGameFruitManager.Instance.AddFruits(stand.fruitInfo);
+        FruitInfos.Instance.UpdateDisplayFruit();
     }
 }

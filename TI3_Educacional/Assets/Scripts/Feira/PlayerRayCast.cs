@@ -1,20 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class  PlayerRayCast : MonoBehaviour
 {
-    public static PlayerRayCast instance { get; private set; }
-    [SerializeField] protected float maxDistance = 10.0f; // Distância máxima do raycast
-    [SerializeField] public float timeToCollect = 2.0f; // Tempo que o jogador deve olhar para coletar a moeda
+    public static PlayerRayCast Instance { get; private set; }
+    [SerializeField] public float maxDistance = 10.0f; // Distância máxima do raycast
+
+    [Header("Timers")]
+    [SerializeField] public float timeToCollect = 3.0f; // Tempo que o jogador deve olhar para coletar a moeda
     private float lookTime = 0.0f; // Tempo que o jogador está a olhar para o objeto
+
     [SerializeField] private GameObject currentTarget; // Referência ao objeto atual que o jogador está olhando
     private Camera mainCamera; // Referência à câmara principal
 
     void Awake()
     {
-        if (instance == null)
-            instance = this;
+        if (Instance == null)
+            Instance = this;
         else
             Destroy(this.gameObject);
     }
@@ -50,14 +54,33 @@ public class  PlayerRayCast : MonoBehaviour
                     if (currentTarget == hit.collider.gameObject)
                     {
                         coin.ChangeColorOnLook(true);
-                        lookTime += Time.deltaTime;
-                        Debug.Log($"Olhando para a moeda à {lookTime}");
+                        lookTime = coin.completion.fillAmount;
 
                         // Caso o tempo de olhar exceder o tempo necessário para coletar
-                        if (lookTime >= timeToCollect)
+                        if (lookTime == 1)
                         {
-                            // A moeda será coletada
-                            coin.Collect();
+                            // A moeda será selecionada ou deselecionada
+                            if(!coin.collected)
+                            {
+                                coin.collected = true;
+                                coin.Collect();
+                                //CoinInfos.Instance.UpdateDisplayCoin();
+                                FruitInfos.Instance.UpdateDisplayFruit();
+                            }
+                                
+                            currentTarget = null;
+                            lookTime = 0.0f;
+                        }
+                        else if(lookTime == 0)
+                        {
+                            if(coin.collected)
+                            {
+                                coin.collected = false;
+                                coin.UnCollect();
+                                //CoinInfos.Instance.UpdateDisplayCoin();
+                                FruitInfos.Instance.UpdateDisplayFruit();
+                            }
+
                             currentTarget = null;
                             lookTime = 0.0f;
                         }

@@ -33,6 +33,8 @@ using InputSystemTouchPhase = UnityEngine.InputSystem.TouchPhase;
 /// </summary>
 public class VrModeController : MonoBehaviour
 {
+    [SerializeField] GameObject pauseMenu;
+    public bool isPaused = false;
     // Field of view value to be used when the scene is not in VR mode. In case
     // XR isn't initialized on startup, this value could be taken from the main
     // camera and stored.
@@ -93,6 +95,7 @@ public class VrModeController : MonoBehaviour
     /// </summary>
     public void Update()
     {
+        if (isPaused) return;
         if (_isVrModeEnabled)
         {
             if (Api.IsCloseButtonPressed)
@@ -109,11 +112,12 @@ public class VrModeController : MonoBehaviour
         }
         else
         {
+            EnterVR();
             // TODO(b/171727815): Add a button to switch to VR mode.
-            if (_isScreenTouched)
-            {
-                EnterVR();
-            }
+            //if (_isScreenTouched)
+            //{
+            //    EnterVR();
+            //}
         }
     }
 
@@ -150,7 +154,7 @@ public class VrModeController : MonoBehaviour
     /// <summary>
     /// Enters VR mode.
     /// </summary>
-    private void EnterVR()
+    public void EnterVR()
     {
         StartCoroutine(StartXR());
         if (Api.HasNewDeviceParams())
@@ -162,10 +166,23 @@ public class VrModeController : MonoBehaviour
     /// <summary>
     /// Exits VR mode.
     /// </summary>
-    private void ExitVR()
+    public void ExitVR()
     {
+        if (pauseMenu != null)
+        {
+            StartCoroutine(Pause());
+        }
         StopXR();
     }
+
+    public IEnumerator Pause()
+    {
+        Screen.orientation = ScreenOrientation.Portrait;
+        yield return new WaitForEndOfFrame();
+        pauseMenu.SetActive(true);
+        isPaused = true;
+    }
+
 
     /// <summary>
     /// Initializes and starts the Cardboard XR plugin.
@@ -198,7 +215,7 @@ public class VrModeController : MonoBehaviour
     /// Stops and deinitializes the Cardboard XR plugin.
     /// See https://docs.unity3d.com/Packages/com.unity.xr.management@3.2/manual/index.html.
     /// </summary>
-    private void StopXR()
+    public void StopXR()
     {
         Debug.Log("Stopping XR...");
         XRGeneralSettings.Instance.Manager.StopSubsystems();
@@ -211,6 +228,6 @@ public class VrModeController : MonoBehaviour
         _mainCamera.ResetAspect();
         _mainCamera.fieldOfView = _defaultFieldOfView;
 
-        SceneManager.LoadScene("Level Selection");
+        //SceneManager.LoadScene("Level Selection"); alterado para o botão de confirmação
     }
 }

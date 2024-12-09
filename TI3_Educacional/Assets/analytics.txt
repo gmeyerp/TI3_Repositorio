@@ -1,0 +1,10 @@
+{
+    "data": [
+        {
+            "time": 0.0,
+            "sender": "Analytics",
+            "track": "foi enviado",
+            "value": "true"
+        }
+    ]
+}
