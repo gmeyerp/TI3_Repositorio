@@ -369,7 +369,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -969}
+  m_AnchoredPosition: {x: 0, y: -1141.8}
   m_SizeDelta: {x: 413.1583, y: 413.1583}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &486507429
@@ -940,8 +940,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 152.41467}
-  m_SizeDelta: {x: -44.572, y: -664.0892}
+  m_AnchoredPosition: {x: 0, y: 126.2442}
+  m_SizeDelta: {x: -44.572, y: -611.7483}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1345582103
 MonoBehaviour:
@@ -1131,7 +1131,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 2452.987}
+  m_SizeDelta: {x: 0, y: 2696.8157}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1671813560
 GameObject:
@@ -1197,10 +1197,11 @@ MonoBehaviour:
     </b>\nGabriel Meyer Paix\xE3o\nLucas Bento Rozado\nPedro Henrique Schmitberger
     Pelisson\nYanka Cristhal Costa Campos\n\n<b>Modelagem 3D: </b>\nLaura Borges
     Marinho\nLucas Aquino Moura de Albuquerque\nPedro Henrique Schmitberger Pelisson\nYanka
-    Cristhal Costa Campos\n\n<b>Programa\xE7\xE3o: </b>\nAyres Henrique Souza e Silva\nGabriel
-    Meyer Paix\xE3o\nLucas Bento Rozado\n\n<b>Orienta\xE7\xE3o dos Professores: </b>\nRoque
-    Anderson Saldanha Teixeira\nSimone Alves Nogueira\n\n<b>Agradecimento aos Professores:
-    </b>\nDaniel Pinheiro Lima\nJosemar Alves Caetano\n"
+    Cristhal Costa Campos\n\n<b>Anima\xE7\xE3o 3D: </b>\nLaura Borges Marinho\n\n<b>Programa\xE7\xE3o:
+    </b>\nAyres Henrique Souza e Silva\nGabriel Meyer Paix\xE3o\nLucas Bento Rozado\n\n<b>Orienta\xE7\xE3o
+    dos Professores: </b>\nRoque Anderson Saldanha Teixeira\nSimone Alves Nogueira\n\n<b>Agradecimento
+    aos Professores: </b>\nDaniel Pinheiro Lima\nJosemar Alves Caetano\n\nFeito usando
+    Google Cardboard XR\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8e32d1bc98c1e8e47b7d5004d49f12af, type: 2}
   m_sharedMaterial: {fileID: -163905173588061675, guid: 8e32d1bc98c1e8e47b7d5004d49f12af, type: 2}
