@@ -482,7 +482,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 57.15
+  m_fontSize: 56
   m_fontSizeBase: 121.5
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1221,7 +1221,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 147.4
+  m_fontSize: 145.95
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1504,7 +1504,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5606780047655256071, guid: 84214b61c31ffae40bd60fc55eb214fb, type: 3}
       propertyPath: m_fontSize
-      value: 57.15
+      value: 55.95
       objectReference: {fileID: 0}
     - target: {fileID: 5781690532172136838, guid: 84214b61c31ffae40bd60fc55eb214fb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -1682,7 +1682,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5606780047655256071, guid: 84214b61c31ffae40bd60fc55eb214fb, type: 3}
       propertyPath: m_fontSize
-      value: 82.5
+      value: 80.75
       objectReference: {fileID: 0}
     - target: {fileID: 5781690532172136838, guid: 84214b61c31ffae40bd60fc55eb214fb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -1860,11 +1860,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5606780047655256071, guid: 84214b61c31ffae40bd60fc55eb214fb, type: 3}
       propertyPath: m_text
-      value: Enviar Relatorio
+      value: "Enviar Relat\xF3rio"
       objectReference: {fileID: 0}
     - target: {fileID: 5606780047655256071, guid: 84214b61c31ffae40bd60fc55eb214fb, type: 3}
       propertyPath: m_fontSize
-      value: 60.4
+      value: 59.1
       objectReference: {fileID: 0}
     - target: {fileID: 5781690532172136838, guid: 84214b61c31ffae40bd60fc55eb214fb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -2042,7 +2042,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5606780047655256071, guid: 84214b61c31ffae40bd60fc55eb214fb, type: 3}
       propertyPath: m_fontSize
-      value: 73.45
+      value: 71.9
       objectReference: {fileID: 0}
     - target: {fileID: 5781690532172136838, guid: 84214b61c31ffae40bd60fc55eb214fb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName

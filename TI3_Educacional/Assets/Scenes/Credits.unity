@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -736,17 +736,17 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: CREDITOS
+  m_text: "CR\xC9DITOS"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 31cb6278459482d479c9cace62552922, type: 2}
-  m_sharedMaterial: {fileID: 5266683751399518149, guid: 31cb6278459482d479c9cace62552922, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f463b9f731861e44eb0c05654566ece0, type: 2}
+  m_sharedMaterial: {fileID: -8128879774080379552, guid: f463b9f731861e44eb0c05654566ece0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4288796666
-  m_fontColor: {r: 0.98039216, g: 0.84313726, b: 0.6313726, a: 1}
+    rgba: 4292866815
+  m_fontColor: {r: 1, g: 0.9499152, b: 0.8726415, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -763,7 +763,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 88.3
+  m_fontSize: 85.6
   m_fontSizeBase: 142.9
   m_fontWeight: 400
   m_enableAutoSizing: 1
