@@ -67,9 +67,14 @@ public class FeiraLevelManager : MonoBehaviour
 
     private void Start()
     {
-        int newNumberOfFruits = System.Convert.ToInt32(ProfileManager.GetCurrent(ProfileInfo.Info.intFruitAmount));
-        if (newNumberOfFruits > 0 && newNumberOfFruits <= chosenFruitsImages.Length)
-        { numberOfFruits = newNumberOfFruits; }
+        if (ProfileManager.IsManaging)
+        {
+            customersDifficulty = (FeiraCustomers)Convert.ToInt32(ProfileManager.GetCurrent(ProfileInfo.Info.intVisitorAmount));
+            NPCSpeed = Convert.ToInt32(ProfileManager.GetCurrent(ProfileInfo.Info.floatVisitorSpeed));
+            int newNumberOfFruits = Convert.ToInt32(ProfileManager.GetCurrent(ProfileInfo.Info.intFruitAmount));
+            if (newNumberOfFruits > 0 && newNumberOfFruits <= chosenFruitsImages.Length)
+            { numberOfFruits = newNumberOfFruits; }
+        }
 
         collectedFruit = new bool[numberOfFruits];
         PickFruits();
@@ -77,10 +82,7 @@ public class FeiraLevelManager : MonoBehaviour
         fruitSpritesTween.GiveFruitSprites();
         GiveRemainingFruits();
 
-        customersDifficulty = (FeiraCustomers)System.Convert.ToInt32(ProfileManager.GetCurrent(ProfileInfo.Info.intVisitorAmount));
         StartCustomers(customersDifficulty);
-
-        NPCSpeed = System.Convert.ToInt32(ProfileManager.GetCurrent(ProfileInfo.Info.floatVisitorSpeed));
 
         feiraTutorial.DoTutorial(isTutorial);
         if (AnalyticsTest.instance != null)
@@ -305,10 +307,10 @@ public class FeiraLevelManager : MonoBehaviour
     public void SendReport()
     {
         reportingPanel.SetActive(true);
-        string text = "Paciente: " + System.Convert.ToString(ProfileManager.GetCurrent(ProfileInfo.Info.stringPatientName)) +
+        string text = "Paciente: " + Convert.ToString(ProfileManager.GetCurrent(ProfileInfo.Info.stringPatientName)) +
             "\nData: " + DateTime.Now.ToString("d/M/y hh:mm") +
             "\nFase: " + SceneManager.GetActiveScene().name +
-            "\nNúmero de batidas: " + hitTimes.ToString() +
+            "\nNÃºmero de batidas: " + hitTimes.ToString() +
             "\nFrutas coletadas: " + numberOfFruits.ToString() +
             //"\nTempo gasto na fruta 1: " + fruitTimers[0].ToString("0.0") + //Essa parte estava dando algum problema
             //"\nTempo gasto na fruta 2: " + fruitTimers[1].ToString("0.0") + 
@@ -330,8 +332,18 @@ public class FeiraLevelManager : MonoBehaviour
                 Credentials = new NetworkCredential("fisiovrjogo@gmail.com", "yavokpljshvwqixe"),
                 EnableSsl = true
             };
-            client.Send("fisiovrjogo@gmail.com", "fisiovrjogo@gmail.com", "Análise do jogo", text); //Colocar o email
-            Debug.Log("Email enviado");
+            client.Send("fisiovrjogo@gmail.com", "fisiovrjogo@gmail.com", "AnÃ¡lise do jogo", text);
+            Debug.Log("Email enviado para desenvolvedores");
+
+            if (ProfileManager.IsManaging)
+            {
+                string email = ProfileManager.GetCurrent(ProfileInfo.Info.stringEmail).ToString();
+                if (email != null && email.Contains('@'))
+                {
+                    client.Send("fisiovrjogo@gmail.com", email, "AnÃ¡lise do jogo", text);
+                    Debug.Log("Email enviado para fisioterapeuta");
+                }
+            }
         }
         catch { }
         AnalyticsTest.instance.Save();

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -369,7 +369,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -969}
+  m_AnchoredPosition: {x: 0, y: -1141.8}
   m_SizeDelta: {x: 413.1583, y: 413.1583}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &486507429
@@ -736,17 +736,17 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: CREDITOS
+  m_text: "CR\xC9DITOS"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 31cb6278459482d479c9cace62552922, type: 2}
-  m_sharedMaterial: {fileID: 5266683751399518149, guid: 31cb6278459482d479c9cace62552922, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f463b9f731861e44eb0c05654566ece0, type: 2}
+  m_sharedMaterial: {fileID: -8128879774080379552, guid: f463b9f731861e44eb0c05654566ece0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4288796666
-  m_fontColor: {r: 0.98039216, g: 0.84313726, b: 0.6313726, a: 1}
+    rgba: 4292866815
+  m_fontColor: {r: 1, g: 0.9499152, b: 0.8726415, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -763,7 +763,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 88.3
+  m_fontSize: 85.6
   m_fontSizeBase: 142.9
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -940,8 +940,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 152.41467}
-  m_SizeDelta: {x: -44.572, y: -664.0892}
+  m_AnchoredPosition: {x: 0, y: 126.2442}
+  m_SizeDelta: {x: -44.572, y: -611.7483}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1345582103
 MonoBehaviour:
@@ -1131,7 +1131,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 2452.987}
+  m_SizeDelta: {x: 0, y: 2696.8157}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1671813560
 GameObject:
@@ -1197,10 +1197,11 @@ MonoBehaviour:
     </b>\nGabriel Meyer Paix\xE3o\nLucas Bento Rozado\nPedro Henrique Schmitberger
     Pelisson\nYanka Cristhal Costa Campos\n\n<b>Modelagem 3D: </b>\nLaura Borges
     Marinho\nLucas Aquino Moura de Albuquerque\nPedro Henrique Schmitberger Pelisson\nYanka
-    Cristhal Costa Campos\n\n<b>Programa\xE7\xE3o: </b>\nAyres Henrique Souza e Silva\nGabriel
-    Meyer Paix\xE3o\nLucas Bento Rozado\n\n<b>Orienta\xE7\xE3o dos Professores: </b>\nRoque
-    Anderson Saldanha Teixeira\nSimone Alves Nogueira\n\n<b>Agradecimento aos Professores:
-    </b>\nDaniel Pinheiro Lima\nJosemar Alves Caetano\n"
+    Cristhal Costa Campos\n\n<b>Anima\xE7\xE3o 3D: </b>\nLaura Borges Marinho\n\n<b>Programa\xE7\xE3o:
+    </b>\nAyres Henrique Souza e Silva\nGabriel Meyer Paix\xE3o\nLucas Bento Rozado\n\n<b>Orienta\xE7\xE3o
+    dos Professores: </b>\nRoque Anderson Saldanha Teixeira\nSimone Alves Nogueira\n\n<b>Agradecimento
+    aos Professores: </b>\nDaniel Pinheiro Lima\nJosemar Alves Caetano\n\nFeito usando
+    Google Cardboard XR\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8e32d1bc98c1e8e47b7d5004d49f12af, type: 2}
   m_sharedMaterial: {fileID: -163905173588061675, guid: 8e32d1bc98c1e8e47b7d5004d49f12af, type: 2}

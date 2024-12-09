@@ -183,7 +183,15 @@ public class GameManager : MonoBehaviour
     public void UnpauseVR()
     {
         ButtonClicked();
+        StartCoroutine(Unpause());
+    }
+
+    public IEnumerator Unpause()
+    {
+        Screen.orientation = ScreenOrientation.LandscapeLeft;
+        yield return new WaitForEndOfFrame();
         vrModeController.isPaused = false;
+        vrModeController.EnterVR();
     }
 
     public void ReloadCurrentScene()

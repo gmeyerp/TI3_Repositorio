@@ -142,7 +142,7 @@ public class GincanaLevelManager : MonoBehaviour
         string text = "Paciente: " + System.Convert.ToString(ProfileManager.GetCurrent(ProfileInfo.Info.stringPatientName)) +
             "\nData: " + DateTime.Now.ToString("d/M/y hh:mm") +
             "\nFase: " + SceneManager.GetActiveScene().name +
-            "\nNúmero de batidas: " + hitCount.ToString() +
+            "\nNÃºmero de batidas: " + hitCount.ToString() +
             "\nTempo gasto: " + timer.ToString() +
             "\nPassos dados: " + playerController.steps.ToString();
 
@@ -160,8 +160,18 @@ public class GincanaLevelManager : MonoBehaviour
                 Credentials = new NetworkCredential("fisiovrjogo@gmail.com", "yavokpljshvwqixe"),
                 EnableSsl = true
             };
-            client.Send("fisiovrjogo@gmail.com", "fisiovrjogo@gmail.com", "Análise do jogo", text); //Colocar o email
-            Debug.Log("Email enviado");
+            client.Send("fisiovrjogo@gmail.com", "fisiovrjogo@gmail.com", "AnÃ¡lise do jogo", text);
+            Debug.Log("Email enviado para desenvolvedores");
+
+            if (ProfileManager.IsManaging)
+            {
+                string email = ProfileManager.GetCurrent(ProfileInfo.Info.stringEmail).ToString();
+                if (email != null && email.Contains('@'))
+                {
+                    client.Send("fisiovrjogo@gmail.com", email, "AnÃ¡lise do jogo", text);
+                    Debug.Log("Email enviado para fisioterapeuta");
+                }
+            }
         }
         catch { }
         AnalyticsTest.instance.Save();

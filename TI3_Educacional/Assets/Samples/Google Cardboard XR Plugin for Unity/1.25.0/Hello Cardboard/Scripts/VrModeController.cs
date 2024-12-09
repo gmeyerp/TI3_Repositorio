@@ -154,7 +154,7 @@ public class VrModeController : MonoBehaviour
     /// <summary>
     /// Enters VR mode.
     /// </summary>
-    private void EnterVR()
+    public void EnterVR()
     {
         StartCoroutine(StartXR());
         if (Api.HasNewDeviceParams())
@@ -170,11 +170,19 @@ public class VrModeController : MonoBehaviour
     {
         if (pauseMenu != null)
         {
-            pauseMenu.SetActive(true);
-            isPaused = true;
+            StartCoroutine(Pause());
         }
         StopXR();
     }
+
+    public IEnumerator Pause()
+    {
+        Screen.orientation = ScreenOrientation.Portrait;
+        yield return new WaitForEndOfFrame();
+        pauseMenu.SetActive(true);
+        isPaused = true;
+    }
+
 
     /// <summary>
     /// Initializes and starts the Cardboard XR plugin.

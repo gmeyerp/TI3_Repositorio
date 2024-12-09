@@ -34,6 +34,12 @@ public class AccelerometerLevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (ProfileManager.IsManaging)
+        {
+            float levelTimer = Convert.ToSingle(ProfileManager.GetCurrent(ProfileInfo.Info.floatGameDurationMinutes));
+            this.levelTimer = levelTimer * 60;
+        }
+
         timer = levelTimer;
         UpdateTimer();
     }
@@ -81,10 +87,10 @@ public class AccelerometerLevelManager : MonoBehaviour
     public void SendReport()
     {
         reportingPanel.SetActive(true);
-        string text = "Paciente: " + System.Convert.ToString(ProfileManager.GetCurrent(ProfileInfo.Info.stringPatientName)) +
+        string text = "Paciente: " + Convert.ToString(ProfileManager.GetCurrent(ProfileInfo.Info.stringPatientName)) +
             "\nData: " + DateTime.Now.ToString("d/M/y hh:mm") +
             "\nFase: " + SceneManager.GetActiveScene().name +
-            "\nDuraÁ„o: " + levelTimer.ToString() +
+            "\nDura√ß√£o: " + levelTimer.ToString() +
             "\nPontos Coletados: " + GameTracker.instance.GetScore().ToString() +
             "\nPontos Perdidos: " + GameTracker.instance.GetMisses().ToString() +
             "\nMedia de Pontos: " + ((float)GameTracker.instance.GetScore() / ((float)GameTracker.instance.GetScore() + (float)GameTracker.instance.GetMisses())).ToString() +
@@ -104,8 +110,18 @@ public class AccelerometerLevelManager : MonoBehaviour
                 Credentials = new NetworkCredential("fisiovrjogo@gmail.com", "yavokpljshvwqixe"),
                 EnableSsl = true
             };
-            client.Send("fisiovrjogo@gmail.com", "fisiovrjogo@gmail.com", "An·lise do jogo", text); //Colocar o email
-            Debug.Log("Email enviado");
+            client.Send("fisiovrjogo@gmail.com", "fisiovrjogo@gmail.com", "An√°lise do jogo", text);
+            Debug.Log("Email enviado para desenvolvedores");
+
+            if (ProfileManager.IsManaging)
+            {
+                string email = ProfileManager.GetCurrent(ProfileInfo.Info.stringEmail).ToString();
+                if (email != null && email.Contains('@'))
+                {
+                    client.Send("fisiovrjogo@gmail.com", email, "An√°lise do jogo", text);
+                    Debug.Log("Email enviado para fisioterapeuta");
+                }
+            }
         }
         catch { }
         AnalyticsTest.instance.Save();

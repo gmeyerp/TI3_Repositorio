@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,7 +22,7 @@ public class ProfileManager : MonoBehaviour
     {
         { InfoGroup.patient, new() {
             Info.stringPatientName,
-            Info.intAge,
+            Info.stringEmail,
             Info.intDautonismo,
             Info.floatHeight,
         } },
@@ -44,7 +45,7 @@ public class ProfileManager : MonoBehaviour
 
         { InfoGroup.bar, new() {
             Info.intMaxAngle,
-            Info.floatGameDuration,
+            Info.floatGameDurationMinutes,
             Info.boolCanUp,
             Info.boolCanDown,
             Info.boolCanRight,
@@ -72,8 +73,8 @@ public class ProfileManager : MonoBehaviour
     {
         if (instance == null)
         {
-            savedProfile = new ProfileInfo("Paciente Anônimo");
-            currentProfile = new ProfileInfo("Paciente Anônimo");
+            savedProfile = new ProfileInfo("Paciente AnÃ´nimo");
+            currentProfile = new ProfileInfo("Paciente AnÃ´nimo");
 
             instance = this;
             DontDestroyOnLoad(gameObject);
@@ -101,6 +102,30 @@ public class ProfileManager : MonoBehaviour
     private void Instance_SetCurrent(Info info, object value)
     {
         currentProfile.Set(info, value);
+
+        if (info == Info.boolCanUp && !Convert.ToBoolean(value))
+        {
+            if (!Convert.ToBoolean(currentProfile.Get(Info.boolCanDown)))
+            { SetCurrent(Info.boolCanDown, true); }
+        }
+        else if (info == Info.boolCanDown && !Convert.ToBoolean(value))
+        {
+            if (!Convert.ToBoolean(currentProfile.Get(Info.boolCanUp)))
+            { SetCurrent(Info.boolCanUp, true); }
+        }
+        else if (info == Info.boolCanRight && !Convert.ToBoolean(value))
+        {
+            if (!Convert.ToBoolean(currentProfile.Get(Info.boolCanLeft)))
+            { SetCurrent(Info.boolCanLeft, true); }
+        }
+        else if (info == Info.boolCanLeft && !Convert.ToBoolean(value))
+        {
+            if (!Convert.ToBoolean(currentProfile.Get(Info.boolCanRight)))
+            { SetCurrent(Info.boolCanRight, true); }
+        }
+
+        if (listeners.ContainsKey(info))
+        { listeners[info].Invoke(value); }
     }
 
     static public void UndoGroup(InfoGroup infoGroup) => instance?.Instance_UndoGroup(infoGroup);
