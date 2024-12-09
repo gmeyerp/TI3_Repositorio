@@ -46,7 +46,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -203655887218126122, guid: c5ba0776cdc8e0e4d923291c85dc8090, type: 3}
+  m_Motion: {fileID: 4632729524250215611, guid: a79bf6c7e6cefb54b96aefb2234e2a8b, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -128,7 +128,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -203655887218126122, guid: 0dead8f0ddc9b6a4fb5f26cd24d3c46b, type: 3}
+  m_Motion: {fileID: -1936659535693222777, guid: a79bf6c7e6cefb54b96aefb2234e2a8b, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -182,7 +182,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -203655887218126122, guid: f1ab65a39e28c12458099549c08a2970, type: 3}
+  m_Motion: {fileID: 4632729524250215611, guid: a79bf6c7e6cefb54b96aefb2234e2a8b, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -194,7 +194,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Lestat
+  m_Name: LestatLaura
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: playerExit
