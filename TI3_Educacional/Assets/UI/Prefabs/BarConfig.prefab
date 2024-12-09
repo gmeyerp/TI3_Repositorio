@@ -510,7 +510,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 78.75
+  m_fontSize: 73.5
   m_fontSizeBase: 80
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1965,7 +1965,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5204278257155991086, guid: 8a652bad7571a574aa966cc535b36d8f, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 659.1018
+      value: 760.3411
       objectReference: {fileID: 0}
     - target: {fileID: 5204278257155991086, guid: 8a652bad7571a574aa966cc535b36d8f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2044,6 +2044,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6710326152413008294, guid: 8a652bad7571a574aa966cc535b36d8f, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 907.9247
+      objectReference: {fileID: 0}
+    - target: {fileID: 6710326152413008294, guid: 8a652bad7571a574aa966cc535b36d8f, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
@@ -2065,15 +2069,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8854001488340377581, guid: 8a652bad7571a574aa966cc535b36d8f, type: 3}
       propertyPath: m_text
-      value: Posicoes possiveis
+      value: "Posi\xE7\xF5es poss\xEDveis"
       objectReference: {fileID: 0}
     - target: {fileID: 8854001488340377581, guid: 8a652bad7571a574aa966cc535b36d8f, type: 3}
       propertyPath: m_fontSize
-      value: 90
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 8854001488340377581, guid: 8a652bad7571a574aa966cc535b36d8f, type: 3}
       propertyPath: m_fontSizeMax
-      value: 90
+      value: 80
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2268,15 +2272,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8467713158835431422, guid: 1a82e697a38457c4982f5724b901ce82, type: 3}
       propertyPath: m_text
-      value: Angulo maximo
+      value: "\xC2ngulo m\xE1ximo"
       objectReference: {fileID: 0}
     - target: {fileID: 8467713158835431422, guid: 1a82e697a38457c4982f5724b901ce82, type: 3}
       propertyPath: m_fontSize
-      value: 76.6
+      value: 75.8
       objectReference: {fileID: 0}
     - target: {fileID: 8467713158835431422, guid: 1a82e697a38457c4982f5724b901ce82, type: 3}
       propertyPath: m_margin.z
-      value: -27.28241
+      value: -72.431885
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -2428,7 +2432,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3018068844440177000, guid: 014ac62950e8b424d98ba0bf9d6dc4a7, type: 3}
       propertyPath: m_fontSize
-      value: 65.55
+      value: 63.95
       objectReference: {fileID: 0}
     - target: {fileID: 3077234051492994343, guid: 014ac62950e8b424d98ba0bf9d6dc4a7, type: 3}
       propertyPath: info
@@ -2464,7 +2468,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3314727216013450187, guid: 014ac62950e8b424d98ba0bf9d6dc4a7, type: 3}
       propertyPath: m_text
-      value: Duracao
+      value: "Dura\xE7\xE3o"
       objectReference: {fileID: 0}
     - target: {fileID: 3314727216013450187, guid: 014ac62950e8b424d98ba0bf9d6dc4a7, type: 3}
       propertyPath: m_fontSize
@@ -2682,7 +2686,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7352328518114789516, guid: 014ac62950e8b424d98ba0bf9d6dc4a7, type: 3}
       propertyPath: m_fontSize
-      value: 81.15
+      value: 77.85
       objectReference: {fileID: 0}
     - target: {fileID: 7353154005633109113, guid: 014ac62950e8b424d98ba0bf9d6dc4a7, type: 3}
       propertyPath: m_Name
